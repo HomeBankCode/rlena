@@ -18,3 +18,39 @@ knitr::opts_chunk$set(
 [![Project Status: Concept - Minimal or no implementation has been done yet.](http://www.repostatus.org/badges/0.1.0/concept.svg)](http://www.repostatus.org/#concept)
 
 An R package for parsing LENA's .ITS files.
+
+## Proof of Concept
+
+There are just two functions at the moment: `load_its_file` which loads the ITS file
+in R as an XML document and `make_conversation_df` which collects the attributes
+of every `<Conversation>` node.
+
+```{r}
+library("DarcleITS")
+library("dplyr")
+conversations <- "tests/testthat/data/file-for-testing.its" %>% 
+  load_its_file %>% 
+  make_conversation_df
+conversations
+```
+
+Now, we can start mining this data-frame of conversations.
+
+```{r}
+# Create long data-frame of word counts
+library("tidyr")
+word_counts <- conversations %>% 
+  select(num, Time = startTime, 
+         Female = femaleAdultWordCnt, Male = maleAdultWordCnt) %>% 
+  gather(Speaker, Count, -num, -Time) %>% 
+  filter(Count != 0)
+
+library("ggplot2")
+ggplot(word_counts) + 
+  aes(x = Time, y = Count, color = Speaker) + 
+  geom_point() + 
+  ylab("Adult Word Count Per Conversation")
+```
+
+
+
