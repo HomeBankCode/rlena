@@ -1,5 +1,8 @@
 
 
+bookmarks:
+  conversation: ./ProcessingUnit/Recording/Conversation
+
 sensitive:
   - Category: child_id
     Path: ./ExportData/Child/@id

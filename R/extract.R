@@ -4,7 +4,7 @@
 make_conversation_df <- function(lena_log) {
   # Extract attributes from the conversation nodes
   convos <- lena_log %>%
-    xml_find_all("//ProcessingUnit/Recording/Conversation") %>%
+    xml_find_all(xpaths_bookmarks$conversation) %>%
     xml_attrs
 
   # xml_attrs returns named vectors. Convert to lists then bind to data_frame.
