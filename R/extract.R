@@ -13,8 +13,8 @@ make_conversation_df <- function(lena_log) {
     lapply(as_data_frame) %>%
     bind_rows %>%
     type_convert %>%
-    mutate(startTime = convert_time_to_number(startTime),
-           endTime = convert_time_to_number(endTime))
+    mutate_(startTime = ~ convert_time_to_number(startTime),
+            endTime = ~ convert_time_to_number(endTime))
   convos_table
 }
 
