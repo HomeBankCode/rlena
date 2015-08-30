@@ -1,0 +1,58 @@
+
+
+sensitive:
+  - Category: child_id
+    Path: ./ExportData/Child/@id
+
+  - Category: child_key
+    Path: ./ProcessingUnit/UPL_Header/TransferredUPL/ApplicationData/PrimaryChild/@ChildKey
+  - Category: child_key
+    Path: ./ExportData/Child/@ChildKey
+
+  - Category: gender
+    Path: ./ProcessingUnit/UPL_Header/TransferredUPL/ApplicationData/PrimaryChild/@Gender
+  - Category: gender
+    Path: ./ProcessingUnit/ChildInfo/@gender
+  - Category: gender
+    Path: ./ExportData/Child/@Gender
+
+  - Category: birthdate
+    Path: ./ProcessingUnit/UPL_Header/TransferredUPL/ApplicationData/PrimaryChild/@DOB
+  - Category: birthdate
+    Path: ./ExportData/Child/@DOB
+
+  - Category: serial_number
+    Path: ./ProcessingUnit/UPL_Header/TransferredUPL/RecorderInformation/SRDInfo/@SerialNumber
+
+  - Category: utc_time
+    Path: ./ProcessingUnit/UPL_Header/TransferredUPL/RecordingInformation/TransferTime/@UTCTime
+
+  - Category: enroll_date
+    Path: ./ExportData/Child/@EnrollDate
+
+  - Category: time_zone
+    Path: ./ProcessingUnit/UPL_Header/TransferredUPL/RecordingInformation/TransferTime/@TimeZone
+
+  - Category: clock_time
+    Path: ./ProcessingUnit/UPL_Header/TransferredUPL/RecordingInformation/TransferTime/@LocalTime
+  - Category: clock_time
+    Path: ./ProcessingUnit/Bar/@startClockTime
+  - Category: clock_time
+    Path: ./ProcessingUnit/Recording/@startClockTime
+  - Category: clock_time
+    Path: ./ProcessingUnit/Recording/@endClockTime
+  - Category: clock_time
+    Path: ./ProcessingUnit/Bar/Recording/@startClockTime
+  - Category: clock_time
+    Path: ./ProcessingUnit/Bar/Recording/@endClockTime
+  - Category: clock_time
+    Path: ./ProcessingUnit/Bar/Recording/FiveMinuteSection/@startClockTime
+  - Category: clock_time
+    Path: ./ProcessingUnit/Bar/Recording/FiveMinuteSection/@endClockTime
+  - Category: clock_time
+    Path: ./ProcessingUnit/Bar/Recording/FiveMinuteSection/@endClockTime
+  - Category: clock_time
+    Path: ./ProcessingUnit/UPL_SectorSummary/Item/@timeStamp
+
+# - Category: algorithm_age
+#   Path = ./ProcessingUnit/ChildInfo/@chronologicalAge
