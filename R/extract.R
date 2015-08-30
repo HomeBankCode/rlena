@@ -1,11 +1,11 @@
 #' @export
-#' @import dplyr
+#' @import dplyr xml2
 #' @importFrom readr type_convert
 make_conversation_df <- function(lena_log) {
   # Extract attributes from the conversation nodes
   convos <- lena_log %>%
-    xml2::xml_find_all("//ProcessingUnit/Recording/Conversation") %>%
-    xml2::xml_attrs(.)
+    xml_find_all("//ProcessingUnit/Recording/Conversation") %>%
+    xml_attrs
 
   # xml_attrs returns named vectors. Convert to lists then bind to data_frame.
   convos_table <- convos %>%

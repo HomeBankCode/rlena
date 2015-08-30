@@ -3,5 +3,6 @@
 export(load_its_file)
 export(make_conversation_df)
 import(dplyr)
+import(xml2)
 importFrom(readr,type_convert)
 importFrom(stringr,str_replace)

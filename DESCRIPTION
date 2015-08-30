@@ -3,12 +3,15 @@ Title: Functions for Parsing 'ITS' Files from 'LENA'
 Version: 0.0.0.9000
 Authors@R: person("Tristan", "Mahr", email = "tristan.mahr@wisc.edu", role = c("aut", "cre"))
 Description: What the package does (one paragraph)
-Depends: 
+Depends:
     R (>= 3.2.0)
 License: GPL-2 | file LICENSE
 URL: https://github.com/HomeBankCode/DarcleITS
 BugReports: https://github.com/HomeBankCode/DarcleITS/issues
-VignetteBuilder: knitr
 LazyData: true
 Suggests: testthat
-Imports: xml2
+Imports:
+    xml2,
+    dplyr,
+    stringr,
+    readr
