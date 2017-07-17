@@ -21,7 +21,14 @@ There are just a few functions at the moment:
 library(rlena)
 library(dplyr, warn.conflicts = FALSE)
 
-lena_log <- read_its_file("tests/testthat/data/file-for-testing.its") 
+# Download an example ITS file for demo
+url <- "https://raw.githubusercontent.com/gpretzer/lena-its-tools/master/Example/e20160420_165405_010572.its"
+tmp <- tempfile()
+download.file(url, tmp)
+lena_log <- read_its_file(tmp) 
+
+## local file used for testing
+# lena_log <- read_its_file("tests/testthat/data/file-for-testing.its") 
 ```
 
 Examples of simple information extraction.
@@ -30,13 +37,13 @@ Examples of simple information extraction.
 gather_ava_info(lena_log)
 #> # A tibble: 1 x 5
 #>                  ITSFile AVA_Raw AVA_Stnd AVA_EstMLU AVA_EstDevAge
-#>                    <chr>   <dbl>    <dbl>      <dbl>         <chr>
-#> 1 20140507_132613_009814  -0.285   95.727      3.286          P43M
+#>                    <chr>   <dbl>    <dbl>      <chr>         <chr>
+#> 1 20160420_165405_010572   0.715  110.724        ORL           P5M
 gather_child_info(lena_log)
 #> # A tibble: 1 x 6
 #>                  ITSFile  Birthdate Gender ChronologicalAge AVAModelAge
 #>                    <chr>     <date>  <chr>            <chr>       <chr>
-#> 1 20140507_132613_009814 2010-07-23      M             P45M        P45M
+#> 1 20160420_165405_010572 2015-11-19      M              P4M         P4M
 #> # ... with 1 more variables: VCVModelAge <chr>
 ```
 
@@ -45,20 +52,20 @@ We can extract a dataframe of conversations and play with the data.
 ``` r
 conversations <- gather_conversations(lena_log)
 conversations
-#> # A tibble: 1,985 x 41
+#> # A tibble: 655 x 41
 #>                   ITSFile   num  type average_dB peak_dB turnTaking
 #>                     <chr> <int> <chr>      <dbl>   <dbl>      <int>
-#>  1 20140507_132613_009814     1 XIOCA     -21.88   -7.73          0
-#>  2 20140507_132613_009814     2  AICF     -18.99   -8.38          1
-#>  3 20140507_132613_009814     3  AICF     -21.59   -9.95          2
-#>  4 20140507_132613_009814     4   CIC     -23.36  -10.99          1
-#>  5 20140507_132613_009814     5    XM     -33.57  -18.29          0
-#>  6 20140507_132613_009814     6   CIC     -20.70   -9.36          4
-#>  7 20140507_132613_009814     7    CM     -18.04   -8.86          0
-#>  8 20140507_132613_009814     8  AICF     -22.23   -9.33          1
-#>  9 20140507_132613_009814     9   CIC     -22.82   -8.11          2
-#> 10 20140507_132613_009814    10  AICF     -28.76   -9.14          1
-#> # ... with 1,975 more rows, and 35 more variables:
+#>  1 20160420_165405_010572     1   AMF     -26.16  -13.00          0
+#>  2 20160420_165405_010572     2   AMF     -26.57  -14.80          0
+#>  3 20160420_165405_010572     3  AICF     -18.10   -6.84          2
+#>  4 20160420_165405_010572     4 AIOCF     -15.92   -6.65          0
+#>  5 20160420_165405_010572     5   AMF     -25.37  -10.55          0
+#>  6 20160420_165405_010572     6  AICF     -26.77  -10.15          1
+#>  7 20160420_165405_010572     7    CM     -18.12   -6.75          0
+#>  8 20160420_165405_010572     8  AICF     -19.69   -9.72          1
+#>  9 20160420_165405_010572     9   AMF     -24.60   -9.37          0
+#> 10 20160420_165405_010572    10   AMF     -34.84  -26.24          0
+#> # ... with 645 more rows, and 35 more variables:
 #> #   femaleAdultInitiation <int>, maleAdultInitiation <int>,
 #> #   childResponse <int>, childInitiation <int>, femaleAdultResponse <int>,
 #> #   maleAdultResponse <int>, adultWordCnt <dbl>, femaleAdultWordCnt <dbl>,

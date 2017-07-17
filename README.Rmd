@@ -31,7 +31,14 @@ There are just a few functions at the moment:
 library(rlena)
 library(dplyr, warn.conflicts = FALSE)
 
-lena_log <- read_its_file("tests/testthat/data/file-for-testing.its") 
+# Download an example ITS file for demo
+url <- "https://raw.githubusercontent.com/gpretzer/lena-its-tools/master/Example/e20160420_165405_010572.its"
+tmp <- tempfile()
+download.file(url, tmp)
+lena_log <- read_its_file(tmp) 
+
+## local file used for testing
+# lena_log <- read_its_file("tests/testthat/data/file-for-testing.its") 
 ```
 
 Examples of simple information extraction.

@@ -9,6 +9,16 @@ gather_conversations <- function(lena_log) {
 }
 
 #' @export
+gather_pauses <- function(lena_log) {
+  lena_log %>%
+    xml_path_to_df("./ProcessingUnit/Recording/Pause") %>%
+    dplyr::mutate_(startTime = ~ convert_time_to_number(startTime),
+                   endTime = ~ convert_time_to_number(endTime)) %>%
+    add_its_filename(lena_log)
+}
+
+
+#' @export
 gather_ava_info <- function(lena_log) {
   # Extract attributes from the conversation nodes
   lena_log %>%
@@ -69,4 +79,3 @@ add_its_filename <- function(df, lena_log) {
 extract_its_filename <- function(lena_log) {
   xml2::xml_attrs(lena_log)["fileName"]
 }
-
