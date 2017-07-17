@@ -2,6 +2,9 @@
 
 bookmarks:
   conversation: ./ProcessingUnit/Recording/Conversation
+  ava: ./ProcessingUnit/AVA
+  childinfo: ./ProcessingUnit/ChildInfo
+  childinfo2: ./ExportData/Child
 
 sensitive:
   - Category: child_id
@@ -23,6 +26,8 @@ sensitive:
     Path: ./ProcessingUnit/UPL_Header/TransferredUPL/ApplicationData/PrimaryChild/@DOB
   - Category: birthdate
     Path: ./ExportData/Child/@DOB
+  - Category: birthdate
+    Path: ./ProcessingUnit/ChildInfo/@dob
 
   - Category: serial_number
     Path: ./ProcessingUnit/UPL_Header/TransferredUPL/RecorderInformation/SRDInfo/@SerialNumber

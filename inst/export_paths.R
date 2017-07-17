@@ -7,7 +7,7 @@ library("magrittr")
 xpaths_sensitive <- yaml.load_file("inst/paths.yaml") %>%
   extract2("sensitive") %>%
   lapply(as_data_frame) %>%
-  bind_rows
+  bind_rows()
 
 xpaths_bookmarks <- yaml.load_file("inst/paths.yaml") %>%
   extract2("bookmarks")

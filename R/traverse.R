@@ -10,10 +10,7 @@ fetch_attr_paths <- function(tree, paths, labels = NULL) {
   # create a NULL label for each path if no labels given
   if (is.null(labels)) labels <- rep(list(NULL), length(paths))
 
-  # simplify fetch function, get df for each path-label pair, flatten list
-  fetch_on_fixed_tree <- function(...) fetch_attr_path(tree, ...)
-  hits <- Map(fetch_on_fixed_tree, paths, labels)
-  bind_rows(hits)
+  purrr::map2_df(paths, labels, ~ fetch_attr_path(tree, .x, .y))
 }
 
 #' Run xpath attribute query, storing results in a dataframe
@@ -25,17 +22,15 @@ fetch_attr_paths <- function(tree, paths, labels = NULL) {
 #' @keywords internal
 fetch_attr_path <- function(tree, path, label = NULL) {
   results <- tree %>%
-    xml_find_all(path) %>%
-    xml_text
+    xml2::xml_find_all(path) %>%
+    xml2::xml_text()
 
-  df <- data_frame(
-    XPath = rep(path, length(results)),
-    Value = results)
+  df <- tibble::tibble(XPath = rep(path, length(results)), Value = results)
 
   if (!is.null(label)) {
     df <- df %>%
-      mutate(Category = label) %>%
-      select(Category, XPath, Value)
+      dplyr::mutate(Category = label) %>%
+      dplyr::select(Category, XPath, Value)
   }
   df
 }

@@ -1,29 +1,72 @@
 #' @export
-#' @import dplyr xml2
-#' @importFrom readr type_convert
-make_conversation_df <- function(lena_log) {
+gather_conversations <- function(lena_log) {
   # Extract attributes from the conversation nodes
-  convos <- lena_log %>%
-    xml_find_all(xpaths_bookmarks$conversation) %>%
-    xml_attrs
+  lena_log %>%
+    xml_path_to_df(xpaths_bookmarks$conversation) %>%
+    dplyr::mutate_(startTime = ~ convert_time_to_number(startTime),
+                   endTime = ~ convert_time_to_number(endTime)) %>%
+    add_its_filename(lena_log)
+}
 
-  # xml_attrs returns named vectors. Convert to lists then bind to data_frame.
-  convos_table <- convos %>%
-    lapply(function(x) structure(as.list(x), names = names(x))) %>%
-    lapply(as_data_frame) %>%
-    bind_rows %>%
-    type_convert %>%
-    mutate_(startTime = ~ convert_time_to_number(startTime),
-            endTime = ~ convert_time_to_number(endTime))
-  convos_table
+#' @export
+gather_ava_info <- function(lena_log) {
+  # Extract attributes from the conversation nodes
+  lena_log %>%
+    xml_path_to_df(xpaths_bookmarks$ava) %>%
+    dplyr::select_(
+      AVA_Raw = ~ rawScore,
+      AVA_Stnd = ~ standardScore,
+      AVA_EstMLU = ~ estimatedMLU,
+      AVA_EstDevAge = ~ estimatedDevAge) %>%
+    add_its_filename(lena_log)
+}
+
+#' @export
+gather_child_info <- function(lena_log) {
+  lena_log %>%
+    xml_path_to_df(xpaths_bookmarks$childinfo) %>%
+    dplyr::select_(
+      Birthdate = ~ dob,
+      Gender = ~ gender,
+      ChronologicalAge = ~ chronologicalAge,
+      AVAModelAge = ~ avaModelAge,
+      VCVModelAge = ~ vcvModelAge) %>%
+    add_its_filename(lena_log)
 }
 
 
 
-#' @importFrom stringr str_replace
+
+
+
 convert_time_to_number <- function(xs) {
   xs %>%
-    str_replace("PT", "") %>%
-    str_replace("S", "") %>%
-    as.numeric
+    stringr::str_replace("PT", "") %>%
+    stringr::str_replace("S", "") %>%
+    as.numeric()
 }
+
+xml_path_to_df <- function(lena_log, path) {
+  lena_log %>%
+    xml2::xml_find_all(path) %>%
+    xml2::xml_attrs() %>%
+    purrr::map_df(as.list) %>%
+    quietly_convert_types()
+}
+
+quietly_convert_types <- function(...) {
+  purrr::quietly(readr::type_convert)(...)[["result"]]
+}
+
+add_its_filename <- function(df, lena_log) {
+  tibble::add_column(
+    df,
+    ITSFile = extract_its_filename(lena_log),
+    .before = 1)
+
+}
+
+extract_its_filename <- function(lena_log) {
+  xml2::xml_attrs(lena_log)["fileName"]
+}
+
