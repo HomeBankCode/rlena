@@ -43,7 +43,7 @@ gather_child_info(lena_log)
 
 We can extract a dataframe of conversations and play with the data.
 
-```{r conversation-demo}
+```{r conversation-demo, fig.width = 6, fig.height = 3}
 conversations <- gather_conversations(lena_log)
 conversations
 
@@ -53,13 +53,22 @@ word_counts <- conversations %>%
   select(num, Time = startTime, 
          Female = femaleAdultWordCnt, Male = maleAdultWordCnt) %>% 
   gather(Speaker, Count, -num, -Time) %>% 
-  filter(Count != 0)
+  filter(Count != 0) %>% 
+  group_by(Speaker) %>% 
+  arrange(num) %>% 
+  mutate(Accumulated = cumsum(Count)) %>% 
+  ungroup()
 
 library("ggplot2")
 ggplot(word_counts) + 
   aes(x = Time, y = Count, color = Speaker) + 
   geom_point() + 
   ylab("Adult Word Count Per Conversation")
+
+ggplot(word_counts) + 
+  aes(x = Time, y = Accumulated, color = Speaker) + 
+  geom_line() + 
+  ylab("Cumulative Adult Word Count")
 ```
 
 

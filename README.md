@@ -76,7 +76,11 @@ word_counts <- conversations %>%
   select(num, Time = startTime, 
          Female = femaleAdultWordCnt, Male = maleAdultWordCnt) %>% 
   gather(Speaker, Count, -num, -Time) %>% 
-  filter(Count != 0)
+  filter(Count != 0) %>% 
+  group_by(Speaker) %>% 
+  arrange(num) %>% 
+  mutate(Accumulated = cumsum(Count)) %>% 
+  ungroup()
 
 library("ggplot2")
 ggplot(word_counts) + 
@@ -86,3 +90,13 @@ ggplot(word_counts) +
 ```
 
 ![](fig/README-conversation-demo-1.png)
+
+``` r
+
+ggplot(word_counts) + 
+  aes(x = Time, y = Accumulated, color = Speaker) + 
+  geom_line() + 
+  ylab("Cumulative Adult Word Count")
+```
+
+![](fig/README-conversation-demo-2.png)
