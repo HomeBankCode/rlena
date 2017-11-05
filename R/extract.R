@@ -8,6 +8,8 @@ gather_conversations <- function(lena_log) {
     add_its_filename(lena_log)
 }
 
+
+
 #' @export
 gather_pauses <- function(lena_log) {
   lena_log %>%
@@ -31,6 +33,8 @@ gather_ava_info <- function(lena_log) {
     add_its_filename(lena_log)
 }
 
+
+
 #' @export
 gather_child_info <- function(lena_log) {
   lena_log %>%
@@ -46,9 +50,6 @@ gather_child_info <- function(lena_log) {
 
 
 
-
-
-
 convert_time_to_number <- function(xs) {
   xs %>%
     stringr::str_replace("PT", "") %>%
@@ -56,17 +57,13 @@ convert_time_to_number <- function(xs) {
     as.numeric()
 }
 
-xml_path_to_df <- function(lena_log, path) {
-  lena_log %>%
-    xml2::xml_find_all(path) %>%
-    xml2::xml_attrs() %>%
-    purrr::map_df(as.list) %>%
-    quietly_convert_types()
-}
+
 
 quietly_convert_types <- function(...) {
   purrr::quietly(readr::type_convert)(...)[["result"]]
 }
+
+
 
 add_its_filename <- function(df, lena_log) {
   tibble::add_column(
@@ -75,6 +72,7 @@ add_its_filename <- function(df, lena_log) {
     .before = 1)
 
 }
+
 
 extract_its_filename <- function(lena_log) {
   xml2::xml_attrs(lena_log)["fileName"]
