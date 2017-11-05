@@ -19,8 +19,9 @@ All other functions work with this object to extract information:
 -   `gather_ava_info()` returns the AVA (Automatic Vocalization Assessment).
 -   `gather_child_info()` returns child information (e.g. birth data, age, gender).
 -   `gather_conversations()` returns the content of all `<Conversation>` nodes.
+-   `gather_pauses()` returns the ontent of all `<Pause>` nodes
 
-All three functions return tidy data frames that can be manipulated with the usual tools from the tidyverse.
+All of these functions return tidy data frames that can be manipulated with the usual tools from the tidyverse.
 
 ***Warning:** Please be aware that this package is early work in progress and subject to potentially code-breaking change.*
 

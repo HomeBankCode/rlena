@@ -13,7 +13,7 @@ gather_conversations <- function(lena_log) {
 #' @export
 gather_pauses <- function(lena_log) {
   lena_log %>%
-    xml_path_to_df("./ProcessingUnit/Recording/Pause") %>%
+    xml_path_to_df(xpaths_bookmarks$pause) %>%
     dplyr::mutate_(startTime = ~ convert_time_to_number(startTime),
                    endTime = ~ convert_time_to_number(endTime)) %>%
     add_its_filename(lena_log)

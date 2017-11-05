@@ -2,6 +2,7 @@
 
 bookmarks:
   conversation: ./ProcessingUnit/Recording/Conversation
+  pause: ./ProcessingUnit/Recording/Pause
   ava: ./ProcessingUnit/AVA
   childinfo: ./ProcessingUnit/ChildInfo
   childinfo2: ./ExportData/Child
