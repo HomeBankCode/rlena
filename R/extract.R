@@ -59,12 +59,6 @@ convert_time_to_number <- function(xs) {
 
 
 
-quietly_convert_types <- function(...) {
-  purrr::quietly(readr::type_convert)(...)[["result"]]
-}
-
-
-
 add_its_filename <- function(df, lena_log) {
   tibble::add_column(
     df,

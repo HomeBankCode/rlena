@@ -63,6 +63,8 @@ max_depth <- . %>%
   unlist(use.names = FALSE) %>%
   max(na.rm = TRUE)
 
+
+
 # apply a function at each depth of a list
 descend <- function(.x, .f, ...) {
   .f <- as_function(.f)
@@ -84,3 +86,8 @@ promote_attributes <- function(x) {
   x
 }
 
+
+
+quietly_convert_types <- function(...) {
+  purrr::quietly(readr::type_convert)(...)[["result"]]
+}
