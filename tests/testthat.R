@@ -1,4 +1,4 @@
 library(testthat)
-library(DarcleITS)
+library(rlena)
 
-test_check("DarcleITS")
+test_check("rlena")
