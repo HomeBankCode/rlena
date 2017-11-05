@@ -1,0 +1,6 @@
+language: r
+sudo: false
+cache: packages
+r:
+  - 3.2.0
+  - release
