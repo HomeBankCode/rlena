@@ -1,8 +1,11 @@
 Package: rlena
-Title: Functions for Parsing 'ITS' Files from 'LENA'
+Title: rlena makes working with LENA .its files easy
 Version: 0.0.0.9000
-Authors@R: person("Tristan", "Mahr", email = "tristan.mahr@wisc.edu", role = c("aut", "cre"))
-Description: What the package does (one paragraph)
+Authors@R: c(
+    person("Tristan", "Mahr", email = "tristan.mahr@wisc.edu", role = c("aut", "cre")),
+    person("Tobias", "Busch", email = "teebusch@gmail.com", role = "aut"))
+Description: rlena loads .its files created by the LENA system. It extracts annotations and 
+    other information and produces tidy data frames that can be use for further analysis.
 Depends:
     R (>= 3.2.0)
 License: GPL-2 | file LICENSE
@@ -17,5 +20,6 @@ Imports:
     readr,
     purrr,
     tibble,
-    rlang
+    rlang,
+    magrittr
 RoxygenNote: 6.0.1
