@@ -1,0 +1,1086 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ITS SYSTEM "its.dtd" >
+<ITS fileName="20171107_114301_022867" version="4.6.0" timeCreated="2017-11-07T11:46:01">
+    <ProcessingUnit>
+        <!-- ======================= Transparent Comment =====================
+		   == ProcessingTime is turned off.
+		   == CSA is turned off.
+		   == dB level is reported in relative to the max dB level that can be obtained using a 0dBFS scale for the 16-bit PCM signal level.
+		   == Adult vocalization count and duration are turned off.  
+		 -->
+        <!-- ======================= UPL Header ===================== -->
+        <UPL_Header>
+            <TransferredUPL>
+                <RecordingInformation>
+                    <TransferTime LocalTime="2017-11-07T11:43:01" TimeZone="RST" UTCTime="2017-11-07T10:43:01" />
+                    <Audio>
+                        <Sampling DepthInBits="16" RateInHz="16000" Channels="1" />
+                        <Coding Name="u-Law ADPCM" />
+                        <TimeZone ZoneNameShort="GMT+01:00" StandardSecondsOffset="3600" UsesDST="1" />
+                    </Audio>
+                </RecordingInformation>
+                <RecorderInformation>
+                    <SRDInfo Type="DLP-G" SerialNumber="999" VersionHW="H1.1.1 2017-05-08" VersionFW="1.00.02 2016-11-04" />
+                </RecorderInformation>
+                <ApplicationData>
+                    <Application Name="LENA Pro" Version="V3.5.0-144 r12080" />
+                    <PrimaryChild ChildKey="999" DOB="2015-12-31" Gender="M" />
+                </ApplicationData>
+            </TransferredUPL>
+        </UPL_Header>
+        <!-- ======================= UPL Sector Info ===================== -->
+        <UPL_SectorSummary>
+            <Item startSector="0" endSector="5021" timeStamp="2017-11-07T10:16:13Z" startCounter="0" endCounter="5021" type="normal" />
+            <Item startSector="5022" endSector="10450" timeStamp="2017-11-07T10:25:22Z" startCounter="0" endCounter="5428" type="normal" />
+            <Item startSector="10451" endSector="15675" timeStamp="2017-11-07T10:33:18Z" startCounter="0" endCounter="5224" type="normal" />
+        </UPL_SectorSummary>
+        <!-- ======================= Algorithm Set ===================== -->
+        <AlgorithmSet repositoryRevision="11860">
+            <Item name="Tembo">
+                <Manual info="" ver="" />
+                <Auto loc="svn://lf-prd-svn/" rev="11860" last="11860" />
+            </Item>
+            <Item name="audio-processing">
+                <Manual info="audio-processing" ver="4.6.1-las.3.0" />
+                <Auto loc="/Engineering/Archive/products/AudioProcessing/branches/las-version" rev="11860" last="11860" />
+            </Item>
+            <Item name="PercentileSetVersion">
+                <Manual info="percentile-table II.NORMS 02/02/2009" ver="6" />
+                <Auto loc="../../../../../Software/Products/Tembo/trunk/Configuration" rev="xxxx" last="xxxx" />
+            </Item>
+            <Item name="Runjob">
+                <Manual info="Windows-Runjob" ver="3.3.2" />
+                <Auto loc="/Engineering/Archive/products/AudioProcessing/branches/las-version/Tembo-Runjob/Runjob.pm" rev="11860" last="11763" />
+            </Item>
+            <Item name="main-sequence">
+                <Manual info="audio-2-result" ver="4.4.0" />
+                <Auto loc="/Engineering/Archive/products/AudioProcessing/branches/las-version/Tembo-Runjob/audio-2-result.pl" rev="11860" last="11763" />
+            </Item>
+            <Item name="scripts">
+                <Manual info="perl-scripts" ver="4.4.0" />
+                <Auto loc="/Engineering/Archive/products/AudioProcessing/branches/las-version/Tembo-Runjob/bin" rev="11860" last="11860" />
+            </Item>
+            <Item name="lsil-model">
+                <Manual info="grand-mv, gmm, fast-gmm, 108v91 r-mfcc36-old-feat" ver="1.0.0" />
+                <Auto loc="/Engineering/Archive/products/AudioProcessing/branches/las-version/Tembo-Runjob/model_tmplt/model_30/lsil_model" rev="11860" last="5654" />
+            </Item>
+            <Item name="seg-model">
+                <Manual info="gmv 78v92, 7-classes-88v01 TV-85v32 kc_f-f_kc,fast-gmm 109v01 old-ft-dec-train/conf_set-2048 fast-gmm-tr-old-ft-with-kc_f" ver="2.0.0" />
+                <Auto loc="/Engineering/Archive/products/AudioProcessing/branches/las-version/Tembo-Runjob/model_tmplt/model_30/seg_model" rev="11860" last="5654" />
+            </Item>
+            <Item name="p2-model">
+                <Manual info="gramd-mv, gmm, 108v90 r-pmvdr20q22" ver="1.0.0" />
+                <Auto loc="/Engineering/Archive/products/AudioProcessing/branches/las-version/Tembo-Runjob/model_tmplt/model_30/p2_model" rev="11860" last="5654" />
+            </Item>
+            <Item name="ph-model">
+                <Manual info="ph-model ug 1g-4k v1.0 sfnks" ver="1.1.0" />
+                <Auto loc="/Engineering/Archive/products/AudioProcessing/branches/las-version/Tembo-Runjob/model_tmplt/model_30/cv_phone_model" rev="11860" last="7262" />
+            </Item>
+            <Item name="chi-model">
+                <Manual info="grand-mv 89v82 mfc_ssc_sp_Jan08, gmm fast-gmm 89v81 mfc_ssc_sp_wgts5-Jan08 gmm partitioned-into wgts2,3,4, gmm-S 89v81 mfc_ssc_sp_1-ft" ver="3.0.0" />
+                <Auto loc="/Engineering/Archive/products/AudioProcessing/branches/las-version/Tembo-Runjob/model_tmplt/model_30/chi_model_30" rev="11860" last="5931" />
+                <ModelAge lowBound="P1M" highBound="P41M" />
+            </Item>
+            <Item name="chi-clst">
+                <Manual info="000102v88 clst_64-chn-ft_sel_1-cmn expt clst kmeans.1d-sort, 000102v86 gmv-train-c_d_dd-36 expt gmv grand-mv" ver="1.0" />
+                <Auto loc="/Engineering/Archive/products/AudioProcessing/branches/las-version/Tembo-Runjob/model_tmplt/model_30/chi_ph_clst" rev="11860" last="10020" />
+            </Item>
+            <Item name="chi-aut-v10">
+                <Manual info="lda-txt gau pp-2-int, rcd-level-new model-training model-07_12_09" ver="1.0" />
+                <Auto loc="/Engineering/Archive/products/AudioProcessing/branches/las-version/Tembo-Runjob/model_tmplt/model_30/chi_aut_model/v10" rev="11860" last="10020" />
+            </Item>
+            <Item name="chi-aut-v20">
+                <Manual info="lda-txt gau pp-2-int, rcd-level-new model-training model-kim3" ver="2.0" />
+                <Auto loc="/Engineering/Archive/products/AudioProcessing/branches/las-version/Tembo-Runjob/model_tmplt/model_30/chi_aut_model/v20" rev="11860" last="10020" />
+            </Item>
+            <Item name="chi-aut-v30">
+                <Manual info="seg-stats seg2 s2CHN-id.txt, 000102 v26 c4-AdaBoost p_new_co1_u63b50_s2CHN_all a_1_2_15_47 s_kim3NT_3_123 r_50 expt" ver="3.0" />
+                <Auto loc="/Engineering/Archive/products/AudioProcessing/branches/las-version/Tembo-Runjob/model_tmplt/model_30/chi_aut_model/v30" rev="11860" last="10759" />
+            </Item>
+            <Item name="wc-model">
+                <Manual info="102v72 full-70 awc_train awc-weight" ver="4.3.0" />
+                <Auto loc="/Engineering/Archive/products/AudioProcessing/branches/las-version/Tembo-Runjob/model_tmplt/model_30/wc/new-wc-wt-1" rev="11860" last="7456" />
+            </Item>
+            <Item name="ava-model">
+                <Manual info="102v85 pp selection select-50-dp_-1_0" ver="2.0.0" />
+                <Auto loc="/Engineering/Archive/products/AudioProcessing/branches/las-version/Tembo-Runjob/model_tmplt/model_30/ava_model" rev="11860" last="7961" />
+                <ModelAge lowBound="P2M" highBound="P48M" />
+                <EMLU minAge="P15M" minValue="1" />
+            </Item>
+            <Item name="cspt-model">
+                <Manual info="special data,process,list,new Axx-Kxxxxx processing,result median,based set,3384 R" ver="1.0.0" />
+                <Auto loc="/Engineering/Archive/products/AudioProcessing/branches/las-version/Tembo-Runjob/model_tmplt/model_30/cspt_model" rev="11860" last="11635" />
+            </Item>
+            <Item name="trainer">
+                <Manual info="SphinxTrain.nightly.11-03-05.tar, modified, enhanced, E_functions, new cmd-ln, new feat, lena_gmm, lena_audio, detail_marker," ver="3.1" />
+                <Auto loc="/Engineering/Archive/products/AudioProcessing/branches/las-version/SphinxTrain" rev="11860" last="11747" />
+                <Auto loc="/Engineering/Archive/products/AudioProcessing/branches/las-version/SphinxTrain/src/libs" rev="11860" last="11731" />
+                <Auto loc="/Engineering/Archive/products/AudioProcessing/branches/las-version/SphinxTrain/src/programs" rev="11860" last="11531" />
+            </Item>
+            <Item name="decoder">
+                <Manual info="Sphinx Decoder-3 v0.5, modified, enhanced cmd-ln," ver="3.0" />
+                <Auto loc="/Engineering/Archive/products/AudioProcessing/branches/las-version/SphinxDecoder3-0.5" rev="11860" last="11747" />
+                <Auto loc="/Engineering/Archive/products/AudioProcessing/branches/las-version/SphinxDecoder3-0.5/src/libs" rev="11860" last="11601" />
+                <Auto loc="/Engineering/Archive/products/AudioProcessing/branches/las-version/SphinxDecoder3-0.5/src/programs" rev="11860" last="11160" />
+            </Item>
+            <Item name="run-time-lena_audio_process">
+                <Manual info="SphinxTrain.nightly.11-03-05.tar, modified, enhanced, E_functions, new cmd-ln, new feat, lena_gmm, lena_audio, detail_marker," ver="v3.1" />
+                <Auto loc="/Engineering/Archive/products/AudioProcessing/branches/las-version/SphinxTrain" rev="11860" last="11747" />
+            </Item>
+            <Item name="run-time-decode">
+                <Manual info="Sphinx Decoder-3 v0.5, modified, enhanced cmd-ln," ver="v3.0" />
+                <Auto loc="/Engineering/Archive/products/AudioProcessing/branches/las-version/SphinxTrain" rev="11860" last="11747" />
+            </Item>
+            <Item name="run-time-wave2feat">
+                <Manual info="SphinxTrain.nightly.11-03-05.tar, modified, enhanced, E_functions, new cmd-ln, new feat, lena_gmm, lena_audio, detail_marker," ver="v3.1" />
+                <Auto loc="/Engineering/Archive/products/AudioProcessing/branches/las-version/SphinxTrain" rev="11860" last="11747" />
+            </Item>
+            <Item name="run-time-detailMarker">
+                <Manual info="SphinxTrain.nightly.11-03-05.tar, modified, enhanced, E_functions, new cmd-ln, new feat, lena_gmm, lena_audio, detail_marker," ver="v3.1" />
+                <Auto loc="/Engineering/Archive/products/AudioProcessing/branches/las-version/SphinxTrain" rev="11860" last="11747" />
+            </Item>
+            <Item name="run-time-gmm_train">
+                <Manual info="SphinxTrain.nightly.11-03-05.tar, modified, enhanced, E_functions, new cmd-ln, new feat, lena_gmm, lena_audio, detail_marker," ver="v3.1" />
+                <Auto loc="/Engineering/Archive/products/AudioProcessing/branches/las-version/SphinxTrain" rev="11860" last="11747" />
+            </Item>
+        </AlgorithmSet>
+        <!-- ======================= Information about the child ===================== -->
+        <ChildInfo dob="2015-12-31" gender="M" chronologicalAge="P22M" avaModelAge="P22M" vcvModelAge="P22M" />
+        <AVA rawScore="NCD" standardScore="NCD" estimatedMLU="NCD" estimatedDevAge="NCD" vocalizationCnt="NCD" vocalizationLen="NCD" MLV="NCD" />
+        <CSPT enoughTurns="no" totalTurns="NCD" blockSize="NCD" rawScore="NCD" CI95="NCD" percentile="NCD" zScore="NCD" />
+        <ASD screen="OFF" />
+        <VCP length="0">
+            <Param name="NCD" value="NCD" />
+        </VCP>
+        <!-- ====================== Flow of the Recordings ====================== -->
+        <Recording num="1" startClockTime="2017-11-07T10:16:13Z" endClockTime="2017-11-07T10:21:26Z" startTime="PT0.00S" endTime="PT313.85S">
+            <Pause num="1" average_dB="-30.90" peak_dB="-3.07" childCryVfxLen="P1.36S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" TVF="P1.81S" FAN="P0.00S" OLN="P0.00S" SIL="P60.47S" NOF="P46.76S" CXF="P0.00S" OLF="P1.24S" CHF="P1.84S" MAF="P1.01S" TVN="P1.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P0.00S" FAF="P1.74S" startTime="PT0.00S" endTime="PT115.87S">
+                <Segment spkr="SIL" average_dB="-37.22" peak_dB="-21.31" recordingInfo="|BR|1|20171107|101613|" startTime="PT0.00S" endTime="PT0.95S" />
+                <Segment spkr="NOF" average_dB="-35.65" peak_dB="-21.90" startTime="PT0.95S" endTime="PT2.09S" />
+                <Segment spkr="CHF" average_dB="-21.40" peak_dB="-7.44" childUttCnt="0" childUttLen="P0.00S" startVfx1="PT2.33S" endVfx1="PT2.46S" childCryVfxLen="PT0.13S" startTime="PT2.09S" endTime="PT2.70S" />
+                <Segment spkr="MAF" average_dB="-30.62" peak_dB="-19.68" startTime="PT2.70S" endTime="PT3.71S" />
+                <Segment spkr="NOF" average_dB="-21.11" peak_dB="-6.53" startTime="PT3.71S" endTime="PT5.12S" />
+                <Segment spkr="SIL" average_dB="-48.21" peak_dB="-30.20" startTime="PT5.12S" endTime="PT35.40S" />
+                <Segment spkr="NOF" average_dB="-45.98" peak_dB="-33.26" startTime="PT35.40S" endTime="PT36.21S" />
+                <Segment spkr="SIL" average_dB="-48.71" peak_dB="-42.87" startTime="PT36.21S" endTime="PT37.24S" />
+                <Segment spkr="TVN" average_dB="-45.03" peak_dB="-37.24" startTime="PT37.24S" endTime="PT38.24S" />
+                <Segment spkr="FAF" average_dB="-43.74" peak_dB="-31.85" startTime="PT38.24S" endTime="PT39.18S" />
+                <Segment spkr="SIL" average_dB="-46.57" peak_dB="-35.97" startTime="PT39.18S" endTime="PT40.03S" />
+                <Segment spkr="NOF" average_dB="-39.28" peak_dB="-25.20" startTime="PT40.03S" endTime="PT41.70S" />
+                <Segment spkr="SIL" average_dB="-49.02" peak_dB="-42.56" startTime="PT41.70S" endTime="PT42.63S" />
+                <Segment spkr="NOF" average_dB="-29.09" peak_dB="-8.50" startTime="PT42.63S" endTime="PT54.15S" />
+                <Segment spkr="SIL" average_dB="-43.97" peak_dB="-36.54" startTime="PT54.15S" endTime="PT56.55S" />
+                <Segment spkr="NOF" average_dB="-44.20" peak_dB="-35.84" startTime="PT56.55S" endTime="PT57.56S" />
+                <Segment spkr="SIL" average_dB="-45.48" peak_dB="-40.47" startTime="PT57.56S" endTime="PT58.36S" />
+                <Segment spkr="TVF" average_dB="-44.16" peak_dB="-39.11" startTime="PT58.36S" endTime="PT59.37S" />
+                <Segment spkr="NOF" average_dB="-42.79" peak_dB="-33.24" startTime="PT59.37S" endTime="PT62.35S" />
+                <Segment spkr="SIL" average_dB="-43.86" peak_dB="-36.15" startTime="PT62.35S" endTime="PT63.16S" />
+                <Segment spkr="TVF" average_dB="-44.35" peak_dB="-40.22" startTime="PT63.16S" endTime="PT63.96S" />
+                <Segment spkr="SIL" average_dB="-45.31" peak_dB="-38.66" startTime="PT63.96S" endTime="PT67.65S" />
+                <Segment spkr="NOF" average_dB="-33.54" peak_dB="-22.31" startTime="PT67.65S" endTime="PT68.63S" />
+                <Segment spkr="CHF" average_dB="-39.66" peak_dB="-30.43" childUttCnt="0" childUttLen="P0.00S" startVfx1="PT68.63S" endVfx1="PT69.26S" childCryVfxLen="PT0.63S" startTime="PT68.63S" endTime="PT69.26S" />
+                <Segment spkr="NOF" average_dB="-39.14" peak_dB="-22.13" startTime="PT69.26S" endTime="PT71.97S" />
+                <Segment spkr="CHF" average_dB="-43.12" peak_dB="-33.40" childUttCnt="0" childUttLen="P0.00S" startVfx1="PT71.97S" endVfx1="PT72.57S" childCryVfxLen="PT0.60S" startTime="PT71.97S" endTime="PT72.57S" />
+                <Segment spkr="NOF" average_dB="-34.80" peak_dB="-20.12" startTime="PT72.57S" endTime="PT79.96S" />
+                <Segment spkr="OLF" average_dB="-24.68" peak_dB="-13.29" startTime="PT79.96S" endTime="PT80.60S" />
+                <Segment spkr="NOF" average_dB="-19.81" peak_dB="-3.07" startTime="PT80.60S" endTime="PT85.55S" />
+                <Segment spkr="SIL" average_dB="-45.69" peak_dB="-40.72" startTime="PT85.55S" endTime="PT87.35S" />
+                <Segment spkr="FAF" average_dB="-46.49" peak_dB="-41.54" startTime="PT87.35S" endTime="PT88.15S" />
+                <Segment spkr="SIL" average_dB="-46.60" peak_dB="-28.16" startTime="PT88.15S" endTime="PT100.58S" />
+                <Segment spkr="OLF" average_dB="-24.63" peak_dB="-11.01" startTime="PT100.58S" endTime="PT101.18S" />
+                <Segment spkr="SIL" average_dB="-47.13" peak_dB="-37.93" startTime="PT101.18S" endTime="PT105.68S" />
+                <Segment spkr="NOF" average_dB="-36.48" peak_dB="-18.13" startTime="PT105.68S" endTime="PT115.87S" />
+            </Pause>
+            <Conversation num="1" type="AMM" average_dB="-24.94" peak_dB="-12.70" turnTaking="0" femaleAdultInitiation="0" maleAdultInitiation="0" childResponse="0" childInitiation="0" femaleAdultResponse="0" maleAdultResponse="0" adultWordCnt="1.46" femaleAdultWordCnt="0.00" maleAdultWordCnt="1.46" femaleAdultUttCnt="0" maleAdultUttCnt="0" femaleAdultUttLen="P0.00S" maleAdultUttLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" childUttCnt="0" childUttLen="P0.00S" childCryVfxLen="P0.00S" TVF="P0.00S" FAN="P0.00S" OLN="P0.00S" SIL="P0.00S" NOF="P0.00S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P0.00S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P1.13S" FAF="P0.00S" startTime="PT115.87S" endTime="PT117.00S">
+                <Segment spkr="MAN" average_dB="-24.94" peak_dB="-12.70" conversationInfo="|EC|1|0|0|AMM|NT|FI|" maleAdultWordCnt="1.46" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT115.87S" endTime="PT117.00S" />
+            </Conversation>
+            <Pause num="2" average_dB="-24.23" peak_dB="-1.11" childCryVfxLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" TVF="P0.00S" FAN="P0.00S" OLN="P0.85S" SIL="P0.00S" NOF="P5.13S" CXF="P0.00S" OLF="P1.63S" CHF="P0.00S" MAF="P2.56S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P0.00S" FAF="P0.00S" startTime="PT117.00S" endTime="PT127.17S">
+                <Segment spkr="NOF" average_dB="-19.04" peak_dB="-1.11" startTime="PT117.00S" endTime="PT119.22S" />
+                <Segment spkr="MAF" average_dB="-35.53" peak_dB="-19.66" startTime="PT119.22S" endTime="PT120.77S" />
+                <Segment spkr="NOF" average_dB="-42.01" peak_dB="-28.28" startTime="PT120.77S" endTime="PT121.76S" />
+                <Segment spkr="OLF" average_dB="-29.48" peak_dB="-16.58" startTime="PT121.76S" endTime="PT122.56S" />
+                <Segment spkr="NOF" average_dB="-39.47" peak_dB="-23.01" startTime="PT122.56S" endTime="PT123.52S" />
+                <Segment spkr="MAF" average_dB="-29.36" peak_dB="-15.16" startTime="PT123.52S" endTime="PT124.53S" />
+                <Segment spkr="NOF" average_dB="-39.34" peak_dB="-26.26" startTime="PT124.53S" endTime="PT125.49S" />
+                <Segment spkr="OLN" average_dB="-20.36" peak_dB="-8.59" startTime="PT125.49S" endTime="PT126.34S" />
+                <Segment spkr="OLF" average_dB="-41.87" peak_dB="-32.22" startTime="PT126.34S" endTime="PT127.17S" />
+            </Pause>
+            <Conversation num="2" type="AIOCF" average_dB="-22.55" peak_dB="-3.91" turnTaking="0" femaleAdultInitiation="0" maleAdultInitiation="0" childResponse="0" childInitiation="0" femaleAdultResponse="0" maleAdultResponse="0" adultWordCnt="5.77" femaleAdultWordCnt="5.77" maleAdultWordCnt="0.00" femaleAdultUttCnt="0" maleAdultUttCnt="0" femaleAdultUttLen="P0.00S" maleAdultUttLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" childUttCnt="0" childUttLen="P0.00S" childCryVfxLen="P0.00S" TVF="P0.00S" FAN="P1.30S" OLN="P0.00S" SIL="P0.00S" NOF="P0.80S" CXF="P0.00S" OLF="P0.60S" CHF="P0.00S" MAF="P0.00S" TVN="P0.00S" NON="P0.00S" CXN="P0.80S" CHN="P0.00S" MAN="P0.00S" FAF="P0.80S" startTime="PT127.17S" endTime="PT131.47S">
+                <Segment spkr="FAN" average_dB="-39.94" peak_dB="-32.80" conversationInfo="|BC|2|0|0|AIOCF|NT|FI|" femaleAdultWordCnt="5.77" femaleAdultNonSpeechLen="P0.00S" femaleAdultUttCnt="0" femaleAdultUttLen="P0.00S" startTime="PT127.17S" endTime="PT128.47S" />
+                <Segment spkr="NOF" average_dB="-23.06" peak_dB="-7.22" startTime="PT128.47S" endTime="PT129.27S" />
+                <Segment spkr="OLF" average_dB="-14.87" peak_dB="-3.91" startTime="PT129.27S" endTime="PT129.87S" />
+                <Segment spkr="FAF" average_dB="-41.32" peak_dB="-26.30" startTime="PT129.87S" endTime="PT130.67S" />
+                <Segment spkr="CXN" average_dB="-36.03" peak_dB="-27.22" conversationInfo="|EC|2|0|0|AIOCF|NT|FI|" startTime="PT130.67S" endTime="PT131.47S" />
+            </Conversation>
+            <Pause num="3" average_dB="-27.79" peak_dB="-2.31" childCryVfxLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" TVF="P1.01S" FAN="P0.00S" OLN="P0.00S" SIL="P2.83S" NOF="P6.75S" CXF="P0.00S" OLF="P0.88S" CHF="P0.00S" MAF="P4.62S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P0.00S" FAF="P0.00S" startTime="PT131.47S" endTime="PT147.56S">
+                <Segment spkr="MAF" average_dB="-39.09" peak_dB="-24.52" startTime="PT131.47S" endTime="PT133.40S" />
+                <Segment spkr="NOF" average_dB="-45.64" peak_dB="-29.71" startTime="PT133.40S" endTime="PT136.03S" />
+                <Segment spkr="SIL" average_dB="-43.29" peak_dB="-30.23" startTime="PT136.03S" endTime="PT136.99S" />
+                <Segment spkr="NOF" average_dB="-39.61" peak_dB="-25.77" startTime="PT136.99S" endTime="PT141.11S" />
+                <Segment spkr="MAF" average_dB="-35.48" peak_dB="-29.26" startTime="PT141.11S" endTime="PT142.59S" />
+                <Segment spkr="OLF" average_dB="-15.39" peak_dB="-2.31" startTime="PT142.59S" endTime="PT143.47S" />
+                <Segment spkr="MAF" average_dB="-45.90" peak_dB="-36.78" startTime="PT143.47S" endTime="PT144.68S" />
+                <Segment spkr="SIL" average_dB="-53.37" peak_dB="-43.58" startTime="PT144.68S" endTime="PT145.62S" />
+                <Segment spkr="TVF" average_dB="-41.58" peak_dB="-32.87" startTime="PT145.62S" endTime="PT146.63S" />
+                <Segment spkr="SIL" average_dB="-55.96" peak_dB="-52.51" startTime="PT146.63S" endTime="PT147.56S" />
+            </Pause>
+            <Conversation num="3" type="AMM" average_dB="-35.96" peak_dB="-22.68" turnTaking="0" femaleAdultInitiation="0" maleAdultInitiation="0" childResponse="0" childInitiation="0" femaleAdultResponse="0" maleAdultResponse="0" adultWordCnt="18.77" femaleAdultWordCnt="0.00" maleAdultWordCnt="18.77" femaleAdultUttCnt="0" maleAdultUttCnt="0" femaleAdultUttLen="P0.00S" maleAdultUttLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" childUttCnt="0" childUttLen="P0.00S" childCryVfxLen="P0.00S" TVF="P1.01S" FAN="P0.00S" OLN="P0.00S" SIL="P1.81S" NOF="P0.00S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P0.00S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P4.95S" FAF="P0.00S" startTime="PT147.56S" endTime="PT155.33S">
+                <Segment spkr="MAN" average_dB="-34.57" peak_dB="-22.68" conversationInfo="|BC|3|0|0|AMM|NT|FI|" maleAdultWordCnt="8.17" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT147.56S" endTime="PT149.86S" />
+                <Segment spkr="TVF" average_dB="-38.30" peak_dB="-33.93" startTime="PT149.86S" endTime="PT150.87S" />
+                <Segment spkr="SIL" average_dB="-50.77" peak_dB="-39.29" startTime="PT150.87S" endTime="PT152.68S" />
+                <Segment spkr="MAN" average_dB="-34.22" peak_dB="-27.29" conversationInfo="|EC|3|0|0|AMM|NT|FH|" maleAdultWordCnt="10.60" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT152.68S" endTime="PT155.33S" />
+            </Conversation>
+            <Pause num="4" average_dB="-42.35" peak_dB="-30.19" childCryVfxLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" TVF="P0.00S" FAN="P0.00S" OLN="P0.00S" SIL="P6.23S" NOF="P0.00S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P1.46S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P0.00S" FAF="P0.00S" startTime="PT155.33S" endTime="PT163.02S">
+                <Segment spkr="SIL" average_dB="-55.05" peak_dB="-41.27" startTime="PT155.33S" endTime="PT160.58S" />
+                <Segment spkr="MAF" average_dB="-36.21" peak_dB="-30.19" startTime="PT160.58S" endTime="PT162.04S" />
+                <Segment spkr="SIL" average_dB="-40.79" peak_dB="-35.23" startTime="PT162.04S" endTime="PT163.02S" />
+            </Pause>
+            <Conversation num="4" type="AMM" average_dB="-34.42" peak_dB="-21.46" turnTaking="0" femaleAdultInitiation="0" maleAdultInitiation="0" childResponse="0" childInitiation="0" femaleAdultResponse="0" maleAdultResponse="0" adultWordCnt="17.89" femaleAdultWordCnt="0.00" maleAdultWordCnt="17.89" femaleAdultUttCnt="0" maleAdultUttCnt="0" femaleAdultUttLen="P0.00S" maleAdultUttLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" childUttCnt="0" childUttLen="P0.00S" childCryVfxLen="P0.00S" TVF="P0.00S" FAN="P0.00S" OLN="P0.00S" SIL="P1.15S" NOF="P0.00S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P0.00S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P4.30S" FAF="P0.00S" startTime="PT163.02S" endTime="PT168.47S">
+                <Segment spkr="MAN" average_dB="-32.72" peak_dB="-21.46" conversationInfo="|BC|4|0|0|AMM|NT|FI|" maleAdultWordCnt="12.36" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT163.02S" endTime="PT166.28S" />
+                <Segment spkr="SIL" average_dB="-52.61" peak_dB="-43.56" startTime="PT166.28S" endTime="PT167.43S" />
+                <Segment spkr="MAN" average_dB="-36.71" peak_dB="-31.37" conversationInfo="|EC|4|0|0|AMM|NT|FH|" maleAdultWordCnt="5.53" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT167.43S" endTime="PT168.47S" />
+            </Conversation>
+            <Pause num="5" average_dB="-48.82" peak_dB="-32.86" childCryVfxLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" TVF="P3.44S" FAN="P0.00S" OLN="P0.00S" SIL="P5.47S" NOF="P0.00S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P0.00S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P0.00S" FAF="P0.00S" startTime="PT168.47S" endTime="PT177.38S">
+                <Segment spkr="TVF" average_dB="-42.71" peak_dB="-32.86" startTime="PT168.47S" endTime="PT170.30S" />
+                <Segment spkr="SIL" average_dB="-54.56" peak_dB="-36.78" startTime="PT170.30S" endTime="PT173.88S" />
+                <Segment spkr="SIL" average_dB="-57.43" peak_dB="-52.91" startTime="PT173.88S" endTime="PT174.90S" />
+                <Segment spkr="SIL" average_dB="-57.41" peak_dB="-53.63" startTime="PT174.90S" endTime="PT175.77S" />
+                <Segment spkr="TVF" average_dB="-57.56" peak_dB="-53.16" startTime="PT175.77S" endTime="PT177.38S" />
+            </Pause>
+            <Conversation num="5" type="AMM" average_dB="-40.00" peak_dB="-30.07" turnTaking="0" femaleAdultInitiation="0" maleAdultInitiation="0" childResponse="0" childInitiation="0" femaleAdultResponse="0" maleAdultResponse="0" adultWordCnt="7.11" femaleAdultWordCnt="0.00" maleAdultWordCnt="7.11" femaleAdultUttCnt="0" maleAdultUttCnt="0" femaleAdultUttLen="P0.00S" maleAdultUttLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" childUttCnt="0" childUttLen="P0.00S" childCryVfxLen="P0.00S" TVF="P0.00S" FAN="P0.00S" OLN="P0.00S" SIL="P1.52S" NOF="P0.00S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P0.00S" TVN="P2.46S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P2.85S" FAF="P0.00S" startTime="PT177.38S" endTime="PT184.21S">
+                <Segment spkr="MAN" average_dB="-37.48" peak_dB="-31.88" conversationInfo="|BC|5|0|0|AMM|NT|FI|" maleAdultWordCnt="3.61" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT177.38S" endTime="PT178.62S" />
+                <Segment spkr="TVN" average_dB="-41.97" peak_dB="-32.14" startTime="PT178.62S" endTime="PT181.08S" />
+                <Segment spkr="SIL" average_dB="-52.46" peak_dB="-35.06" startTime="PT181.08S" endTime="PT182.60S" />
+                <Segment spkr="MAN" average_dB="-37.35" peak_dB="-30.07" conversationInfo="|EC|5|0|0|AMM|NT|FH|" maleAdultWordCnt="3.50" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT182.60S" endTime="PT184.21S" />
+            </Conversation>
+            <Pause num="6" average_dB="-46.65" peak_dB="-28.95" childCryVfxLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" TVF="P1.26S" FAN="P0.00S" OLN="P0.00S" SIL="P5.11S" NOF="P0.00S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P1.66S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P0.00S" FAF="P0.00S" startTime="PT184.21S" endTime="PT192.24S">
+                <Segment spkr="SIL" average_dB="-52.98" peak_dB="-37.13" startTime="PT184.21S" endTime="PT188.15S" />
+                <Segment spkr="MAF" average_dB="-40.82" peak_dB="-28.95" startTime="PT188.15S" endTime="PT189.81S" />
+                <Segment spkr="SIL" average_dB="-53.94" peak_dB="-47.01" startTime="PT189.81S" endTime="PT190.98S" />
+                <Segment spkr="TVF" average_dB="-50.26" peak_dB="-43.50" startTime="PT190.98S" endTime="PT192.24S" />
+            </Pause>
+            <Conversation num="6" type="AMM" average_dB="-33.56" peak_dB="-26.70" turnTaking="0" femaleAdultInitiation="0" maleAdultInitiation="0" childResponse="0" childInitiation="0" femaleAdultResponse="0" maleAdultResponse="0" adultWordCnt="0.81" femaleAdultWordCnt="0.00" maleAdultWordCnt="0.81" femaleAdultUttCnt="0" maleAdultUttCnt="0" femaleAdultUttLen="P0.00S" maleAdultUttLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" childUttCnt="0" childUttLen="P0.00S" childCryVfxLen="P0.00S" TVF="P0.00S" FAN="P0.00S" OLN="P0.00S" SIL="P0.00S" NOF="P0.00S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P0.00S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P0.77S" FAF="P0.00S" startTime="PT192.24S" endTime="PT193.01S">
+                <Segment spkr="MAN" average_dB="-33.56" peak_dB="-26.70" conversationInfo="|EC|6|0|0|AMM|NT|FI|" maleAdultWordCnt="0.81" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT192.24S" endTime="PT193.01S" />
+            </Conversation>
+            <Pause num="7" average_dB="-42.25" peak_dB="-30.23" childCryVfxLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" TVF="P4.30S" FAN="P0.00S" OLN="P0.00S" SIL="P5.32S" NOF="P0.00S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P1.89S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P0.00S" FAF="P0.00S" startTime="PT193.01S" endTime="PT204.52S">
+                <Segment spkr="SIL" average_dB="-53.03" peak_dB="-38.76" startTime="PT193.01S" endTime="PT194.16S" />
+                <Segment spkr="TVF" average_dB="-38.93" peak_dB="-33.39" startTime="PT194.16S" endTime="PT196.01S" />
+                <Segment spkr="MAF" average_dB="-36.54" peak_dB="-30.23" startTime="PT196.01S" endTime="PT197.90S" />
+                <Segment spkr="SIL" average_dB="-54.35" peak_dB="-41.42" startTime="PT197.90S" endTime="PT199.17S" />
+                <Segment spkr="TVF" average_dB="-55.43" peak_dB="-41.25" startTime="PT199.17S" endTime="PT200.62S" />
+                <Segment spkr="SIL" average_dB="-52.49" peak_dB="-38.07" startTime="PT200.62S" endTime="PT201.60S" />
+                <Segment spkr="TVF" average_dB="-57.60" peak_dB="-53.08" startTime="PT201.60S" endTime="PT202.60S" />
+                <Segment spkr="SIL" average_dB="-54.52" peak_dB="-38.89" startTime="PT202.60S" endTime="PT204.52S" />
+            </Pause>
+            <Conversation num="7" type="AMM" average_dB="-36.94" peak_dB="-24.74" turnTaking="0" femaleAdultInitiation="0" maleAdultInitiation="0" childResponse="0" childInitiation="0" femaleAdultResponse="0" maleAdultResponse="0" adultWordCnt="39.83" femaleAdultWordCnt="0.00" maleAdultWordCnt="39.83" femaleAdultUttCnt="0" maleAdultUttCnt="0" femaleAdultUttLen="P0.00S" maleAdultUttLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" childUttCnt="0" childUttLen="P0.00S" childCryVfxLen="P0.00S" TVF="P6.57S" FAN="P0.00S" OLN="P0.00S" SIL="P5.01S" NOF="P0.00S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P0.00S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P12.47S" FAF="P0.00S" startTime="PT204.52S" endTime="PT228.57S">
+                <Segment spkr="MAN" average_dB="-32.42" peak_dB="-26.79" conversationInfo="|BC|7|0|0|AMM|NT|FI|" maleAdultWordCnt="1.36" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT204.52S" endTime="PT205.61S" />
+                <Segment spkr="TVF" average_dB="-41.90" peak_dB="-29.62" startTime="PT205.61S" endTime="PT206.61S" />
+                <Segment spkr="MAN" average_dB="-35.32" peak_dB="-30.13" conversationInfo="|RC|7|0|0|AMM|NT|FH|" maleAdultWordCnt="3.66" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT206.61S" endTime="PT207.63S" />
+                <Segment spkr="TVF" average_dB="-45.77" peak_dB="-36.66" startTime="PT207.63S" endTime="PT209.04S" />
+                <Segment spkr="SIL" average_dB="-53.38" peak_dB="-34.78" startTime="PT209.04S" endTime="PT210.90S" />
+                <Segment spkr="MAN" average_dB="-32.63" peak_dB="-25.03" conversationInfo="|RC|7|0|0|AMM|NT|FH|" maleAdultWordCnt="10.84" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT210.90S" endTime="PT213.91S" />
+                <Segment spkr="SIL" average_dB="-43.13" peak_dB="-30.22" startTime="PT213.91S" endTime="PT214.71S" />
+                <Segment spkr="MAN" average_dB="-34.67" peak_dB="-24.74" conversationInfo="|RC|7|0|0|AMM|NT|FH|" maleAdultWordCnt="1.25" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT214.71S" endTime="PT215.71S" />
+                <Segment spkr="SIL" average_dB="-45.70" peak_dB="-33.30" startTime="PT215.71S" endTime="PT216.51S" />
+                <Segment spkr="MAN" average_dB="-35.34" peak_dB="-30.17" conversationInfo="|RC|7|0|0|AMM|NT|FH|" maleAdultWordCnt="7.64" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT216.51S" endTime="PT218.60S" />
+                <Segment spkr="TVF" average_dB="-55.00" peak_dB="-41.59" startTime="PT218.60S" endTime="PT219.82S" />
+                <Segment spkr="MAN" average_dB="-35.80" peak_dB="-28.21" conversationInfo="|RC|7|0|0|AMM|NT|FH|" maleAdultWordCnt="11.54" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT219.82S" endTime="PT222.56S" />
+                <Segment spkr="TVF" average_dB="-54.55" peak_dB="-42.84" startTime="PT222.56S" endTime="PT223.66S" />
+                <Segment spkr="SIL" average_dB="-52.01" peak_dB="-38.49" startTime="PT223.66S" endTime="PT225.21S" />
+                <Segment spkr="TVF" average_dB="-55.97" peak_dB="-41.91" startTime="PT225.21S" endTime="PT227.05S" />
+                <Segment spkr="MAN" average_dB="-35.50" peak_dB="-27.00" conversationInfo="|EC|7|0|0|AMM|NT|FH|" maleAdultWordCnt="3.54" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT227.05S" endTime="PT228.57S" />
+            </Conversation>
+            <Pause num="8" average_dB="-42.93" peak_dB="-28.84" childCryVfxLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" TVF="P3.14S" FAN="P0.00S" OLN="P0.00S" SIL="P6.80S" NOF="P0.00S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P2.00S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P0.00S" FAF="P0.00S" startTime="PT228.57S" endTime="PT240.51S">
+                <Segment spkr="SIL" average_dB="-50.86" peak_dB="-38.44" startTime="PT228.57S" endTime="PT229.56S" />
+                <Segment spkr="MAF" average_dB="-36.06" peak_dB="-28.84" startTime="PT229.56S" endTime="PT230.56S" />
+                <Segment spkr="SIL" average_dB="-54.12" peak_dB="-45.96" startTime="PT230.56S" endTime="PT231.36S" />
+                <Segment spkr="TVF" average_dB="-51.84" peak_dB="-39.90" startTime="PT231.36S" endTime="PT232.36S" />
+                <Segment spkr="SIL" average_dB="-51.13" peak_dB="-38.08" startTime="PT232.36S" endTime="PT235.90S" />
+                <Segment spkr="MAF" average_dB="-35.83" peak_dB="-31.13" startTime="PT235.90S" endTime="PT236.90S" />
+                <Segment spkr="SIL" average_dB="-51.92" peak_dB="-38.22" startTime="PT236.90S" endTime="PT238.37S" />
+                <Segment spkr="TVF" average_dB="-46.74" peak_dB="-35.63" startTime="PT238.37S" endTime="PT240.51S" />
+            </Pause>
+            <Conversation num="8" type="AMM" average_dB="-37.23" peak_dB="-30.72" turnTaking="0" femaleAdultInitiation="0" maleAdultInitiation="0" childResponse="0" childInitiation="0" femaleAdultResponse="0" maleAdultResponse="0" adultWordCnt="3.86" femaleAdultWordCnt="0.00" maleAdultWordCnt="3.86" femaleAdultUttCnt="0" maleAdultUttCnt="0" femaleAdultUttLen="P0.00S" maleAdultUttLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" childUttCnt="0" childUttLen="P0.00S" childCryVfxLen="P0.00S" TVF="P0.00S" FAN="P0.00S" OLN="P0.00S" SIL="P0.00S" NOF="P0.00S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P0.00S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P1.00S" FAF="P0.00S" startTime="PT240.51S" endTime="PT241.51S">
+                <Segment spkr="MAN" average_dB="-37.23" peak_dB="-30.72" conversationInfo="|EC|8|0|0|AMM|NT|FI|" maleAdultWordCnt="3.86" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT240.51S" endTime="PT241.51S" />
+            </Conversation>
+            <Pause num="9" average_dB="-54.74" peak_dB="-39.44" childCryVfxLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" TVF="P2.83S" FAN="P0.00S" OLN="P0.00S" SIL="P2.70S" NOF="P0.00S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P0.00S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P0.00S" FAF="P0.00S" startTime="PT241.51S" endTime="PT247.04S">
+                <Segment spkr="TVF" average_dB="-57.41" peak_dB="-51.40" startTime="PT241.51S" endTime="PT243.30S" />
+                <Segment spkr="SIL" average_dB="-53.51" peak_dB="-39.44" startTime="PT243.30S" endTime="PT244.98S" />
+                <Segment spkr="TVF" average_dB="-54.06" peak_dB="-40.62" startTime="PT244.98S" endTime="PT246.02S" />
+                <Segment spkr="SIL" average_dB="-54.36" peak_dB="-48.23" startTime="PT246.02S" endTime="PT247.04S" />
+            </Pause>
+            <Conversation num="9" type="AMM" average_dB="-35.66" peak_dB="-25.80" turnTaking="0" femaleAdultInitiation="0" maleAdultInitiation="0" childResponse="0" childInitiation="0" femaleAdultResponse="0" maleAdultResponse="0" adultWordCnt="18.51" femaleAdultWordCnt="0.00" maleAdultWordCnt="18.51" femaleAdultUttCnt="0" maleAdultUttCnt="0" femaleAdultUttLen="P0.00S" maleAdultUttLen="P0.00S" femaleAdultNonSpeechLen="P1.02S" maleAdultNonSpeechLen="P0.00S" childUttCnt="0" childUttLen="P0.00S" childCryVfxLen="P0.00S" TVF="P1.67S" FAN="P1.02S" OLN="P0.00S" SIL="P2.05S" NOF="P0.00S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P0.00S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P6.00S" FAF="P0.00S" startTime="PT247.04S" endTime="PT257.78S">
+                <Segment spkr="MAN" average_dB="-31.81" peak_dB="-25.80" conversationInfo="|BC|9|0|0|AMM|NT|FI|" maleAdultWordCnt="9.31" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT247.04S" endTime="PT249.67S" />
+                <Segment spkr="FAN" average_dB="-37.63" peak_dB="-30.34" femaleAdultWordCnt="0.00" femaleAdultNonSpeechLen="P1.02S" femaleAdultUttCnt="0" femaleAdultUttLen="P0.00S" startTime="PT249.67S" endTime="PT250.69S" />
+                <Segment spkr="MAN" average_dB="-37.08" peak_dB="-31.88" conversationInfo="|RC|9|0|0|AMM|NT|FH|" maleAdultWordCnt="4.78" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT250.69S" endTime="PT251.80S" />
+                <Segment spkr="TVF" average_dB="-39.42" peak_dB="-29.64" startTime="PT251.80S" endTime="PT253.47S" />
+                <Segment spkr="SIL" average_dB="-54.53" peak_dB="-45.59" startTime="PT253.47S" endTime="PT254.34S" />
+                <Segment spkr="MAN" average_dB="-36.33" peak_dB="-26.10" conversationInfo="|RC|9|0|0|AMM|NT|FH|" maleAdultWordCnt="0.64" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT254.34S" endTime="PT255.60S" />
+                <Segment spkr="SIL" average_dB="-51.09" peak_dB="-40.58" startTime="PT255.60S" endTime="PT256.78S" />
+                <Segment spkr="MAN" average_dB="-35.35" peak_dB="-29.66" conversationInfo="|EC|9|0|0|AMM|NT|FH|" maleAdultWordCnt="3.78" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT256.78S" endTime="PT257.78S" />
+            </Conversation>
+            <Pause num="10" average_dB="-49.47" peak_dB="-29.41" childCryVfxLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" TVF="P13.09S" FAN="P0.00S" OLN="P0.00S" SIL="P12.15S" NOF="P0.00S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P0.00S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P0.00S" FAF="P0.60S" startTime="PT257.78S" endTime="PT283.62S">
+                <Segment spkr="TVF" average_dB="-41.93" peak_dB="-33.46" startTime="PT257.78S" endTime="PT258.79S" />
+                <Segment spkr="SIL" average_dB="-55.50" peak_dB="-43.62" startTime="PT258.79S" endTime="PT259.63S" />
+                <Segment spkr="TVF" average_dB="-52.99" peak_dB="-39.50" startTime="PT259.63S" endTime="PT260.79S" />
+                <Segment spkr="SIL" average_dB="-56.94" peak_dB="-48.76" startTime="PT260.79S" endTime="PT261.61S" />
+                <Segment spkr="SIL" average_dB="-58.64" peak_dB="-52.20" startTime="PT261.61S" endTime="PT262.66S" />
+                <Segment spkr="SIL" average_dB="-57.19" peak_dB="-51.82" startTime="PT262.66S" endTime="PT263.64S" />
+                <Segment spkr="TVF" average_dB="-50.29" peak_dB="-34.60" startTime="PT263.64S" endTime="PT265.56S" />
+                <Segment spkr="SIL" average_dB="-51.23" peak_dB="-39.14" startTime="PT265.56S" endTime="PT267.09S" />
+                <Segment spkr="TVF" average_dB="-54.56" peak_dB="-46.40" startTime="PT267.09S" endTime="PT268.68S" />
+                <Segment spkr="SIL" average_dB="-45.03" peak_dB="-34.21" startTime="PT268.68S" endTime="PT269.66S" />
+                <Segment spkr="FAF" average_dB="-42.74" peak_dB="-34.85" startTime="PT269.66S" endTime="PT270.26S" />
+                <Segment spkr="SIL" average_dB="-50.73" peak_dB="-39.67" startTime="PT270.26S" endTime="PT271.40S" />
+                <Segment spkr="TVF" average_dB="-57.71" peak_dB="-52.94" startTime="PT271.40S" endTime="PT272.83S" />
+                <Segment spkr="SIL" average_dB="-57.06" peak_dB="-47.62" startTime="PT272.83S" endTime="PT274.08S" />
+                <Segment spkr="TVF" average_dB="-57.33" peak_dB="-50.12" startTime="PT274.08S" endTime="PT276.15S" />
+                <Segment spkr="SIL" average_dB="-51.81" peak_dB="-32.90" startTime="PT276.15S" endTime="PT277.75S" />
+                <Segment spkr="TVF" average_dB="-57.26" peak_dB="-49.01" startTime="PT277.75S" endTime="PT279.70S" />
+                <Segment spkr="SIL" average_dB="-44.34" peak_dB="-29.41" startTime="PT279.70S" endTime="PT281.66S" />
+                <Segment spkr="TVF" average_dB="-52.28" peak_dB="-41.10" startTime="PT281.66S" endTime="PT283.62S" />
+            </Pause>
+            <Conversation num="10" type="AMM" average_dB="-34.74" peak_dB="-23.57" turnTaking="0" femaleAdultInitiation="0" maleAdultInitiation="0" childResponse="0" childInitiation="0" femaleAdultResponse="0" maleAdultResponse="0" adultWordCnt="17.51" femaleAdultWordCnt="0.00" maleAdultWordCnt="17.51" femaleAdultUttCnt="0" maleAdultUttCnt="0" femaleAdultUttLen="P0.00S" maleAdultUttLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" childUttCnt="0" childUttLen="P0.00S" childCryVfxLen="P0.00S" TVF="P0.00S" FAN="P0.00S" OLN="P0.00S" SIL="P0.94S" NOF="P0.00S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P0.00S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P4.80S" FAF="P0.00S" startTime="PT283.62S" endTime="PT289.36S">
+                <Segment spkr="MAN" average_dB="-33.62" peak_dB="-23.57" conversationInfo="|BC|10|0|0|AMM|NT|FI|" maleAdultWordCnt="12.76" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT283.62S" endTime="PT287.24S" />
+                <Segment spkr="SIL" average_dB="-56.46" peak_dB="-47.80" startTime="PT287.24S" endTime="PT288.18S" />
+                <Segment spkr="MAN" average_dB="-35.27" peak_dB="-28.89" conversationInfo="|EC|10|0|0|AMM|NT|FH|" maleAdultWordCnt="4.75" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT288.18S" endTime="PT289.36S" />
+            </Conversation>
+            <Pause num="11" average_dB="-33.43" peak_dB="-6.72" childCryVfxLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" TVF="P9.84S" FAN="P0.00S" OLN="P0.00S" SIL="P6.74S" NOF="P3.61S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P4.30S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P0.00S" FAF="P0.00S" startTime="PT289.36S" endTime="PT313.85S">
+                <Segment spkr="MAF" average_dB="-37.96" peak_dB="-32.45" startTime="PT289.36S" endTime="PT290.84S" />
+                <Segment spkr="SIL" average_dB="-55.62" peak_dB="-45.33" startTime="PT290.84S" endTime="PT291.70S" />
+                <Segment spkr="TVF" average_dB="-37.93" peak_dB="-31.88" startTime="PT291.70S" endTime="PT293.42S" />
+                <Segment spkr="SIL" average_dB="-57.86" peak_dB="-53.30" startTime="PT293.42S" endTime="PT294.26S" />
+                <Segment spkr="TVF" average_dB="-56.27" peak_dB="-42.64" startTime="PT294.26S" endTime="PT298.59S" />
+                <Segment spkr="SIL" average_dB="-57.48" peak_dB="-53.26" startTime="PT298.59S" endTime="PT299.42S" />
+                <Segment spkr="TVF" average_dB="-55.60" peak_dB="-50.67" startTime="PT299.42S" endTime="PT300.42S" />
+                <Segment spkr="SIL" average_dB="-53.65" peak_dB="-40.13" startTime="PT300.42S" endTime="PT301.22S" />
+                <Segment spkr="MAF" average_dB="-30.13" peak_dB="-16.45" startTime="PT301.22S" endTime="PT302.22S" />
+                <Segment spkr="NOF" average_dB="-31.16" peak_dB="-21.22" startTime="PT302.22S" endTime="PT303.33S" />
+                <Segment spkr="MAF" average_dB="-38.23" peak_dB="-30.60" startTime="PT303.33S" endTime="PT305.15S" />
+                <Segment spkr="TVF" average_dB="-56.64" peak_dB="-52.54" startTime="PT305.15S" endTime="PT306.46S" />
+                <Segment spkr="NOF" average_dB="-31.94" peak_dB="-20.20" startTime="PT306.46S" endTime="PT307.99S" />
+                <Segment spkr="SIL" average_dB="-50.03" peak_dB="-33.63" startTime="PT307.99S" endTime="PT308.80S" />
+                <Segment spkr="NOF" average_dB="-21.27" peak_dB="-6.72" startTime="PT308.80S" endTime="PT309.77S" />
+                <Segment spkr="SIL" average_dB="-40.26" peak_dB="-21.09" startTime="PT309.77S" endTime="PT312.37S" />
+                <Segment spkr="TVF" average_dB="-54.99" peak_dB="-48.00" recordingInfo="|ER|1|" startTime="PT312.37S" endTime="PT313.85S" />
+            </Pause>
+        </Recording>
+        <Recording num="2" startClockTime="2017-11-07T10:25:22Z" endClockTime="2017-11-07T10:31:01Z" startTime="PT313.85S" endTime="PT653.17S">
+            <Pause num="12" average_dB="-20.55" peak_dB="-5.51" childCryVfxLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" TVF="P0.00S" FAN="P0.00S" OLN="P0.00S" SIL="P0.00S" NOF="P1.21S" CXF="P0.00S" OLF="P0.80S" CHF="P0.00S" MAF="P0.00S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P0.00S" FAF="P0.00S" startTime="PT313.85S" endTime="PT315.86S">
+                <Segment spkr="NOF" average_dB="-27.90" peak_dB="-11.36" recordingInfo="|BR|2|20171107|102522|" startTime="PT313.85S" endTime="PT315.06S" />
+                <Segment spkr="OLF" average_dB="-17.06" peak_dB="-5.51" startTime="PT315.06S" endTime="PT315.86S" />
+            </Pause>
+            <Conversation num="11" type="AMM" average_dB="-31.44" peak_dB="-17.28" turnTaking="0" femaleAdultInitiation="0" maleAdultInitiation="0" childResponse="0" childInitiation="0" femaleAdultResponse="0" maleAdultResponse="0" adultWordCnt="45.16" femaleAdultWordCnt="0.00" maleAdultWordCnt="45.16" femaleAdultUttCnt="0" maleAdultUttCnt="0" femaleAdultUttLen="P0.00S" maleAdultUttLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" childUttCnt="0" childUttLen="P0.00S" childCryVfxLen="P0.00S" TVF="P2.08S" FAN="P0.00S" OLN="P0.00S" SIL="P0.80S" NOF="P0.81S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P0.00S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P12.13S" FAF="P0.00S" startTime="PT315.86S" endTime="PT331.68S">
+                <Segment spkr="MAN" average_dB="-26.05" peak_dB="-17.28" conversationInfo="|BC|11|0|0|AMM|NT|FI|" maleAdultWordCnt="9.91" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT315.86S" endTime="PT318.87S" />
+                <Segment spkr="NOF" average_dB="-41.42" peak_dB="-32.59" startTime="PT318.87S" endTime="PT319.68S" />
+                <Segment spkr="MAN" average_dB="-33.24" peak_dB="-22.98" conversationInfo="|RC|11|0|0|AMM|NT|FH|" maleAdultWordCnt="18.73" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT319.68S" endTime="PT324.87S" />
+                <Segment spkr="SIL" average_dB="-55.05" peak_dB="-44.11" startTime="PT324.87S" endTime="PT325.67S" />
+                <Segment spkr="TVF" average_dB="-42.41" peak_dB="-30.44" startTime="PT325.67S" endTime="PT327.75S" />
+                <Segment spkr="MAN" average_dB="-34.98" peak_dB="-24.84" conversationInfo="|EC|11|0|0|AMM|NT|FH|" maleAdultWordCnt="16.52" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT327.75S" endTime="PT331.68S" />
+            </Conversation>
+            <Pause num="13" average_dB="-40.94" peak_dB="-27.76" childCryVfxLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" TVF="P3.58S" FAN="P0.00S" OLN="P0.00S" SIL="P3.52S" NOF="P0.00S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P2.88S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P0.00S" FAF="P0.00S" startTime="PT331.68S" endTime="PT341.66S">
+                <Segment spkr="SIL" average_dB="-47.79" peak_dB="-36.90" startTime="PT331.68S" endTime="PT332.54S" />
+                <Segment spkr="MAF" average_dB="-36.11" peak_dB="-27.76" startTime="PT332.54S" endTime="PT333.69S" />
+                <Segment spkr="SIL" average_dB="-55.14" peak_dB="-42.12" startTime="PT333.69S" endTime="PT335.35S" />
+                <Segment spkr="TVF" average_dB="-38.78" peak_dB="-32.46" startTime="PT335.35S" endTime="PT336.40S" />
+                <Segment spkr="MAF" average_dB="-37.48" peak_dB="-30.33" startTime="PT336.40S" endTime="PT338.13S" />
+                <Segment spkr="TVF" average_dB="-43.03" peak_dB="-33.81" startTime="PT338.13S" endTime="PT339.14S" />
+                <Segment spkr="SIL" average_dB="-56.37" peak_dB="-42.87" startTime="PT339.14S" endTime="PT340.14S" />
+                <Segment spkr="TVF" average_dB="-57.29" peak_dB="-52.43" startTime="PT340.14S" endTime="PT341.66S" />
+            </Pause>
+            <Conversation num="12" type="AMM" average_dB="-34.75" peak_dB="-22.67" turnTaking="0" femaleAdultInitiation="0" maleAdultInitiation="0" childResponse="0" childInitiation="0" femaleAdultResponse="0" maleAdultResponse="0" adultWordCnt="13.95" femaleAdultWordCnt="0.00" maleAdultWordCnt="13.95" femaleAdultUttCnt="0" maleAdultUttCnt="0" femaleAdultUttLen="P0.00S" maleAdultUttLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" childUttCnt="0" childUttLen="P0.00S" childCryVfxLen="P0.00S" TVF="P0.00S" FAN="P0.00S" OLN="P0.00S" SIL="P1.19S" NOF="P0.00S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P0.00S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P4.12S" FAF="P0.00S" startTime="PT341.66S" endTime="PT346.97S">
+                <Segment spkr="MAN" average_dB="-34.03" peak_dB="-22.67" conversationInfo="|BC|12|0|0|AMM|NT|FI|" maleAdultWordCnt="7.44" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT341.66S" endTime="PT343.98S" />
+                <Segment spkr="SIL" average_dB="-53.04" peak_dB="-44.08" startTime="PT343.98S" endTime="PT345.17S" />
+                <Segment spkr="MAN" average_dB="-33.23" peak_dB="-24.92" conversationInfo="|EC|12|0|0|AMM|NT|FH|" maleAdultWordCnt="6.51" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT345.17S" endTime="PT346.97S" />
+            </Conversation>
+            <Pause num="14" average_dB="-38.68" peak_dB="-25.95" childCryVfxLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" TVF="P2.36S" FAN="P0.00S" OLN="P0.00S" SIL="P0.88S" NOF="P0.00S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P1.72S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P0.00S" FAF="P1.00S" startTime="PT346.97S" endTime="PT352.93S">
+                <Segment spkr="SIL" average_dB="-47.87" peak_dB="-35.27" startTime="PT346.97S" endTime="PT347.85S" />
+                <Segment spkr="MAF" average_dB="-36.06" peak_dB="-25.95" startTime="PT347.85S" endTime="PT349.57S" />
+                <Segment spkr="TVF" average_dB="-39.16" peak_dB="-29.79" startTime="PT349.57S" endTime="PT351.93S" />
+                <Segment spkr="FAF" average_dB="-40.92" peak_dB="-30.85" startTime="PT351.93S" endTime="PT352.93S" />
+            </Pause>
+            <Conversation num="13" type="AMM" average_dB="-36.73" peak_dB="-28.60" turnTaking="0" femaleAdultInitiation="0" maleAdultInitiation="0" childResponse="0" childInitiation="0" femaleAdultResponse="0" maleAdultResponse="0" adultWordCnt="0.90" femaleAdultWordCnt="0.00" maleAdultWordCnt="0.90" femaleAdultUttCnt="0" maleAdultUttCnt="0" femaleAdultUttLen="P0.00S" maleAdultUttLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" childUttCnt="0" childUttLen="P0.00S" childCryVfxLen="P0.00S" TVF="P0.00S" FAN="P0.00S" OLN="P0.00S" SIL="P0.00S" NOF="P0.00S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P0.00S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P1.44S" FAF="P0.00S" startTime="PT352.93S" endTime="PT354.37S">
+                <Segment spkr="MAN" average_dB="-36.73" peak_dB="-28.60" conversationInfo="|EC|13|0|0|AMM|NT|FI|" maleAdultWordCnt="0.90" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT352.93S" endTime="PT354.37S" />
+            </Conversation>
+            <Pause num="15" average_dB="-41.48" peak_dB="-25.69" childCryVfxLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" TVF="P5.34S" FAN="P0.00S" OLN="P0.00S" SIL="P5.45S" NOF="P0.00S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P7.11S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P0.00S" FAF="P0.00S" startTime="PT354.37S" endTime="PT372.27S">
+                <Segment spkr="SIL" average_dB="-54.71" peak_dB="-47.37" startTime="PT354.37S" endTime="PT355.17S" />
+                <Segment spkr="TVF" average_dB="-42.47" peak_dB="-35.01" startTime="PT355.17S" endTime="PT356.19S" />
+                <Segment spkr="SIL" average_dB="-41.99" peak_dB="-25.69" startTime="PT356.19S" endTime="PT357.02S" />
+                <Segment spkr="MAF" average_dB="-38.69" peak_dB="-31.18" startTime="PT357.02S" endTime="PT358.07S" />
+                <Segment spkr="TVF" average_dB="-44.96" peak_dB="-36.96" startTime="PT358.07S" endTime="PT359.57S" />
+                <Segment spkr="SIL" average_dB="-46.50" peak_dB="-33.36" startTime="PT359.57S" endTime="PT360.55S" />
+                <Segment spkr="MAF" average_dB="-41.35" peak_dB="-32.58" startTime="PT360.55S" endTime="PT361.69S" />
+                <Segment spkr="SIL" average_dB="-50.72" peak_dB="-40.15" startTime="PT361.69S" endTime="PT362.49S" />
+                <Segment spkr="MAF" average_dB="-41.14" peak_dB="-34.57" startTime="PT362.49S" endTime="PT364.09S" />
+                <Segment spkr="SIL" average_dB="-46.81" peak_dB="-31.90" startTime="PT364.09S" endTime="PT366.13S" />
+                <Segment spkr="MAF" average_dB="-37.13" peak_dB="-26.53" startTime="PT366.13S" endTime="PT368.14S" />
+                <Segment spkr="TVF" average_dB="-42.27" peak_dB="-27.52" startTime="PT368.14S" endTime="PT369.96S" />
+                <Segment spkr="MAF" average_dB="-39.34" peak_dB="-27.96" startTime="PT369.96S" endTime="PT371.27S" />
+                <Segment spkr="TVF" average_dB="-43.81" peak_dB="-31.69" startTime="PT371.27S" endTime="PT372.27S" />
+            </Pause>
+            <Conversation num="14" type="AMM" average_dB="-33.97" peak_dB="-24.36" turnTaking="0" femaleAdultInitiation="0" maleAdultInitiation="0" childResponse="0" childInitiation="0" femaleAdultResponse="0" maleAdultResponse="0" adultWordCnt="0.60" femaleAdultWordCnt="0.00" maleAdultWordCnt="0.60" femaleAdultUttCnt="0" maleAdultUttCnt="0" femaleAdultUttLen="P0.00S" maleAdultUttLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" childUttCnt="0" childUttLen="P0.00S" childCryVfxLen="P0.00S" TVF="P0.00S" FAN="P0.00S" OLN="P0.00S" SIL="P0.00S" NOF="P0.00S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P0.00S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P1.00S" FAF="P0.00S" startTime="PT372.27S" endTime="PT373.27S">
+                <Segment spkr="MAN" average_dB="-33.97" peak_dB="-24.36" conversationInfo="|EC|14|0|0|AMM|NT|FI|" maleAdultWordCnt="0.60" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT372.27S" endTime="PT373.27S" />
+            </Conversation>
+            <Pause num="16" average_dB="-40.13" peak_dB="-23.87" childCryVfxLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" TVF="P2.00S" FAN="P0.00S" OLN="P0.00S" SIL="P5.80S" NOF="P0.00S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P6.21S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P0.00S" FAF="P0.00S" startTime="PT373.27S" endTime="PT387.28S">
+                <Segment spkr="SIL" average_dB="-39.65" peak_dB="-23.87" startTime="PT373.27S" endTime="PT374.10S" />
+                <Segment spkr="MAF" average_dB="-37.12" peak_dB="-27.43" startTime="PT374.10S" endTime="PT375.22S" />
+                <Segment spkr="SIL" average_dB="-41.25" peak_dB="-28.09" startTime="PT375.22S" endTime="PT376.02S" />
+                <Segment spkr="MAF" average_dB="-40.32" peak_dB="-33.60" startTime="PT376.02S" endTime="PT377.36S" />
+                <Segment spkr="SIL" average_dB="-40.87" peak_dB="-27.68" startTime="PT377.36S" endTime="PT378.22S" />
+                <Segment spkr="MAF" average_dB="-37.73" peak_dB="-25.34" startTime="PT378.22S" endTime="PT379.60S" />
+                <Segment spkr="TVF" average_dB="-40.21" peak_dB="-33.42" startTime="PT379.60S" endTime="PT380.60S" />
+                <Segment spkr="SIL" average_dB="-42.79" peak_dB="-27.29" startTime="PT380.60S" endTime="PT381.40S" />
+                <Segment spkr="TVF" average_dB="-48.23" peak_dB="-33.88" startTime="PT381.40S" endTime="PT382.40S" />
+                <Segment spkr="MAF" average_dB="-40.00" peak_dB="-31.65" startTime="PT382.40S" endTime="PT383.40S" />
+                <Segment spkr="SIL" average_dB="-43.22" peak_dB="-25.89" startTime="PT383.40S" endTime="PT384.47S" />
+                <Segment spkr="MAF" average_dB="-37.93" peak_dB="-26.33" startTime="PT384.47S" endTime="PT385.84S" />
+                <Segment spkr="SIL" average_dB="-45.37" peak_dB="-30.59" startTime="PT385.84S" endTime="PT387.28S" />
+            </Pause>
+            <Conversation num="15" type="AMM" average_dB="-32.73" peak_dB="-26.38" turnTaking="0" femaleAdultInitiation="0" maleAdultInitiation="0" childResponse="0" childInitiation="0" femaleAdultResponse="0" maleAdultResponse="0" adultWordCnt="3.72" femaleAdultWordCnt="0.00" maleAdultWordCnt="3.72" femaleAdultUttCnt="0" maleAdultUttCnt="0" femaleAdultUttLen="P0.00S" maleAdultUttLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" childUttCnt="0" childUttLen="P0.00S" childCryVfxLen="P0.00S" TVF="P0.00S" FAN="P0.00S" OLN="P0.00S" SIL="P0.00S" NOF="P0.00S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P0.00S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P1.36S" FAF="P0.00S" startTime="PT387.28S" endTime="PT388.64S">
+                <Segment spkr="MAN" average_dB="-32.73" peak_dB="-26.38" conversationInfo="|EC|15|0|0|AMM|NT|FI|" maleAdultWordCnt="3.72" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT387.28S" endTime="PT388.64S" />
+            </Conversation>
+            <Pause num="17" average_dB="-50.31" peak_dB="-28.19" childCryVfxLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" TVF="P2.06S" FAN="P0.00S" OLN="P0.00S" SIL="P3.10S" NOF="P0.00S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P0.00S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P0.00S" FAF="P0.00S" startTime="PT388.64S" endTime="PT393.80S">
+                <Segment spkr="TVF" average_dB="-55.80" peak_dB="-48.49" startTime="PT388.64S" endTime="PT389.68S" />
+                <Segment spkr="SIL" average_dB="-55.74" peak_dB="-42.66" startTime="PT389.68S" endTime="PT391.54S" />
+                <Segment spkr="TVF" average_dB="-57.19" peak_dB="-52.26" startTime="PT391.54S" endTime="PT392.56S" />
+                <Segment spkr="SIL" average_dB="-45.09" peak_dB="-28.19" startTime="PT392.56S" endTime="PT393.80S" />
+            </Pause>
+            <Conversation num="16" type="AMM" average_dB="-36.13" peak_dB="-30.30" turnTaking="0" femaleAdultInitiation="0" maleAdultInitiation="0" childResponse="0" childInitiation="0" femaleAdultResponse="0" maleAdultResponse="0" adultWordCnt="3.90" femaleAdultWordCnt="0.00" maleAdultWordCnt="3.90" femaleAdultUttCnt="0" maleAdultUttCnt="0" femaleAdultUttLen="P0.00S" maleAdultUttLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" childUttCnt="0" childUttLen="P0.00S" childCryVfxLen="P0.00S" TVF="P0.00S" FAN="P0.00S" OLN="P0.00S" SIL="P0.00S" NOF="P0.00S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P0.00S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P1.00S" FAF="P0.00S" startTime="PT393.80S" endTime="PT394.80S">
+                <Segment spkr="MAN" average_dB="-36.13" peak_dB="-30.30" conversationInfo="|EC|16|0|0|AMM|NT|FI|" maleAdultWordCnt="3.90" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT393.80S" endTime="PT394.80S" />
+            </Conversation>
+            <Pause num="18" average_dB="-41.68" peak_dB="-22.14" childCryVfxLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P2.00S" TVF="P23.49S" FAN="P0.00S" OLN="P0.00S" SIL="P17.16S" NOF="P2.09S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P12.66S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P2.00S" FAF="P2.41S" startTime="PT394.80S" endTime="PT454.61S">
+                <Segment spkr="TVF" average_dB="-38.81" peak_dB="-34.35" startTime="PT394.80S" endTime="PT395.80S" />
+                <Segment spkr="SIL" average_dB="-55.42" peak_dB="-48.11" startTime="PT395.80S" endTime="PT396.70S" />
+                <Segment spkr="TVF" average_dB="-38.86" peak_dB="-30.28" startTime="PT396.70S" endTime="PT398.93S" />
+                <Segment spkr="SIL" average_dB="-44.29" peak_dB="-33.24" startTime="PT398.93S" endTime="PT400.15S" />
+                <Segment spkr="TVF" average_dB="-45.50" peak_dB="-31.58" startTime="PT400.15S" endTime="PT401.83S" />
+                <Segment spkr="SIL" average_dB="-49.75" peak_dB="-34.25" startTime="PT401.83S" endTime="PT402.64S" />
+                <Segment spkr="TVF" average_dB="-51.98" peak_dB="-36.70" startTime="PT402.64S" endTime="PT403.70S" />
+                <Segment spkr="SIL" average_dB="-50.34" peak_dB="-36.80" startTime="PT403.70S" endTime="PT404.54S" />
+                <Segment spkr="MAF" average_dB="-39.79" peak_dB="-28.23" startTime="PT404.54S" endTime="PT407.11S" />
+                <Segment spkr="TVF" average_dB="-40.03" peak_dB="-28.96" startTime="PT407.11S" endTime="PT408.21S" />
+                <Segment spkr="SIL" average_dB="-47.63" peak_dB="-33.57" startTime="PT408.21S" endTime="PT409.21S" />
+                <Segment spkr="TVF" average_dB="-46.45" peak_dB="-35.16" startTime="PT409.21S" endTime="PT411.82S" />
+                <Segment spkr="SIL" average_dB="-45.33" peak_dB="-35.80" startTime="PT411.82S" endTime="PT412.64S" />
+                <Segment spkr="TVF" average_dB="-40.90" peak_dB="-32.55" startTime="PT412.64S" endTime="PT414.04S" />
+                <Segment spkr="SIL" average_dB="-56.96" peak_dB="-52.69" startTime="PT414.04S" endTime="PT415.26S" />
+                <Segment spkr="TVF" average_dB="-44.69" peak_dB="-34.78" startTime="PT415.26S" endTime="PT416.96S" />
+                <Segment spkr="SIL" average_dB="-46.70" peak_dB="-34.52" startTime="PT416.96S" endTime="PT419.26S" />
+                <Segment spkr="TVF" average_dB="-38.06" peak_dB="-30.10" startTime="PT419.26S" endTime="PT420.74S" />
+                <Segment spkr="MAF" average_dB="-38.70" peak_dB="-22.14" startTime="PT420.74S" endTime="PT423.05S" />
+                <Segment spkr="SIL" average_dB="-48.86" peak_dB="-37.78" startTime="PT423.05S" endTime="PT424.37S" />
+                <Segment spkr="MAF" average_dB="-39.06" peak_dB="-28.67" startTime="PT424.37S" endTime="PT427.62S" />
+                <Segment spkr="SIL" average_dB="-48.24" peak_dB="-34.00" startTime="PT427.62S" endTime="PT428.42S" />
+                <Segment spkr="MAN" average_dB="-40.60" peak_dB="-32.04" maleAdultWordCnt="0" maleAdultNonSpeechLen="P1S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT428.42S" endTime="PT429.42S" />
+                <Segment spkr="MAF" average_dB="-42.55" peak_dB="-32.81" startTime="PT429.42S" endTime="PT430.42S" />
+                <Segment spkr="TVF" average_dB="-48.56" peak_dB="-34.72" startTime="PT430.42S" endTime="PT432.03S" />
+                <Segment spkr="FAF" average_dB="-45.35" peak_dB="-32.94" startTime="PT432.03S" endTime="PT432.73S" />
+                <Segment spkr="SIL" average_dB="-45.30" peak_dB="-32.54" startTime="PT432.73S" endTime="PT434.32S" />
+                <Segment spkr="MAN" average_dB="-36.10" peak_dB="-27.60" maleAdultWordCnt="0" maleAdultNonSpeechLen="P1S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT434.32S" endTime="PT435.32S" />
+                <Segment spkr="SIL" average_dB="-43.26" peak_dB="-26.71" startTime="PT435.32S" endTime="PT436.35S" />
+                <Segment spkr="MAF" average_dB="-39.28" peak_dB="-30.99" startTime="PT436.35S" endTime="PT437.82S" />
+                <Segment spkr="TVF" average_dB="-40.66" peak_dB="-31.99" startTime="PT437.82S" endTime="PT439.16S" />
+                <Segment spkr="MAF" average_dB="-39.39" peak_dB="-32.95" startTime="PT439.16S" endTime="PT440.21S" />
+                <Segment spkr="TVF" average_dB="-45.01" peak_dB="-36.77" startTime="PT440.21S" endTime="PT441.48S" />
+                <Segment spkr="FAF" average_dB="-37.33" peak_dB="-25.11" startTime="PT441.48S" endTime="PT442.59S" />
+                <Segment spkr="SIL" average_dB="-58.29" peak_dB="-54.31" startTime="PT442.59S" endTime="PT443.50S" />
+                <Segment spkr="TVF" average_dB="-41.86" peak_dB="-30.27" startTime="PT443.50S" endTime="PT446.16S" />
+                <Segment spkr="FAF" average_dB="-38.60" peak_dB="-28.71" startTime="PT446.16S" endTime="PT446.76S" />
+                <Segment spkr="TVF" average_dB="-43.04" peak_dB="-30.17" startTime="PT446.76S" endTime="PT448.11S" />
+                <Segment spkr="MAF" average_dB="-39.98" peak_dB="-31.37" startTime="PT448.11S" endTime="PT449.12S" />
+                <Segment spkr="NOF" average_dB="-42.89" peak_dB="-29.63" startTime="PT449.12S" endTime="PT450.41S" />
+                <Segment spkr="SIL" average_dB="-51.66" peak_dB="-42.02" startTime="PT450.41S" endTime="PT451.21S" />
+                <Segment spkr="NOF" average_dB="-47.37" peak_dB="-43.21" startTime="PT451.21S" endTime="PT452.01S" />
+                <Segment spkr="SIL" average_dB="-40.73" peak_dB="-26.59" startTime="PT452.01S" endTime="PT452.81S" />
+                <Segment spkr="TVF" average_dB="-41.34" peak_dB="-30.77" startTime="PT452.81S" endTime="PT453.81S" />
+                <Segment spkr="SIL" average_dB="-47.85" peak_dB="-35.98" startTime="PT453.81S" endTime="PT454.61S" />
+            </Pause>
+            <Conversation num="17" type="AMM" average_dB="-34.91" peak_dB="-27.62" turnTaking="0" femaleAdultInitiation="0" maleAdultInitiation="0" childResponse="0" childInitiation="0" femaleAdultResponse="0" maleAdultResponse="0" adultWordCnt="5.28" femaleAdultWordCnt="0.00" maleAdultWordCnt="5.28" femaleAdultUttCnt="0" maleAdultUttCnt="0" femaleAdultUttLen="P0.00S" maleAdultUttLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" childUttCnt="0" childUttLen="P0.00S" childCryVfxLen="P0.00S" TVF="P0.00S" FAN="P0.00S" OLN="P0.00S" SIL="P0.00S" NOF="P0.00S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P0.00S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P1.68S" FAF="P0.00S" startTime="PT454.61S" endTime="PT456.29S">
+                <Segment spkr="MAN" average_dB="-34.91" peak_dB="-27.62" conversationInfo="|EC|17|0|0|AMM|NT|FI|" maleAdultWordCnt="5.28" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT454.61S" endTime="PT456.29S" />
+            </Conversation>
+            <Pause num="19" average_dB="-40.76" peak_dB="-24.76" childCryVfxLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P1.19S" TVF="P4.47S" FAN="P0.00S" OLN="P0.00S" SIL="P5.82S" NOF="P0.88S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P0.00S" TVN="P1.44S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P1.19S" FAF="P0.00S" startTime="PT456.29S" endTime="PT470.09S">
+                <Segment spkr="TVF" average_dB="-34.55" peak_dB="-31.00" startTime="PT456.29S" endTime="PT457.29S" />
+                <Segment spkr="MAN" average_dB="-34.34" peak_dB="-24.76" maleAdultWordCnt="0" maleAdultNonSpeechLen="P1.19S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT457.29S" endTime="PT458.48S" />
+                <Segment spkr="SIL" average_dB="-40.24" peak_dB="-28.65" startTime="PT458.48S" endTime="PT459.29S" />
+                <Segment spkr="TVN" average_dB="-39.22" peak_dB="-31.30" startTime="PT459.29S" endTime="PT460.73S" />
+                <Segment spkr="SIL" average_dB="-43.83" peak_dB="-31.41" startTime="PT460.73S" endTime="PT461.60S" />
+                <Segment spkr="NOF" average_dB="-41.86" peak_dB="-25.54" startTime="PT461.60S" endTime="PT462.48S" />
+                <Segment spkr="SIL" average_dB="-54.80" peak_dB="-43.04" startTime="PT462.48S" endTime="PT464.69S" />
+                <Segment spkr="TVF" average_dB="-56.84" peak_dB="-50.37" startTime="PT464.69S" endTime="PT465.78S" />
+                <Segment spkr="SIL" average_dB="-51.93" peak_dB="-37.77" startTime="PT465.78S" endTime="PT466.60S" />
+                <Segment spkr="TVF" average_dB="-54.35" peak_dB="-43.75" startTime="PT466.60S" endTime="PT468.98S" />
+                <Segment spkr="SIL" average_dB="-54.07" peak_dB="-47.31" startTime="PT468.98S" endTime="PT470.09S" />
+            </Pause>
+            <Conversation num="18" type="AMM" average_dB="-36.89" peak_dB="-28.02" turnTaking="0" femaleAdultInitiation="0" maleAdultInitiation="0" childResponse="0" childInitiation="0" femaleAdultResponse="0" maleAdultResponse="0" adultWordCnt="7.89" femaleAdultWordCnt="0.00" maleAdultWordCnt="7.89" femaleAdultUttCnt="0" maleAdultUttCnt="0" femaleAdultUttLen="P0.00S" maleAdultUttLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" childUttCnt="0" childUttLen="P0.00S" childCryVfxLen="P0.00S" TVF="P1.04S" FAN="P0.00S" OLN="P0.00S" SIL="P0.81S" NOF="P0.00S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P1.00S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P3.17S" FAF="P0.00S" startTime="PT470.09S" endTime="PT476.11S">
+                <Segment spkr="MAN" average_dB="-34.17" peak_dB="-29.15" conversationInfo="|BC|18|0|0|AMM|NT|FI|" maleAdultWordCnt="5.49" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT470.09S" endTime="PT471.95S" />
+                <Segment spkr="SIL" average_dB="-46.26" peak_dB="-33.64" startTime="PT471.95S" endTime="PT472.76S" />
+                <Segment spkr="MAF" average_dB="-36.42" peak_dB="-30.90" startTime="PT472.76S" endTime="PT473.76S" />
+                <Segment spkr="TVF" average_dB="-47.38" peak_dB="-36.08" startTime="PT473.76S" endTime="PT474.80S" />
+                <Segment spkr="MAN" average_dB="-37.14" peak_dB="-28.02" conversationInfo="|EC|18|0|0|AMM|NT|FH|" maleAdultWordCnt="2.40" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT474.80S" endTime="PT476.11S" />
+            </Conversation>
+            <Pause num="20" average_dB="-41.39" peak_dB="-25.91" childCryVfxLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" TVF="P11.08S" FAN="P0.00S" OLN="P0.00S" SIL="P7.16S" NOF="P0.00S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P6.61S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P0.00S" FAF="P0.00S" startTime="PT476.11S" endTime="PT500.96S">
+                <Segment spkr="SIL" average_dB="-46.53" peak_dB="-35.35" startTime="PT476.11S" endTime="PT477.11S" />
+                <Segment spkr="MAF" average_dB="-40.07" peak_dB="-31.67" startTime="PT477.11S" endTime="PT479.14S" />
+                <Segment spkr="SIL" average_dB="-42.69" peak_dB="-31.65" startTime="PT479.14S" endTime="PT479.94S" />
+                <Segment spkr="MAF" average_dB="-38.72" peak_dB="-31.03" startTime="PT479.94S" endTime="PT481.21S" />
+                <Segment spkr="SIL" average_dB="-56.74" peak_dB="-47.54" startTime="PT481.21S" endTime="PT482.07S" />
+                <Segment spkr="MAF" average_dB="-37.18" peak_dB="-25.91" startTime="PT482.07S" endTime="PT483.83S" />
+                <Segment spkr="TVF" average_dB="-40.35" peak_dB="-33.18" startTime="PT483.83S" endTime="PT485.14S" />
+                <Segment spkr="MAF" average_dB="-40.12" peak_dB="-28.40" startTime="PT485.14S" endTime="PT486.69S" />
+                <Segment spkr="TVF" average_dB="-39.45" peak_dB="-26.95" startTime="PT486.69S" endTime="PT490.06S" />
+                <Segment spkr="SIL" average_dB="-51.95" peak_dB="-35.95" startTime="PT490.06S" endTime="PT491.12S" />
+                <Segment spkr="TVF" average_dB="-56.60" peak_dB="-43.95" startTime="PT491.12S" endTime="PT495.11S" />
+                <Segment spkr="SIL" average_dB="-49.86" peak_dB="-32.99" startTime="PT495.11S" endTime="PT498.55S" />
+                <Segment spkr="TVF" average_dB="-38.69" peak_dB="-30.65" startTime="PT498.55S" endTime="PT500.96S" />
+            </Pause>
+            <Conversation num="19" type="AMM" average_dB="-38.33" peak_dB="-25.94" turnTaking="0" femaleAdultInitiation="0" maleAdultInitiation="0" childResponse="0" childInitiation="0" femaleAdultResponse="0" maleAdultResponse="0" adultWordCnt="11.91" femaleAdultWordCnt="0.00" maleAdultWordCnt="11.91" femaleAdultUttCnt="0" maleAdultUttCnt="0" femaleAdultUttLen="P0.00S" maleAdultUttLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" childUttCnt="0" childUttLen="P0.00S" childCryVfxLen="P0.00S" TVF="P1.11S" FAN="P0.00S" OLN="P0.00S" SIL="P0.80S" NOF="P0.83S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P0.00S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P3.59S" FAF="P1.02S" startTime="PT500.96S" endTime="PT508.31S">
+                <Segment spkr="MAN" average_dB="-35.35" peak_dB="-27.07" conversationInfo="|BC|19|0|0|AMM|NT|FI|" maleAdultWordCnt="8.59" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT500.96S" endTime="PT503.09S" />
+                <Segment spkr="NOF" average_dB="-41.09" peak_dB="-29.68" startTime="PT503.09S" endTime="PT503.92S" />
+                <Segment spkr="TVF" average_dB="-41.10" peak_dB="-25.94" startTime="PT503.92S" endTime="PT505.03S" />
+                <Segment spkr="SIL" average_dB="-46.52" peak_dB="-30.57" startTime="PT505.03S" endTime="PT505.83S" />
+                <Segment spkr="FAF" average_dB="-43.57" peak_dB="-31.92" startTime="PT505.83S" endTime="PT506.85S" />
+                <Segment spkr="MAN" average_dB="-37.76" peak_dB="-31.36" conversationInfo="|EC|19|0|0|AMM|NT|FH|" maleAdultWordCnt="3.32" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT506.85S" endTime="PT508.31S" />
+            </Conversation>
+            <Pause num="21" average_dB="-46.70" peak_dB="-24.35" childCryVfxLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" TVF="P12.79S" FAN="P0.00S" OLN="P0.00S" SIL="P14.23S" NOF="P0.00S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P2.43S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P0.00S" FAF="P0.00S" startTime="PT508.31S" endTime="PT537.76S">
+                <Segment spkr="SIL" average_dB="-50.78" peak_dB="-42.40" startTime="PT508.31S" endTime="PT509.55S" />
+                <Segment spkr="MAF" average_dB="-40.04" peak_dB="-33.76" startTime="PT509.55S" endTime="PT510.71S" />
+                <Segment spkr="SIL" average_dB="-47.17" peak_dB="-34.74" startTime="PT510.71S" endTime="PT512.90S" />
+                <Segment spkr="TVF" average_dB="-57.56" peak_dB="-51.99" startTime="PT512.90S" endTime="PT514.06S" />
+                <Segment spkr="SIL" average_dB="-51.65" peak_dB="-36.07" startTime="PT514.06S" endTime="PT517.16S" />
+                <Segment spkr="TVF" average_dB="-47.71" peak_dB="-33.18" startTime="PT517.16S" endTime="PT518.19S" />
+                <Segment spkr="SIL" average_dB="-39.58" peak_dB="-24.35" startTime="PT518.19S" endTime="PT519.03S" />
+                <Segment spkr="MAF" average_dB="-37.77" peak_dB="-31.83" startTime="PT519.03S" endTime="PT520.30S" />
+                <Segment spkr="TVF" average_dB="-46.50" peak_dB="-35.72" startTime="PT520.30S" endTime="PT523.18S" />
+                <Segment spkr="SIL" average_dB="-53.32" peak_dB="-41.80" startTime="PT523.18S" endTime="PT523.98S" />
+                <Segment spkr="TVF" average_dB="-57.18" peak_dB="-50.54" startTime="PT523.98S" endTime="PT525.83S" />
+                <Segment spkr="SIL" average_dB="-57.67" peak_dB="-53.35" startTime="PT525.83S" endTime="PT526.67S" />
+                <Segment spkr="TVF" average_dB="-56.64" peak_dB="-46.77" startTime="PT526.67S" endTime="PT529.12S" />
+                <Segment spkr="SIL" average_dB="-54.52" peak_dB="-43.21" startTime="PT529.12S" endTime="PT529.93S" />
+                <Segment spkr="TVF" average_dB="-56.53" peak_dB="-48.58" startTime="PT529.93S" endTime="PT531.18S" />
+                <Segment spkr="SIL" average_dB="-52.00" peak_dB="-37.58" startTime="PT531.18S" endTime="PT531.99S" />
+                <Segment spkr="TVF" average_dB="-56.67" peak_dB="-51.20" startTime="PT531.99S" endTime="PT534.16S" />
+                <Segment spkr="SIL" average_dB="-52.07" peak_dB="-33.80" startTime="PT534.16S" endTime="PT537.76S" />
+            </Pause>
+            <Conversation num="20" type="AMM" average_dB="-32.93" peak_dB="-20.77" turnTaking="0" femaleAdultInitiation="0" maleAdultInitiation="0" childResponse="0" childInitiation="0" femaleAdultResponse="0" maleAdultResponse="0" adultWordCnt="35.27" femaleAdultWordCnt="0.00" maleAdultWordCnt="35.27" femaleAdultUttCnt="0" maleAdultUttCnt="0" femaleAdultUttLen="P0.00S" maleAdultUttLen="P0.00S" femaleAdultNonSpeechLen="P0.62S" maleAdultNonSpeechLen="P0.00S" childUttCnt="0" childUttLen="P0.00S" childCryVfxLen="P0.00S" TVF="P0.00S" FAN="P0.62S" OLN="P0.00S" SIL="P0.88S" NOF="P0.00S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P0.00S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P8.87S" FAF="P0.00S" startTime="PT537.76S" endTime="PT548.13S">
+                <Segment spkr="MAN" average_dB="-31.63" peak_dB="-25.53" conversationInfo="|BC|20|0|0|AMM|NT|FI|" maleAdultWordCnt="9.21" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT537.76S" endTime="PT539.60S" />
+                <Segment spkr="FAN" average_dB="-33.07" peak_dB="-30.87" femaleAdultWordCnt="0.00" femaleAdultNonSpeechLen="P0.62S" femaleAdultUttCnt="0" femaleAdultUttLen="P0.00S" startTime="PT539.60S" endTime="PT540.22S" />
+                <Segment spkr="MAN" average_dB="-31.95" peak_dB="-20.77" conversationInfo="|RC|20|0|0|AMM|NT|FH|" maleAdultWordCnt="17.08" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT540.22S" endTime="PT544.83S" />
+                <Segment spkr="SIL" average_dB="-50.47" peak_dB="-36.96" startTime="PT544.83S" endTime="PT545.71S" />
+                <Segment spkr="MAN" average_dB="-35.04" peak_dB="-28.04" conversationInfo="|EC|20|0|0|AMM|NT|FH|" maleAdultWordCnt="8.98" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT545.71S" endTime="PT548.13S" />
+            </Conversation>
+            <Pause num="22" average_dB="-38.62" peak_dB="-25.69" childCryVfxLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" TVF="P4.09S" FAN="P0.00S" OLN="P0.00S" SIL="P2.63S" NOF="P0.00S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P3.72S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P0.00S" FAF="P0.00S" startTime="PT548.13S" endTime="PT558.57S">
+                <Segment spkr="SIL" average_dB="-56.97" peak_dB="-53.94" startTime="PT548.13S" endTime="PT548.98S" />
+                <Segment spkr="TVF" average_dB="-39.41" peak_dB="-32.47" startTime="PT548.98S" endTime="PT550.89S" />
+                <Segment spkr="MAF" average_dB="-35.42" peak_dB="-25.69" startTime="PT550.89S" endTime="PT554.61S" />
+                <Segment spkr="SIL" average_dB="-51.44" peak_dB="-34.27" startTime="PT554.61S" endTime="PT555.56S" />
+                <Segment spkr="TVF" average_dB="-39.03" peak_dB="-32.89" startTime="PT555.56S" endTime="PT556.63S" />
+                <Segment spkr="SIL" average_dB="-55.37" peak_dB="-43.90" startTime="PT556.63S" endTime="PT557.46S" />
+                <Segment spkr="TVF" average_dB="-56.18" peak_dB="-50.81" startTime="PT557.46S" endTime="PT558.57S" />
+            </Pause>
+            <Conversation num="21" type="AMM" average_dB="-37.78" peak_dB="-22.91" turnTaking="0" femaleAdultInitiation="0" maleAdultInitiation="0" childResponse="0" childInitiation="0" femaleAdultResponse="0" maleAdultResponse="0" adultWordCnt="7.18" femaleAdultWordCnt="0.00" maleAdultWordCnt="7.18" femaleAdultUttCnt="0" maleAdultUttCnt="0" femaleAdultUttLen="P0.00S" maleAdultUttLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" childUttCnt="0" childUttLen="P0.00S" childCryVfxLen="P0.00S" TVF="P0.00S" FAN="P0.00S" OLN="P0.00S" SIL="P1.66S" NOF="P0.00S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P0.00S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P2.54S" FAF="P0.00S" startTime="PT558.57S" endTime="PT562.77S">
+                <Segment spkr="MAN" average_dB="-37.49" peak_dB="-29.79" conversationInfo="|BC|21|0|0|AMM|NT|FI|" maleAdultWordCnt="3.69" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT558.57S" endTime="PT560.11S" />
+                <Segment spkr="SIL" average_dB="-50.70" peak_dB="-39.33" startTime="PT560.11S" endTime="PT561.77S" />
+                <Segment spkr="MAN" average_dB="-33.85" peak_dB="-22.91" conversationInfo="|EC|21|0|0|AMM|NT|FH|" maleAdultWordCnt="3.49" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT561.77S" endTime="PT562.77S" />
+            </Conversation>
+            <Pause num="23" average_dB="-39.79" peak_dB="-11.37" childCryVfxLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P1.01S" TVF="P56.80S" FAN="P0.00S" OLN="P0.00S" SIL="P14.93S" NOF="P2.11S" CXF="P1.00S" OLF="P1.87S" CHF="P0.00S" MAF="P12.68S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P1.01S" FAF="P0.00S" startTime="PT562.77S" endTime="PT653.17S">
+                <Segment spkr="SIL" average_dB="-54.23" peak_dB="-40.72" startTime="PT562.77S" endTime="PT564.75S" />
+                <Segment spkr="MAF" average_dB="-34.92" peak_dB="-27.59" startTime="PT564.75S" endTime="PT565.98S" />
+                <Segment spkr="TVF" average_dB="-34.69" peak_dB="-29.34" startTime="PT565.98S" endTime="PT566.98S" />
+                <Segment spkr="MAF" average_dB="-39.34" peak_dB="-30.19" startTime="PT566.98S" endTime="PT568.05S" />
+                <Segment spkr="TVF" average_dB="-49.53" peak_dB="-34.51" startTime="PT568.05S" endTime="PT571.25S" />
+                <Segment spkr="MAF" average_dB="-43.86" peak_dB="-32.37" startTime="PT571.25S" endTime="PT572.31S" />
+                <Segment spkr="SIL" average_dB="-49.86" peak_dB="-30.86" startTime="PT572.31S" endTime="PT575.41S" />
+                <Segment spkr="TVF" average_dB="-55.02" peak_dB="-40.87" startTime="PT575.41S" endTime="PT579.32S" />
+                <Segment spkr="SIL" average_dB="-55.87" peak_dB="-50.60" startTime="PT579.32S" endTime="PT580.42S" />
+                <Segment spkr="TVF" average_dB="-53.65" peak_dB="-43.38" startTime="PT580.42S" endTime="PT582.03S" />
+                <Segment spkr="NOF" average_dB="-42.36" peak_dB="-27.66" startTime="PT582.03S" endTime="PT583.54S" />
+                <Segment spkr="MAF" average_dB="-39.15" peak_dB="-32.06" startTime="PT583.54S" endTime="PT584.76S" />
+                <Segment spkr="TVF" average_dB="-49.63" peak_dB="-34.80" startTime="PT584.76S" endTime="PT588.27S" />
+                <Segment spkr="MAF" average_dB="-33.51" peak_dB="-19.82" startTime="PT588.27S" endTime="PT591.25S" />
+                <Segment spkr="SIL" average_dB="-37.00" peak_dB="-23.55" startTime="PT591.25S" endTime="PT592.05S" />
+                <Segment spkr="MAF" average_dB="-36.97" peak_dB="-29.57" startTime="PT592.05S" endTime="PT593.07S" />
+                <Segment spkr="TVF" average_dB="-53.19" peak_dB="-42.32" startTime="PT593.07S" endTime="PT594.09S" />
+                <Segment spkr="MAF" average_dB="-35.20" peak_dB="-28.86" startTime="PT594.09S" endTime="PT595.11S" />
+                <Segment spkr="TVF" average_dB="-53.31" peak_dB="-39.52" startTime="PT595.11S" endTime="PT599.39S" />
+                <Segment spkr="MAF" average_dB="-37.79" peak_dB="-22.65" startTime="PT599.39S" endTime="PT600.46S" />
+                <Segment spkr="TVF" average_dB="-51.19" peak_dB="-44.04" startTime="PT600.46S" endTime="PT601.27S" />
+                <Segment spkr="SIL" average_dB="-50.76" peak_dB="-40.05" startTime="PT601.27S" endTime="PT602.45S" />
+                <Segment spkr="TVF" average_dB="-49.36" peak_dB="-33.92" startTime="PT602.45S" endTime="PT603.47S" />
+                <Segment spkr="SIL" average_dB="-52.71" peak_dB="-43.97" startTime="PT603.47S" endTime="PT604.28S" />
+                <Segment spkr="TVF" average_dB="-52.85" peak_dB="-40.14" startTime="PT604.28S" endTime="PT608.26S" />
+                <Segment spkr="SIL" average_dB="-53.98" peak_dB="-47.79" startTime="PT608.26S" endTime="PT609.06S" />
+                <Segment spkr="MAF" average_dB="-33.73" peak_dB="-28.49" startTime="PT609.06S" endTime="PT610.07S" />
+                <Segment spkr="TVF" average_dB="-45.98" peak_dB="-26.74" startTime="PT610.07S" endTime="PT620.61S" />
+                <Segment spkr="SIL" average_dB="-53.07" peak_dB="-44.38" startTime="PT620.61S" endTime="PT621.44S" />
+                <Segment spkr="TVF" average_dB="-53.69" peak_dB="-45.21" startTime="PT621.44S" endTime="PT622.97S" />
+                <Segment spkr="SIL" average_dB="-52.21" peak_dB="-43.06" startTime="PT622.97S" endTime="PT623.78S" />
+                <Segment spkr="TVF" average_dB="-45.56" peak_dB="-28.22" startTime="PT623.78S" endTime="PT626.39S" />
+                <Segment spkr="MAF" average_dB="-38.46" peak_dB="-26.82" startTime="PT626.39S" endTime="PT627.39S" />
+                <Segment spkr="TVF" average_dB="-43.45" peak_dB="-31.35" startTime="PT627.39S" endTime="PT628.48S" />
+                <Segment spkr="SIL" average_dB="-42.69" peak_dB="-27.45" startTime="PT628.48S" endTime="PT629.52S" />
+                <Segment spkr="TVF" average_dB="-50.18" peak_dB="-38.58" startTime="PT629.52S" endTime="PT630.57S" />
+                <Segment spkr="SIL" average_dB="-50.97" peak_dB="-43.30" startTime="PT630.57S" endTime="PT631.88S" />
+                <Segment spkr="TVF" average_dB="-47.75" peak_dB="-37.27" startTime="PT631.88S" endTime="PT633.25S" />
+                <Segment spkr="SIL" average_dB="-54.80" peak_dB="-46.75" startTime="PT633.25S" endTime="PT634.42S" />
+                <Segment spkr="TVF" average_dB="-55.24" peak_dB="-39.86" startTime="PT634.42S" endTime="PT646.93S" />
+                <Segment spkr="CXF" average_dB="-49.89" peak_dB="-41.60" startTime="PT646.93S" endTime="PT647.93S" />
+                <Segment spkr="OLF" average_dB="-27.67" peak_dB="-11.37" startTime="PT647.93S" endTime="PT649.80S" />
+                <Segment spkr="MAN" average_dB="-29.15" peak_dB="-25.59" maleAdultWordCnt="0" maleAdultNonSpeechLen="P1.01S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT649.80S" endTime="PT650.81S" />
+                <Segment spkr="NOF" average_dB="-33.53" peak_dB="-17.95" startTime="PT650.81S" endTime="PT651.41S" />
+                <Segment spkr="TVF" average_dB="-41.43" peak_dB="-34.86" recordingInfo="|ER|2|" startTime="PT651.41S" endTime="PT653.17S" />
+            </Pause>
+        </Recording>
+        <Recording num="3" startClockTime="2017-11-07T10:33:18Z" endClockTime="2017-11-07T10:38:44Z" startTime="PT653.17S" endTime="PT979.74S">
+            <Pause num="24" average_dB="-28.53" peak_dB="-4.33" childCryVfxLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" TVF="P5.00S" FAN="P0.00S" OLN="P0.00S" SIL="P1.67S" NOF="P1.29S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P4.29S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P0.00S" FAF="P0.00S" startTime="PT653.17S" endTime="PT665.42S">
+                <Segment spkr="NOF" average_dB="-19.45" peak_dB="-4.33" recordingInfo="|BR|3|20171107|103318|" startTime="PT653.17S" endTime="PT654.46S" />
+                <Segment spkr="MAF" average_dB="-30.48" peak_dB="-18.89" startTime="PT654.46S" endTime="PT656.53S" />
+                <Segment spkr="TVF" average_dB="-36.93" peak_dB="-23.66" startTime="PT656.53S" endTime="PT657.59S" />
+                <Segment spkr="MAF" average_dB="-37.39" peak_dB="-23.81" startTime="PT657.59S" endTime="PT659.00S" />
+                <Segment spkr="MAF" average_dB="-36.56" peak_dB="-28.11" startTime="PT659.00S" endTime="PT659.81S" />
+                <Segment spkr="SIL" average_dB="-53.09" peak_dB="-45.88" startTime="PT659.81S" endTime="PT660.62S" />
+                <Segment spkr="TVF" average_dB="-54.80" peak_dB="-43.47" startTime="PT660.62S" endTime="PT662.91S" />
+                <Segment spkr="SIL" average_dB="-47.89" peak_dB="-29.26" startTime="PT662.91S" endTime="PT663.77S" />
+                <Segment spkr="TVF" average_dB="-53.92" peak_dB="-40.67" startTime="PT663.77S" endTime="PT665.42S" />
+            </Pause>
+            <Conversation num="22" type="AMM" average_dB="-30.09" peak_dB="-25.50" turnTaking="0" femaleAdultInitiation="0" maleAdultInitiation="0" childResponse="0" childInitiation="0" femaleAdultResponse="0" maleAdultResponse="0" adultWordCnt="4.62" femaleAdultWordCnt="0.00" maleAdultWordCnt="4.62" femaleAdultUttCnt="0" maleAdultUttCnt="0" femaleAdultUttLen="P0.00S" maleAdultUttLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" childUttCnt="0" childUttLen="P0.00S" childCryVfxLen="P0.00S" TVF="P0.00S" FAN="P0.00S" OLN="P0.00S" SIL="P0.00S" NOF="P0.00S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P0.00S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P1.59S" FAF="P0.00S" startTime="PT665.42S" endTime="PT667.01S">
+                <Segment spkr="MAN" average_dB="-30.09" peak_dB="-25.50" conversationInfo="|EC|22|0|0|AMM|NT|FI|" maleAdultWordCnt="4.62" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT665.42S" endTime="PT667.01S" />
+            </Conversation>
+            <Pause num="25" average_dB="-38.09" peak_dB="-28.24" childCryVfxLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" TVF="P2.11S" FAN="P0.00S" OLN="P0.00S" SIL="P0.92S" NOF="P0.00S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P2.05S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P0.00S" FAF="P0.00S" startTime="PT667.01S" endTime="PT672.09S">
+                <Segment spkr="TVF" average_dB="-33.84" peak_dB="-30.21" startTime="PT667.01S" endTime="PT668.01S" />
+                <Segment spkr="MAF" average_dB="-37.55" peak_dB="-28.24" startTime="PT668.01S" endTime="PT670.06S" />
+                <Segment spkr="TVF" average_dB="-51.73" peak_dB="-39.81" startTime="PT670.06S" endTime="PT671.17S" />
+                <Segment spkr="SIL" average_dB="-51.04" peak_dB="-40.71" startTime="PT671.17S" endTime="PT672.09S" />
+            </Pause>
+            <Conversation num="23" type="AMM" average_dB="-35.74" peak_dB="-24.27" turnTaking="0" femaleAdultInitiation="0" maleAdultInitiation="0" childResponse="0" childInitiation="0" femaleAdultResponse="0" maleAdultResponse="0" adultWordCnt="17.71" femaleAdultWordCnt="0.00" maleAdultWordCnt="17.71" femaleAdultUttCnt="0" maleAdultUttCnt="0" femaleAdultUttLen="P0.00S" maleAdultUttLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" childUttCnt="0" childUttLen="P0.00S" childCryVfxLen="P0.00S" TVF="P2.49S" FAN="P0.00S" OLN="P0.00S" SIL="P0.80S" NOF="P0.00S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P1.09S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P4.84S" FAF="P0.00S" startTime="PT672.09S" endTime="PT681.31S">
+                <Segment spkr="MAN" average_dB="-31.30" peak_dB="-24.27" conversationInfo="|BC|23|0|0|AMM|NT|FI|" maleAdultWordCnt="1.96" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT672.09S" endTime="PT673.28S" />
+                <Segment spkr="SIL" average_dB="-49.66" peak_dB="-39.63" startTime="PT673.28S" endTime="PT674.08S" />
+                <Segment spkr="MAN" average_dB="-34.72" peak_dB="-27.83" conversationInfo="|RC|23|0|0|AMM|NT|FH|" maleAdultWordCnt="9.23" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT674.08S" endTime="PT676.53S" />
+                <Segment spkr="TVF" average_dB="-46.01" peak_dB="-32.05" startTime="PT676.53S" endTime="PT677.85S" />
+                <Segment spkr="MAF" average_dB="-35.16" peak_dB="-29.17" startTime="PT677.85S" endTime="PT678.94S" />
+                <Segment spkr="TVF" average_dB="-46.26" peak_dB="-35.98" startTime="PT678.94S" endTime="PT680.11S" />
+                <Segment spkr="MAN" average_dB="-35.40" peak_dB="-29.68" conversationInfo="|EC|23|0|0|AMM|NT|FH|" maleAdultWordCnt="6.52" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT680.11S" endTime="PT681.31S" />
+            </Conversation>
+            <Pause num="26" average_dB="-38.26" peak_dB="-22.55" childCryVfxLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" TVF="P6.51S" FAN="P0.00S" OLN="P0.00S" SIL="P0.82S" NOF="P0.00S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P5.46S" TVN="P1.75S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P0.00S" FAF="P2.07S" startTime="PT681.31S" endTime="PT697.92S">
+                <Segment spkr="TVF" average_dB="-40.33" peak_dB="-33.15" startTime="PT681.31S" endTime="PT682.83S" />
+                <Segment spkr="MAF" average_dB="-38.22" peak_dB="-29.45" startTime="PT682.83S" endTime="PT684.18S" />
+                <Segment spkr="TVF" average_dB="-51.98" peak_dB="-36.85" startTime="PT684.18S" endTime="PT688.17S" />
+                <Segment spkr="MAF" average_dB="-35.27" peak_dB="-27.80" startTime="PT688.17S" endTime="PT689.38S" />
+                <Segment spkr="TVN" average_dB="-36.11" peak_dB="-28.38" startTime="PT689.38S" endTime="PT691.13S" />
+                <Segment spkr="FAF" average_dB="-41.38" peak_dB="-32.13" startTime="PT691.13S" endTime="PT692.20S" />
+                <Segment spkr="TVF" average_dB="-39.39" peak_dB="-29.08" startTime="PT692.20S" endTime="PT693.20S" />
+                <Segment spkr="SIL" average_dB="-44.01" peak_dB="-32.67" startTime="PT693.20S" endTime="PT694.02S" />
+                <Segment spkr="MAF" average_dB="-34.98" peak_dB="-27.06" startTime="PT694.02S" endTime="PT696.92S" />
+                <Segment spkr="FAF" average_dB="-37.60" peak_dB="-22.55" startTime="PT696.92S" endTime="PT697.92S" />
+            </Pause>
+            <Conversation num="24" type="AMM" average_dB="-35.75" peak_dB="-27.62" turnTaking="0" femaleAdultInitiation="0" maleAdultInitiation="0" childResponse="0" childInitiation="0" femaleAdultResponse="0" maleAdultResponse="0" adultWordCnt="2.45" femaleAdultWordCnt="0.00" maleAdultWordCnt="2.45" femaleAdultUttCnt="0" maleAdultUttCnt="0" femaleAdultUttLen="P0.00S" maleAdultUttLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" childUttCnt="0" childUttLen="P0.00S" childCryVfxLen="P0.00S" TVF="P0.00S" FAN="P0.00S" OLN="P0.00S" SIL="P0.00S" NOF="P0.00S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P0.00S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P1.50S" FAF="P0.00S" startTime="PT697.92S" endTime="PT699.42S">
+                <Segment spkr="MAN" average_dB="-35.75" peak_dB="-27.62" conversationInfo="|EC|24|0|0|AMM|NT|FI|" maleAdultWordCnt="2.45" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT697.92S" endTime="PT699.42S" />
+            </Conversation>
+            <Pause num="27" average_dB="-39.21" peak_dB="-22.18" childCryVfxLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" TVF="P7.83S" FAN="P0.00S" OLN="P0.00S" SIL="P2.79S" NOF="P0.00S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P9.92S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P0.00S" FAF="P4.31S" startTime="PT699.42S" endTime="PT724.27S">
+                <Segment spkr="SIL" average_dB="-36.79" peak_dB="-22.18" startTime="PT699.42S" endTime="PT700.30S" />
+                <Segment spkr="TVF" average_dB="-43.41" peak_dB="-32.63" startTime="PT700.30S" endTime="PT702.61S" />
+                <Segment spkr="MAF" average_dB="-36.10" peak_dB="-23.63" startTime="PT702.61S" endTime="PT706.19S" />
+                <Segment spkr="TVF" average_dB="-41.97" peak_dB="-29.91" startTime="PT706.19S" endTime="PT707.80S" />
+                <Segment spkr="FAF" average_dB="-43.45" peak_dB="-31.82" startTime="PT707.80S" endTime="PT708.99S" />
+                <Segment spkr="MAF" average_dB="-35.51" peak_dB="-25.54" startTime="PT708.99S" endTime="PT709.99S" />
+                <Segment spkr="TVF" average_dB="-45.28" peak_dB="-34.76" startTime="PT709.99S" endTime="PT712.86S" />
+                <Segment spkr="MAF" average_dB="-37.21" peak_dB="-25.68" startTime="PT712.86S" endTime="PT714.08S" />
+                <Segment spkr="SIL" average_dB="-46.33" peak_dB="-35.63" startTime="PT714.08S" endTime="PT714.94S" />
+                <Segment spkr="TVF" average_dB="-45.41" peak_dB="-30.58" startTime="PT714.94S" endTime="PT715.98S" />
+                <Segment spkr="MAF" average_dB="-38.47" peak_dB="-30.28" startTime="PT715.98S" endTime="PT717.10S" />
+                <Segment spkr="FAF" average_dB="-41.41" peak_dB="-28.96" startTime="PT717.10S" endTime="PT718.20S" />
+                <Segment spkr="MAF" average_dB="-38.17" peak_dB="-31.01" startTime="PT718.20S" endTime="PT719.20S" />
+                <Segment spkr="FAF" average_dB="-39.76" peak_dB="-31.19" startTime="PT719.20S" endTime="PT720.21S" />
+                <Segment spkr="MAF" average_dB="-36.16" peak_dB="-26.32" startTime="PT720.21S" endTime="PT721.21S" />
+                <Segment spkr="SIL" average_dB="-48.80" peak_dB="-37.96" startTime="PT721.21S" endTime="PT722.26S" />
+                <Segment spkr="MAF" average_dB="-39.54" peak_dB="-33.10" startTime="PT722.26S" endTime="PT723.26S" />
+                <Segment spkr="FAF" average_dB="-38.49" peak_dB="-23.61" startTime="PT723.26S" endTime="PT724.27S" />
+            </Pause>
+            <Conversation num="25" type="AMM" average_dB="-34.65" peak_dB="-25.61" turnTaking="0" femaleAdultInitiation="0" maleAdultInitiation="0" childResponse="0" childInitiation="0" femaleAdultResponse="0" maleAdultResponse="0" adultWordCnt="3.05" femaleAdultWordCnt="0.00" maleAdultWordCnt="3.05" femaleAdultUttCnt="0" maleAdultUttCnt="0" femaleAdultUttLen="P0.00S" maleAdultUttLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" childUttCnt="0" childUttLen="P0.00S" childCryVfxLen="P0.00S" TVF="P0.00S" FAN="P0.00S" OLN="P0.00S" SIL="P0.00S" NOF="P0.00S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P0.00S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P1.88S" FAF="P0.00S" startTime="PT724.27S" endTime="PT726.15S">
+                <Segment spkr="MAN" average_dB="-34.65" peak_dB="-25.61" conversationInfo="|EC|25|0|0|AMM|NT|FI|" maleAdultWordCnt="3.05" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT724.27S" endTime="PT726.15S" />
+            </Conversation>
+            <Pause num="28" average_dB="-39.70" peak_dB="-21.76" childCryVfxLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P1.02S" TVF="P6.51S" FAN="P0.00S" OLN="P0.00S" SIL="P0.93S" NOF="P0.00S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P4.76S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P1.02S" FAF="P1.30S" startTime="PT726.15S" endTime="PT740.67S">
+                <Segment spkr="TVF" average_dB="-38.92" peak_dB="-23.10" startTime="PT726.15S" endTime="PT727.33S" />
+                <Segment spkr="MAF" average_dB="-36.89" peak_dB="-25.16" startTime="PT727.33S" endTime="PT729.08S" />
+                <Segment spkr="TVF" average_dB="-41.25" peak_dB="-30.43" startTime="PT729.08S" endTime="PT730.20S" />
+                <Segment spkr="MAN" average_dB="-36.06" peak_dB="-31.31" maleAdultWordCnt="0" maleAdultNonSpeechLen="P1.02S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT730.20S" endTime="PT731.22S" />
+                <Segment spkr="TVF" average_dB="-56.70" peak_dB="-52.21" startTime="PT731.22S" endTime="PT732.65S" />
+                <Segment spkr="MAF" average_dB="-39.05" peak_dB="-28.50" startTime="PT732.65S" endTime="PT734.64S" />
+                <Segment spkr="FAF" average_dB="-35.54" peak_dB="-21.76" startTime="PT734.64S" endTime="PT735.94S" />
+                <Segment spkr="TVF" average_dB="-43.51" peak_dB="-29.05" startTime="PT735.94S" endTime="PT737.11S" />
+                <Segment spkr="MAF" average_dB="-45.02" peak_dB="-31.09" startTime="PT737.11S" endTime="PT738.13S" />
+                <Segment spkr="TVF" average_dB="-51.67" peak_dB="-39.78" startTime="PT738.13S" endTime="PT739.74S" />
+                <Segment spkr="SIL" average_dB="-55.93" peak_dB="-43.55" startTime="PT739.74S" endTime="PT740.67S" />
+            </Pause>
+            <Conversation num="26" type="AMM" average_dB="-35.00" peak_dB="-26.43" turnTaking="0" femaleAdultInitiation="0" maleAdultInitiation="0" childResponse="0" childInitiation="0" femaleAdultResponse="0" maleAdultResponse="0" adultWordCnt="6.62" femaleAdultWordCnt="0.00" maleAdultWordCnt="6.62" femaleAdultUttCnt="0" maleAdultUttCnt="0" femaleAdultUttLen="P0.00S" maleAdultUttLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" childUttCnt="0" childUttLen="P0.00S" childCryVfxLen="P0.00S" TVF="P0.00S" FAN="P0.00S" OLN="P0.00S" SIL="P0.00S" NOF="P0.00S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P0.00S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P2.53S" FAF="P0.00S" startTime="PT740.67S" endTime="PT743.20S">
+                <Segment spkr="MAN" average_dB="-35.00" peak_dB="-26.43" conversationInfo="|EC|26|0|0|AMM|NT|FI|" maleAdultWordCnt="6.62" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT740.67S" endTime="PT743.20S" />
+            </Conversation>
+            <Pause num="29" average_dB="-39.71" peak_dB="-20.29" childCryVfxLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" TVF="P11.90S" FAN="P0.00S" OLN="P0.00S" SIL="P3.36S" NOF="P0.00S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P10.06S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P0.00S" FAF="P1.51S" startTime="PT743.20S" endTime="PT770.03S">
+                <Segment spkr="SIL" average_dB="-45.99" peak_dB="-33.54" startTime="PT743.20S" endTime="PT744.00S" />
+                <Segment spkr="MAF" average_dB="-36.90" peak_dB="-29.01" startTime="PT744.00S" endTime="PT745.81S" />
+                <Segment spkr="TVF" average_dB="-48.74" peak_dB="-36.23" startTime="PT745.81S" endTime="PT747.40S" />
+                <Segment spkr="SIL" average_dB="-51.85" peak_dB="-43.53" startTime="PT747.40S" endTime="PT748.25S" />
+                <Segment spkr="TVF" average_dB="-40.04" peak_dB="-31.72" startTime="PT748.25S" endTime="PT749.27S" />
+                <Segment spkr="MAF" average_dB="-39.16" peak_dB="-31.06" startTime="PT749.27S" endTime="PT750.58S" />
+                <Segment spkr="TVF" average_dB="-45.87" peak_dB="-36.87" startTime="PT750.58S" endTime="PT751.91S" />
+                <Segment spkr="MAF" average_dB="-37.76" peak_dB="-30.27" startTime="PT751.91S" endTime="PT753.03S" />
+                <Segment spkr="TVF" average_dB="-44.33" peak_dB="-29.17" startTime="PT753.03S" endTime="PT754.92S" />
+                <Segment spkr="MAF" average_dB="-36.14" peak_dB="-26.42" startTime="PT754.92S" endTime="PT755.92S" />
+                <Segment spkr="MAF" average_dB="-45.85" peak_dB="-35.12" startTime="PT755.92S" endTime="PT757.17S" />
+                <Segment spkr="SIL" average_dB="-44.08" peak_dB="-31.98" startTime="PT757.17S" endTime="PT757.97S" />
+                <Segment spkr="TVF" average_dB="-48.66" peak_dB="-29.61" startTime="PT757.97S" endTime="PT759.63S" />
+                <Segment spkr="MAF" average_dB="-35.42" peak_dB="-24.50" startTime="PT759.63S" endTime="PT762.19S" />
+                <Segment spkr="TVF" average_dB="-39.68" peak_dB="-30.07" startTime="PT762.19S" endTime="PT763.75S" />
+                <Segment spkr="FAF" average_dB="-37.81" peak_dB="-20.29" startTime="PT763.75S" endTime="PT765.26S" />
+                <Segment spkr="TVF" average_dB="-45.11" peak_dB="-35.08" startTime="PT765.26S" endTime="PT766.61S" />
+                <Segment spkr="SIL" average_dB="-49.46" peak_dB="-36.49" startTime="PT766.61S" endTime="PT767.52S" />
+                <Segment spkr="MAF" average_dB="-36.82" peak_dB="-26.90" startTime="PT767.52S" endTime="PT768.53S" />
+                <Segment spkr="TVF" average_dB="-39.81" peak_dB="-32.53" startTime="PT768.53S" endTime="PT770.03S" />
+            </Pause>
+            <Conversation num="27" type="AMM" average_dB="-33.83" peak_dB="-25.10" turnTaking="0" femaleAdultInitiation="0" maleAdultInitiation="0" childResponse="0" childInitiation="0" femaleAdultResponse="0" maleAdultResponse="0" adultWordCnt="6.76" femaleAdultWordCnt="0.26" maleAdultWordCnt="6.50" femaleAdultUttCnt="0" maleAdultUttCnt="0" femaleAdultUttLen="P0.00S" maleAdultUttLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" childUttCnt="0" childUttLen="P0.00S" childCryVfxLen="P0.00S" TVF="P0.00S" FAN="P1.08S" OLN="P0.00S" SIL="P0.00S" NOF="P0.00S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P0.00S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P2.56S" FAF="P0.00S" startTime="PT770.03S" endTime="PT773.67S">
+                <Segment spkr="MAN" average_dB="-34.71" peak_dB="-25.10" conversationInfo="|BC|27|0|0|AMM|NT|FI|" maleAdultWordCnt="6.50" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT770.03S" endTime="PT772.59S" />
+                <Segment spkr="FAN" average_dB="-32.26" peak_dB="-25.50" conversationInfo="|EC|27|0|0|AMM|NT|FI|" femaleAdultWordCnt="0.26" femaleAdultNonSpeechLen="P0.00S" femaleAdultUttCnt="0" femaleAdultUttLen="P0.00S" startTime="PT772.59S" endTime="PT773.67S" />
+            </Conversation>
+            <Pause num="30" average_dB="-39.33" peak_dB="-23.22" childCryVfxLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" TVF="P9.76S" FAN="P0.00S" OLN="P0.00S" SIL="P6.74S" NOF="P0.00S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P13.38S" TVN="P0.00S" NON="P6.05S" CXN="P0.00S" CHN="P0.00S" MAN="P0.00S" FAF="P5.78S" startTime="PT773.67S" endTime="PT815.38S">
+                <Segment spkr="TVF" average_dB="-34.28" peak_dB="-23.22" startTime="PT773.67S" endTime="PT774.67S" />
+                <Segment spkr="SIL" average_dB="-41.24" peak_dB="-31.78" startTime="PT774.67S" endTime="PT775.50S" />
+                <Segment spkr="FAF" average_dB="-41.26" peak_dB="-27.43" startTime="PT775.50S" endTime="PT776.50S" />
+                <Segment spkr="MAF" average_dB="-36.36" peak_dB="-26.69" startTime="PT776.50S" endTime="PT777.50S" />
+                <Segment spkr="SIL" average_dB="-55.16" peak_dB="-49.25" startTime="PT777.50S" endTime="PT778.33S" />
+                <Segment spkr="FAF" average_dB="-42.56" peak_dB="-30.62" startTime="PT778.33S" endTime="PT779.46S" />
+                <Segment spkr="TVF" average_dB="-47.05" peak_dB="-28.63" startTime="PT779.46S" endTime="PT781.36S" />
+                <Segment spkr="FAF" average_dB="-40.71" peak_dB="-29.74" startTime="PT781.36S" endTime="PT781.96S" />
+                <Segment spkr="SIL" average_dB="-47.01" peak_dB="-36.15" startTime="PT781.96S" endTime="PT782.79S" />
+                <Segment spkr="MAF" average_dB="-37.48" peak_dB="-25.10" startTime="PT782.79S" endTime="PT786.52S" />
+                <Segment spkr="SIL" average_dB="-42.25" peak_dB="-34.18" startTime="PT786.52S" endTime="PT787.73S" />
+                <Segment spkr="TVF" average_dB="-38.60" peak_dB="-33.42" startTime="PT787.73S" endTime="PT789.13S" />
+                <Segment spkr="MAF" average_dB="-39.17" peak_dB="-30.53" startTime="PT789.13S" endTime="PT790.20S" />
+                <Segment spkr="SIL" average_dB="-42.92" peak_dB="-29.65" startTime="PT790.20S" endTime="PT791.13S" />
+                <Segment spkr="MAF" average_dB="-36.01" peak_dB="-25.98" startTime="PT791.13S" endTime="PT793.74S" />
+                <Segment spkr="FAF" average_dB="-36.93" peak_dB="-26.39" startTime="PT793.74S" endTime="PT794.76S" />
+                <Segment spkr="SIL" average_dB="-50.35" peak_dB="-39.43" startTime="PT794.76S" endTime="PT795.56S" />
+                <Segment spkr="MAF" average_dB="-36.41" peak_dB="-29.21" startTime="PT795.56S" endTime="PT796.56S" />
+                <Segment spkr="TVF" average_dB="-55.61" peak_dB="-46.62" startTime="PT796.56S" endTime="PT797.82S" />
+                <Segment spkr="MAF" average_dB="-39.32" peak_dB="-30.06" startTime="PT797.82S" endTime="PT799.04S" />
+                <Segment spkr="FAF" average_dB="-39.13" peak_dB="-29.71" startTime="PT799.04S" endTime="PT800.07S" />
+                <Segment spkr="MAF" average_dB="-34.15" peak_dB="-27.29" startTime="PT800.07S" endTime="PT801.82S" />
+                <Segment spkr="TVF" average_dB="-37.78" peak_dB="-30.87" startTime="PT801.82S" endTime="PT802.86S" />
+                <Segment spkr="FAF" average_dB="-36.95" peak_dB="-24.32" startTime="PT802.86S" endTime="PT803.86S" />
+                <Segment spkr="TVF" average_dB="-40.21" peak_dB="-30.98" startTime="PT803.86S" endTime="PT804.91S" />
+                <Segment spkr="SIL" average_dB="-52.83" peak_dB="-36.43" startTime="PT804.91S" endTime="PT806.22S" />
+                <Segment spkr="MAF" average_dB="-35.16" peak_dB="-29.21" startTime="PT806.22S" endTime="PT807.22S" />
+                <Segment spkr="TVF" average_dB="-54.95" peak_dB="-42.67" startTime="PT807.22S" endTime="PT809.33S" />
+                <Segment spkr="NON" average_dB="-55.91" peak_dB="-47.49" startTime="PT809.33S" endTime="PT815.38S" />
+            </Pause>
+            <Conversation num="28" type="AMM" average_dB="-35.28" peak_dB="-28.30" turnTaking="0" femaleAdultInitiation="0" maleAdultInitiation="0" childResponse="0" childInitiation="0" femaleAdultResponse="0" maleAdultResponse="0" adultWordCnt="2.86" femaleAdultWordCnt="0.00" maleAdultWordCnt="2.86" femaleAdultUttCnt="0" maleAdultUttCnt="0" femaleAdultUttLen="P0.00S" maleAdultUttLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" childUttCnt="0" childUttLen="P0.00S" childCryVfxLen="P0.00S" TVF="P0.00S" FAN="P0.00S" OLN="P0.00S" SIL="P0.00S" NOF="P0.00S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P0.00S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P2.02S" FAF="P0.00S" startTime="PT815.38S" endTime="PT817.40S">
+                <Segment spkr="MAN" average_dB="-35.28" peak_dB="-28.30" conversationInfo="|EC|28|0|0|AMM|NT|FI|" maleAdultWordCnt="2.86" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT815.38S" endTime="PT817.40S" />
+            </Conversation>
+            <Pause num="31" average_dB="-41.94" peak_dB="-26.51" childCryVfxLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" TVF="P29.51S" FAN="P0.00S" OLN="P0.00S" SIL="P10.13S" NOF="P0.00S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P13.84S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P0.00S" FAF="P2.11S" startTime="PT817.40S" endTime="PT872.99S">
+                <Segment spkr="SIL" average_dB="-44.91" peak_dB="-33.87" startTime="PT817.40S" endTime="PT818.20S" />
+                <Segment spkr="MAF" average_dB="-38.10" peak_dB="-30.17" startTime="PT818.20S" endTime="PT819.33S" />
+                <Segment spkr="TVF" average_dB="-43.83" peak_dB="-31.36" startTime="PT819.33S" endTime="PT823.70S" />
+                <Segment spkr="MAF" average_dB="-38.39" peak_dB="-31.59" startTime="PT823.70S" endTime="PT824.70S" />
+                <Segment spkr="TVF" average_dB="-44.62" peak_dB="-33.46" startTime="PT824.70S" endTime="PT826.05S" />
+                <Segment spkr="SIL" average_dB="-45.12" peak_dB="-29.29" startTime="PT826.05S" endTime="PT827.02S" />
+                <Segment spkr="TVF" average_dB="-43.38" peak_dB="-31.18" startTime="PT827.02S" endTime="PT829.02S" />
+                <Segment spkr="MAF" average_dB="-37.99" peak_dB="-29.52" startTime="PT829.02S" endTime="PT830.43S" />
+                <Segment spkr="SIL" average_dB="-39.39" peak_dB="-30.53" startTime="PT830.43S" endTime="PT831.24S" />
+                <Segment spkr="TVF" average_dB="-48.12" peak_dB="-34.90" startTime="PT831.24S" endTime="PT834.23S" />
+                <Segment spkr="SIL" average_dB="-51.57" peak_dB="-40.31" startTime="PT834.23S" endTime="PT835.11S" />
+                <Segment spkr="TVF" average_dB="-50.88" peak_dB="-35.37" startTime="PT835.11S" endTime="PT836.54S" />
+                <Segment spkr="SIL" average_dB="-52.89" peak_dB="-39.48" startTime="PT836.54S" endTime="PT837.48S" />
+                <Segment spkr="TVF" average_dB="-44.13" peak_dB="-29.28" startTime="PT837.48S" endTime="PT840.72S" />
+                <Segment spkr="MAF" average_dB="-38.16" peak_dB="-31.24" startTime="PT840.72S" endTime="PT842.10S" />
+                <Segment spkr="SIL" average_dB="-44.79" peak_dB="-33.72" startTime="PT842.10S" endTime="PT842.90S" />
+                <Segment spkr="MAF" average_dB="-38.43" peak_dB="-30.87" startTime="PT842.90S" endTime="PT844.32S" />
+                <Segment spkr="TVF" average_dB="-45.63" peak_dB="-35.50" startTime="PT844.32S" endTime="PT846.19S" />
+                <Segment spkr="MAF" average_dB="-38.24" peak_dB="-32.32" startTime="PT846.19S" endTime="PT847.19S" />
+                <Segment spkr="TVF" average_dB="-42.93" peak_dB="-35.01" startTime="PT847.19S" endTime="PT848.21S" />
+                <Segment spkr="SIL" average_dB="-43.42" peak_dB="-28.22" startTime="PT848.21S" endTime="PT849.51S" />
+                <Segment spkr="TVF" average_dB="-41.39" peak_dB="-32.64" startTime="PT849.51S" endTime="PT851.82S" />
+                <Segment spkr="SIL" average_dB="-46.85" peak_dB="-35.61" startTime="PT851.82S" endTime="PT854.09S" />
+                <Segment spkr="TVF" average_dB="-47.61" peak_dB="-33.57" startTime="PT854.09S" endTime="PT855.09S" />
+                <Segment spkr="FAF" average_dB="-45.32" peak_dB="-32.47" startTime="PT855.09S" endTime="PT856.09S" />
+                <Segment spkr="SIL" average_dB="-47.43" peak_dB="-32.33" startTime="PT856.09S" endTime="PT857.45S" />
+                <Segment spkr="TVF" average_dB="-50.32" peak_dB="-34.24" startTime="PT857.45S" endTime="PT859.44S" />
+                <Segment spkr="MAF" average_dB="-37.26" peak_dB="-28.73" startTime="PT859.44S" endTime="PT860.82S" />
+                <Segment spkr="TVF" average_dB="-40.70" peak_dB="-27.72" startTime="PT860.82S" endTime="PT861.82S" />
+                <Segment spkr="MAF" average_dB="-36.98" peak_dB="-27.50" startTime="PT861.82S" endTime="PT862.82S" />
+                <Segment spkr="TVF" average_dB="-39.84" peak_dB="-30.28" startTime="PT862.82S" endTime="PT863.84S" />
+                <Segment spkr="MAF" average_dB="-38.57" peak_dB="-31.74" startTime="PT863.84S" endTime="PT864.84S" />
+                <Segment spkr="TVF" average_dB="-41.95" peak_dB="-29.38" startTime="PT864.84S" endTime="PT866.60S" />
+                <Segment spkr="MAF" average_dB="-41.48" peak_dB="-27.51" startTime="PT866.60S" endTime="PT868.33S" />
+                <Segment spkr="TVF" average_dB="-47.54" peak_dB="-32.79" startTime="PT868.33S" endTime="PT869.41S" />
+                <Segment spkr="MAF" average_dB="-40.98" peak_dB="-30.79" startTime="PT869.41S" endTime="PT870.80S" />
+                <Segment spkr="TVF" average_dB="-50.66" peak_dB="-37.46" startTime="PT870.80S" endTime="PT871.88S" />
+                <Segment spkr="FAF" average_dB="-39.33" peak_dB="-26.51" startTime="PT871.88S" endTime="PT872.99S" />
+            </Pause>
+            <Conversation num="29" type="AMM" average_dB="-36.25" peak_dB="-24.00" turnTaking="0" femaleAdultInitiation="0" maleAdultInitiation="0" childResponse="0" childInitiation="0" femaleAdultResponse="0" maleAdultResponse="0" adultWordCnt="6.63" femaleAdultWordCnt="0.00" maleAdultWordCnt="6.63" femaleAdultUttCnt="0" maleAdultUttCnt="0" femaleAdultUttLen="P0.00S" maleAdultUttLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" childUttCnt="0" childUttLen="P0.00S" childCryVfxLen="P0.00S" TVF="P2.27S" FAN="P0.00S" OLN="P0.00S" SIL="P1.89S" NOF="P0.00S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P0.00S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P3.18S" FAF="P0.00S" startTime="PT872.99S" endTime="PT880.33S">
+                <Segment spkr="MAN" average_dB="-34.46" peak_dB="-28.28" conversationInfo="|BC|29|0|0|AMM|NT|FI|" maleAdultWordCnt="5.61" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT872.99S" endTime="PT875.17S" />
+                <Segment spkr="TVF" average_dB="-38.26" peak_dB="-30.27" startTime="PT875.17S" endTime="PT876.27S" />
+                <Segment spkr="SIL" average_dB="-47.55" peak_dB="-31.65" startTime="PT876.27S" endTime="PT878.16S" />
+                <Segment spkr="TVF" average_dB="-54.84" peak_dB="-46.61" startTime="PT878.16S" endTime="PT879.33S" />
+                <Segment spkr="MAN" average_dB="-31.20" peak_dB="-24.00" conversationInfo="|EC|29|0|0|AMM|NT|FH|" maleAdultWordCnt="1.02" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT879.33S" endTime="PT880.33S" />
+            </Conversation>
+            <Pause num="32" average_dB="-36.05" peak_dB="-6.13" childCryVfxLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" TVF="P21.36S" FAN="P0.00S" OLN="P0.00S" SIL="P22.87S" NOF="P0.97S" CXF="P0.00S" OLF="P0.86S" CHF="P0.90S" MAF="P2.92S" TVN="P1.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P0.00S" FAF="P0.00S" startTime="PT880.33S" endTime="PT931.21S">
+                <Segment spkr="TVN" average_dB="-43.64" peak_dB="-34.04" startTime="PT880.33S" endTime="PT881.33S" />
+                <Segment spkr="SIL" average_dB="-50.61" peak_dB="-36.51" startTime="PT881.33S" endTime="PT882.17S" />
+                <Segment spkr="TVF" average_dB="-51.72" peak_dB="-38.20" startTime="PT882.17S" endTime="PT884.81S" />
+                <Segment spkr="SIL" average_dB="-51.41" peak_dB="-35.11" startTime="PT884.81S" endTime="PT885.75S" />
+                <Segment spkr="MAF" average_dB="-51.43" peak_dB="-48.77" startTime="PT885.75S" endTime="PT886.55S" />
+                <Segment spkr="SIL" average_dB="-57.18" peak_dB="-44.82" startTime="PT886.55S" endTime="PT896.13S" />
+                <Segment spkr="TVF" average_dB="-52.75" peak_dB="-48.50" startTime="PT896.13S" endTime="PT897.15S" />
+                <Segment spkr="SIL" average_dB="-53.32" peak_dB="-35.64" startTime="PT897.15S" endTime="PT900.22S" />
+                <Segment spkr="MAF" average_dB="-44.94" peak_dB="-33.19" startTime="PT900.22S" endTime="PT901.33S" />
+                <Segment spkr="SIL" average_dB="-49.67" peak_dB="-37.87" startTime="PT901.33S" endTime="PT902.13S" />
+                <Segment spkr="NOF" average_dB="-34.44" peak_dB="-22.85" startTime="PT902.13S" endTime="PT903.10S" />
+                <Segment spkr="SIL" average_dB="-47.89" peak_dB="-38.12" startTime="PT903.10S" endTime="PT903.92S" />
+                <Segment spkr="TVF" average_dB="-55.83" peak_dB="-48.62" startTime="PT903.92S" endTime="PT906.27S" />
+                <Segment spkr="SIL" average_dB="-34.40" peak_dB="-17.28" startTime="PT906.27S" endTime="PT907.74S" />
+                <Segment spkr="TVF" average_dB="-54.14" peak_dB="-46.65" startTime="PT907.74S" endTime="PT908.74S" />
+                <Segment spkr="CHF" average_dB="-21.20" peak_dB="-6.13" childUttCnt="0" childUttLen="P0.00S" childCryVfxLen="PT0.00S" startTime="PT908.74S" endTime="PT909.64S" />
+                <Segment spkr="OLF" average_dB="-23.67" peak_dB="-10.51" startTime="PT909.64S" endTime="PT910.50S" />
+                <Segment spkr="MAF" average_dB="-31.38" peak_dB="-27.57" startTime="PT910.50S" endTime="PT911.51S" />
+                <Segment spkr="TVF" average_dB="-42.79" peak_dB="-31.22" startTime="PT911.51S" endTime="PT916.37S" />
+                <Segment spkr="SIL" average_dB="-55.88" peak_dB="-45.76" startTime="PT916.37S" endTime="PT917.25S" />
+                <Segment spkr="TVF" average_dB="-55.79" peak_dB="-46.50" startTime="PT917.25S" endTime="PT918.82S" />
+                <Segment spkr="SIL" average_dB="-55.55" peak_dB="-45.44" startTime="PT918.82S" endTime="PT919.74S" />
+                <Segment spkr="TVF" average_dB="-53.71" peak_dB="-39.28" startTime="PT919.74S" endTime="PT921.50S" />
+                <Segment spkr="SIL" average_dB="-51.68" peak_dB="-39.79" startTime="PT921.50S" endTime="PT922.54S" />
+                <Segment spkr="TVF" average_dB="-56.27" peak_dB="-49.36" startTime="PT922.54S" endTime="PT924.07S" />
+                <Segment spkr="SIL" average_dB="-56.95" peak_dB="-52.96" startTime="PT924.07S" endTime="PT924.97S" />
+                <Segment spkr="TVF" average_dB="-55.19" peak_dB="-47.75" startTime="PT924.97S" endTime="PT926.71S" />
+                <Segment spkr="SIL" average_dB="-56.89" peak_dB="-52.21" startTime="PT926.71S" endTime="PT927.52S" />
+                <Segment spkr="TVF" average_dB="-56.16" peak_dB="-51.53" startTime="PT927.52S" endTime="PT930.41S" />
+                <Segment spkr="SIL" average_dB="-51.30" peak_dB="-39.20" startTime="PT930.41S" endTime="PT931.21S" />
+            </Pause>
+            <Conversation num="30" type="AMM" average_dB="-35.19" peak_dB="-24.32" turnTaking="0" femaleAdultInitiation="0" maleAdultInitiation="0" childResponse="0" childInitiation="0" femaleAdultResponse="0" maleAdultResponse="0" adultWordCnt="34.74" femaleAdultWordCnt="0.00" maleAdultWordCnt="34.74" femaleAdultUttCnt="0" maleAdultUttCnt="0" femaleAdultUttLen="P0.00S" maleAdultUttLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" childUttCnt="0" childUttLen="P0.00S" childCryVfxLen="P0.00S" TVF="P1.24S" FAN="P0.00S" OLN="P0.00S" SIL="P1.40S" NOF="P0.00S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P0.00S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P10.02S" FAF="P0.00S" startTime="PT931.21S" endTime="PT943.87S">
+                <Segment spkr="MAN" average_dB="-34.94" peak_dB="-25.49" conversationInfo="|BC|30|0|0|AMM|NT|FI|" maleAdultWordCnt="7.21" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT931.21S" endTime="PT932.52S" />
+                <Segment spkr="TVF" average_dB="-35.12" peak_dB="-30.89" startTime="PT932.52S" endTime="PT933.76S" />
+                <Segment spkr="MAN" average_dB="-32.79" peak_dB="-24.32" conversationInfo="|RC|30|0|0|AMM|NT|FH|" maleAdultWordCnt="11.40" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT933.76S" endTime="PT936.69S" />
+                <Segment spkr="SIL" average_dB="-54.26" peak_dB="-45.45" startTime="PT936.69S" endTime="PT938.09S" />
+                <Segment spkr="MAN" average_dB="-35.90" peak_dB="-25.71" conversationInfo="|EC|30|0|0|AMM|NT|FH|" maleAdultWordCnt="16.13" maleAdultNonSpeechLen="P0.00S" maleAdultUttCnt="0" maleAdultUttLen="P0.00S" startTime="PT938.09S" endTime="PT943.87S" />
+            </Conversation>
+            <Pause num="33" average_dB="-41.20" peak_dB="-16.06" childCryVfxLen="P0.00S" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P0.00S" TVF="P14.56S" FAN="P0.00S" OLN="P0.00S" SIL="P2.85S" NOF="P3.86S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P0.00S" TVN="P0.00S" NON="P14.60S" CXN="P0.00S" CHN="P0.00S" MAN="P0.00S" FAF="P0.00S" startTime="PT943.87S" endTime="PT979.74S">
+                <Segment spkr="TVF" average_dB="-54.25" peak_dB="-37.60" startTime="PT943.87S" endTime="PT949.10S" />
+                <Segment spkr="SIL" average_dB="-54.11" peak_dB="-39.97" startTime="PT949.10S" endTime="PT950.31S" />
+                <Segment spkr="TVF" average_dB="-56.83" peak_dB="-50.73" startTime="PT950.31S" endTime="PT953.96S" />
+                <Segment spkr="SIL" average_dB="-48.39" peak_dB="-35.46" startTime="PT953.96S" endTime="PT954.80S" />
+                <Segment spkr="TVF" average_dB="-56.80" peak_dB="-51.14" startTime="PT954.80S" endTime="PT958.43S" />
+                <Segment spkr="NON" average_dB="-56.52" peak_dB="-42.48" startTime="PT958.43S" endTime="PT967.48S" />
+                <Segment spkr="TVF" average_dB="-51.07" peak_dB="-35.92" startTime="PT967.48S" endTime="PT968.53S" />
+                <Segment spkr="SIL" average_dB="-53.18" peak_dB="-42.35" startTime="PT968.53S" endTime="PT969.33S" />
+                <Segment spkr="TVF" average_dB="-55.04" peak_dB="-45.26" startTime="PT969.33S" endTime="PT970.33S" />
+                <Segment spkr="NON" average_dB="-56.52" peak_dB="-45.87" startTime="PT970.33S" endTime="PT975.88S" />
+                <Segment spkr="NOF" average_dB="-31.68" peak_dB="-16.06" recordingInfo="|ER|3|" startTime="PT975.88S" endTime="PT979.74S" />
+            </Pause>
+        </Recording>
+        <!-- ====================== All about the Bars ====================== -->
+        <Bar startClockTime="2017-11-07T10:00:00Z" length="P3600S">
+            <Recording num="1" startClockTime="2017-11-07T10:16:13Z" endClockTime="2017-11-07T10:21:26Z" startTime="PT0.00S" endTime="PT313.85S" />
+            <FiveMinuteSection startClockTime="2017-11-07T10:16:13Z" endClockTime="2017-11-07T10:20:00Z" average_dB="-30.60" peak_dB="-1.11" adultWordCnt="88.00" femaleAdultWordCnt="5.77" maleAdultWordCnt="82.33" femaleAdultNonSpeechLen="P1.30S" maleAdultNonSpeechLen="P24.95S" turnTaking="0" childUttCnt="0" childUttLen="P0.00S" childCryVfxLen="P1.36S" femaleAdultUttCnt="0.00" maleAdultUttCnt="0.00" femaleAdultUttLen="P0.00S" maleAdultUttLen="P0.00S" TVF="P19.35S" FAN="P1.30S" OLN="P0.85S" SIL="P94.92S" NOF="P59.44S" CXF="P0.00S" OLF="P4.35S" CHF="P1.84S" MAF="P13.20S" TVN="P3.46S" NON="P0.00S" CXN="P0.80S" CHN="P0.00S" MAN="P24.95S" FAF="P2.54S" totalRecordingTime="P227.00S" startTime="PT0.00S" endTime="PT227.00S" />
+            <FiveMinuteSection startClockTime="2017-11-07T10:20:00Z" endClockTime="2017-11-07T10:21:26Z" average_dB="-36.96" peak_dB="-6.72" adultWordCnt="44.00" femaleAdultWordCnt="0.00" maleAdultWordCnt="43.42" femaleAdultNonSpeechLen="P1.02S" maleAdultNonSpeechLen="P13.32S" turnTaking="0" childUttCnt="0" childUttLen="P0.00S" childCryVfxLen="P0.00S" femaleAdultUttCnt="0.00" maleAdultUttCnt="0.00" femaleAdultUttLen="P0.00S" maleAdultUttLen="P0.00S" TVF="P30.62S" FAN="P1.02S" OLN="P0.00S" SIL="P31.38S" NOF="P3.61S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P6.30S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P13.32S" FAF="P0.60S" totalRecordingTime="P86.85S" startTime="PT227.00S" endTime="PT313.85S" />
+            <Recording num="2" startClockTime="2017-11-07T10:25:22Z" endClockTime="2017-11-07T10:31:01Z" startTime="PT313.85S" endTime="PT653.17S" />
+            <FiveMinuteSection startClockTime="2017-11-07T10:25:22Z" endClockTime="2017-11-07T10:30:00Z" average_dB="-36.84" peak_dB="-5.51" adultWordCnt="136.00" femaleAdultWordCnt="0.00" maleAdultWordCnt="135.76" femaleAdultNonSpeechLen="P0.62S" maleAdultNonSpeechLen="P44.09S" turnTaking="0" childUttCnt="0" childUttLen="P0.00S" childCryVfxLen="P0.00S" femaleAdultUttCnt="0.00" maleAdultUttCnt="0.00" femaleAdultUttLen="P0.00S" maleAdultUttLen="P0.00S" TVF="P88.72S" FAN="P0.62S" OLN="P0.00S" SIL="P78.67S" NOF="P7.33S" CXF="P0.00S" OLF="P0.80S" CHF="P0.00S" MAF="P51.90S" TVN="P1.44S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P44.09S" FAF="P4.43S" totalRecordingTime="P278.00S" startTime="PT313.85S" endTime="PT591.85S" />
+            <FiveMinuteSection startClockTime="2017-11-07T10:30:00Z" endClockTime="2017-11-07T10:31:01Z" average_dB="-39.58" peak_dB="-11.37" adultWordCnt="0.00" femaleAdultWordCnt="0.00" maleAdultWordCnt="0.00" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P1.01S" turnTaking="0" childUttCnt="0" childUttLen="P0.00S" childCryVfxLen="P0.00S" femaleAdultUttCnt="0.00" maleAdultUttCnt="0.00" femaleAdultUttLen="P0.00S" maleAdultUttLen="P0.00S" TVF="P43.57S" FAN="P0.00S" OLN="P0.00S" SIL="P8.15S" NOF="P0.60S" CXF="P1.00S" OLF="P1.87S" CHF="P0.00S" MAF="P5.12S" TVN="P0.00S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P1.01S" FAF="P0.00S" totalRecordingTime="P61.32S" startTime="PT591.85S" endTime="PT653.17S" />
+            <Recording num="3" startClockTime="2017-11-07T10:33:18Z" endClockTime="2017-11-07T10:38:44Z" startTime="PT653.17S" endTime="PT979.74S" />
+            <FiveMinuteSection startClockTime="2017-11-07T10:33:18Z" endClockTime="2017-11-07T10:35:00Z" average_dB="-35.05" peak_dB="-4.33" adultWordCnt="34.00" femaleAdultWordCnt="0.00" maleAdultWordCnt="34.45" femaleAdultNonSpeechLen="P0.00S" maleAdultNonSpeechLen="P13.36S" turnTaking="0" childUttCnt="0" childUttLen="P0.00S" childCryVfxLen="P0.00S" femaleAdultUttCnt="0.00" maleAdultUttCnt="0.00" femaleAdultUttLen="P0.00S" maleAdultUttLen="P0.00S" TVF="P36.28S" FAN="P0.00S" OLN="P0.00S" SIL="P9.58S" NOF="P1.29S" CXF="P0.00S" OLF="P0.00S" CHF="P0.00S" MAF="P32.06S" TVN="P1.75S" NON="P0.00S" CXN="P0.00S" CHN="P0.00S" MAN="P13.36S" FAF="P7.68S" totalRecordingTime="P102.00S" startTime="PT653.17S" endTime="PT755.17S" />
+            <FiveMinuteSection startClockTime="2017-11-07T10:35:00Z" endClockTime="2017-11-07T10:38:44Z" average_dB="-38.29" peak_dB="-6.13" adultWordCnt="51.00" femaleAdultWordCnt="0.26" maleAdultWordCnt="50.73" femaleAdultNonSpeechLen="P1.08S" maleAdultNonSpeechLen="P17.78S" turnTaking="0" childUttCnt="0" childUttLen="P0.00S" childCryVfxLen="P0.00S" femaleAdultUttCnt="0.00" maleAdultUttCnt="0.00" femaleAdultUttLen="P0.00S" maleAdultUttLen="P0.00S" TVF="P84.77S" FAN="P1.08S" OLN="P0.00S" SIL="P47.59S" NOF="P4.83S" CXF="P0.00S" OLF="P0.86S" CHF="P0.90S" MAF="P35.71S" TVN="P1.00S" NON="P20.65S" CXN="P0.00S" CHN="P0.00S" MAN="P17.78S" FAF="P9.40S" totalRecordingTime="P224.57S" startTime="PT755.17S" endTime="PT979.74S" />
+            <BarSummary average_dB="-34.54" peak_dB="-1.11" adultWordCnt="353.00" turnTaking="0" childUttCnt="0" childUttLen="P0.00S" TVF="P303.31S" FAN="P4.02S" OLN="P0.85S" SIL="P270.29S" NOF="P77.10S" CXF="P1.00S" OLF="P7.88S" CHF="P2.74S" MAF="P144.29S" TVN="P7.65S" NON="P20.65S" CXN="P0.80S" CHN="P0.00S" MAN="P114.51S" FAF="P24.65S" totalRecordingTime="P979.74S" leftBoundaryClockTime="2017-11-07T10:16:13Z" rightBoundaryClockTime="2017-11-07T10:38:44Z" pauseTime="P371.83S" />
+        </Bar>
+        <!-- ====================== AudioProcessing System Resource Use Summary ====================== -->
+        <AudioProcessingResources>
+            <ProcessingJob pass="1" jobid="1" elapsedtime="PT00:02:58.588" disposition="success" logfile="exec20171107T104303Z_00000001-20171107_114301_022867.upl.log">
+                <ComponentData>
+                    <Component name="LENA Pro" version="V3.5.0-144 r12080" />
+                    <Component name="Runjob" version="4.6.1-las.3.0" />
+                </ComponentData>
+                <ResourceSnapshot event="JobStart" timelocal="2017-11-07T11:43:03" timegmt="2017-11-07T10:43:03Z">
+                    <ApplicationResources>
+                        <ProcessingTime>
+                            <param name="Elapsed Time" value="PT00:02:29.827" />
+                            <param name="User CPU" value="PT0.889S" />
+                            <param name="Kernel CPU" value="PT1.684S" />
+                        </ProcessingTime>
+                        <Memory>
+                            <param name="PageFaults" value="15.03k" />
+                            <param name="WorkingSet" value="35.28MiB" />
+                            <param name="PeakWorkingSet" value="35.28MiB" />
+                            <param name="QuotaPagedPool" value="378.4KiB" />
+                            <param name="QuotaPeakPagedPool" value="403.0KiB" />
+                            <param name="QuotaNonPagedPool" value="26.85KiB" />
+                            <param name="QuotaPeakNonPagedPool" value="26.90KiB" />
+                            <param name="Pagefile" value="14.14MiB" />
+                            <param name="PeakPagefile" value="14.14MiB" />
+                            <param name="Private" value="14.14MiB" />
+                        </Memory>
+                        <IO>
+                            <param name="ReadOperationCount" value="5884" />
+                            <param name="ReadTransferCount" value="4322k" />
+                            <param name="WriteOperationCount" value="5554" />
+                            <param name="WriteTransferCount" value="11.64M" />
+                            <param name="OtherOperationCount" value="12.56k" />
+                            <param name="OtherTransferCount" value="197.6k" />
+                        </IO>
+                        <Objects>
+                            <param name="Handles" value="539" />
+                            <param name="GDI Objects" value="745" />
+                            <param name="User Objects" value="569" />
+                        </Objects>
+                    </ApplicationResources>
+                    <SystemResources>
+                        <param name="PageSize" value="4096" />
+                        <param name="CommitTotal" value="418.9KiB" />
+                        <param name="CommitLimit" value="3943KiB" />
+                        <param name="CommitPeak" value="511.5KiB" />
+                        <param name="PhysicalTotal" value="1972KiB" />
+                        <param name="PhysicalAvailable" value="1585KiB" />
+                        <param name="SystemCache" value="378.3KiB" />
+                        <param name="KernelTotal" value="74.89KiB" />
+                        <param name="KernelPaged" value="50.72KiB" />
+                        <param name="KernelNonpaged" value="24.16KiB" />
+                        <param name="HandleCount" value="24391" />
+                        <param name="ProcessCount" value="79" />
+                        <param name="ThreadCount" value="1110" />
+                    </SystemResources>
+                </ResourceSnapshot>
+                <ResourceUsage_AudioProcessing>
+                    <ProgramInvocations>
+                        <ProgramSummary Name="ExpRevC.exe" Runs="1" ElapsedTime="PT0.062S" UserCPU="PT0.015S" PeakWS="2804KiB" PageFaults="721" />
+                        <ProgramSummary Name="TV-train-ctl-mapl.exe" Runs="1" ElapsedTime="PT0.436S" UserCPU="PT0.015S" PeakWS="4368KiB" PageFaults="1143" />
+                        <ProgramSummary Name="audio-2-result.exe" Runs="1" ElapsedTime="PT00:02:58.074" UserCPU="PT6.396S" PeakWS="16.31MiB" PageFaults="12047" />
+                        <ProgramSummary Name="check-ph-dec-seg.exe" Runs="1" ElapsedTime="PT0.592S" UserCPU="PT0.031S" PeakWS="4728KiB" PageFaults="1233" />
+                        <ProgramSummary Name="cmd.exe" Runs="97" ElapsedTime="PT00:05:06.602" UserCPU="PT0.249S" PeakWS="4240KiB" PageFaults="94200" />
+                        <ProgramSummary Name="combine_segs_fsg.exe" Runs="1" ElapsedTime="PT0.546S" UserCPU="PT0.031S" PeakWS="5156KiB" PageFaults="1340" />
+                        <ProgramSummary Name="createTpk.exe" Runs="1" ElapsedTime="PT0.405S" UserCPU="PT0.015S" PeakWS="4652KiB" PageFaults="1213" />
+                        <ProgramSummary Name="csg2tsg.exe" Runs="1" ElapsedTime="PT0.780S" UserCPU="PT0.202S" PeakWS="5292KiB" PageFaults="1374" />
+                        <ProgramSummary Name="ctl2ctl_extraCtl.exe" Runs="1" ElapsedTime="PT0.452S" UserCPU="PT0.000S" PeakWS="4384KiB" PageFaults="1147" />
+                        <ProgramSummary Name="cv2cnts.exe" Runs="1" ElapsedTime="PT1.170S" UserCPU="PT0.015S" PeakWS="5316KiB" PageFaults="1380" />
+                        <ProgramSummary Name="decode.exe" Runs="3" ElapsedTime="PT4.836S" UserCPU="PT4.633S" PeakWS="15.13MiB" PageFaults="11371" />
+                        <ProgramSummary Name="detailMarker.exe" Runs="2" ElapsedTime="PT0.234S" UserCPU="PT0.140S" PeakWS="2680KiB" PageFaults="1320" />
+                        <ProgramSummary Name="fBgmm2csg.exe" Runs="1" ElapsedTime="PT1.232S" UserCPU="PT0.062S" PeakWS="5228KiB" PageFaults="1358" />
+                        <ProgramSummary Name="fake-advoc.exe" Runs="1" ElapsedTime="PT0.390S" UserCPU="PT0.015S" PeakWS="4344KiB" PageFaults="1137" />
+                        <ProgramSummary Name="fake-dtmk_db.exe" Runs="1" ElapsedTime="PT0.436S" UserCPU="PT0.015S" PeakWS="4352KiB" PageFaults="1139" />
+                        <ProgramSummary Name="frm-2-load.exe" Runs="6" ElapsedTime="PT2.917S" UserCPU="PT0.062S" PeakWS="4392KiB" PageFaults="6860" />
+                        <ProgramSummary Name="fsg2wsg-0v.exe" Runs="1" ElapsedTime="PT0.405S" UserCPU="PT0.015S" PeakWS="4464KiB" PageFaults="1167" />
+                        <ProgramSummary Name="get-3-12ft-ire-uph-from-conv_para.exe" Runs="1" ElapsedTime="PT0.468S" UserCPU="PT0.015S" PeakWS="4456KiB" PageFaults="1164" />
+                        <ProgramSummary Name="get-TV-train-ctl.exe" Runs="1" ElapsedTime="PT0.452S" UserCPU="PT0.000S" PeakWS="4336KiB" PageFaults="1135" />
+                        <ProgramSummary Name="get-adpt-ctl.exe" Runs="1" ElapsedTime="PT0.390S" UserCPU="PT0.015S" PeakWS="4328KiB" PageFaults="1133" />
+                        <ProgramSummary Name="get-conv-12ft-uph-ire.exe" Runs="1" ElapsedTime="PT0.546S" UserCPU="PT0.015S" PeakWS="5024KiB" PageFaults="1307" />
+                        <ProgramSummary Name="get-csg-ctl.exe" Runs="1" ElapsedTime="PT0.436S" UserCPU="PT0.031S" PeakWS="4336KiB" PageFaults="1133" />
+                        <ProgramSummary Name="get-cspt-mdci-bk_size-x_max.exe" Runs="1" ElapsedTime="PT0.436S" UserCPU="PT0.015S" PeakWS="4496KiB" PageFaults="1174" />
+                        <ProgramSummary Name="get-cspt-rslt.exe" Runs="1" ElapsedTime="PT0.436S" UserCPU="PT0.046S" PeakWS="5804KiB" PageFaults="1502" />
+                        <ProgramSummary Name="get-ctl_fB.exe" Runs="1" ElapsedTime="PT0.374S" UserCPU="PT0.046S" PeakWS="4360KiB" PageFaults="1139" />
+                        <ProgramSummary Name="get-elaps-time.exe" Runs="1" ElapsedTime="PT1.653S" UserCPU="PT0.000S" PeakWS="5168KiB" PageFaults="1341" />
+                        <ProgramSummary Name="get-kc-age.exe" Runs="1" ElapsedTime="PT0.421S" UserCPU="PT0.000S" PeakWS="4428KiB" PageFaults="1158" />
+                        <ProgramSummary Name="get-md-ptp-etc-from-conv_para.exe" Runs="2" ElapsedTime="PT1.076S" UserCPU="PT0.062S" PeakWS="4576KiB" PageFaults="2379" />
+                        <ProgramSummary Name="get-run-time-version.exe" Runs="1" ElapsedTime="PT1.716S" UserCPU="PT0.031S" PeakWS="5164KiB" PageFaults="1764" />
+                        <ProgramSummary Name="get-ss-info-d.exe" Runs="1" ElapsedTime="PT1.388S" UserCPU="PT0.015S" PeakWS="4972KiB" PageFaults="1293" />
+                        <ProgramSummary Name="get-tmplt-file.exe" Runs="1" ElapsedTime="PT0.374S" UserCPU="PT0.000S" PeakWS="4328KiB" PageFaults="1132" />
+                        <ProgramSummary Name="get-true-TV-by-length.exe" Runs="1" ElapsedTime="PT0.499S" UserCPU="PT0.000S" PeakWS="4344KiB" PageFaults="1136" />
+                        <ProgramSummary Name="get-true-TV-by-rep-pattern.exe" Runs="1" ElapsedTime="PT0.452S" UserCPU="PT0.031S" PeakWS="4652KiB" PageFaults="1213" />
+                        <ProgramSummary Name="get-vcv-model.exe" Runs="1" ElapsedTime="PT0.374S" UserCPU="PT0.000S" PeakWS="4352KiB" PageFaults="1138" />
+                        <ProgramSummary Name="gmm_train.exe" Runs="10" ElapsedTime="PT33.696S" UserCPU="PT32.385S" PeakWS="29.25MiB" PageFaults="46105" />
+                        <ProgramSummary Name="hyp2biphpdf.exe" Runs="1" ElapsedTime="PT0.530S" UserCPU="PT0.078S" PeakWS="13.07MiB" PageFaults="3399" />
+                        <ProgramSummary Name="hypseg2hyp_no_repeat_with_time.exe" Runs="1" ElapsedTime="PT0.374S" UserCPU="PT0.015S" PeakWS="4384KiB" PageFaults="1146" />
+                        <ProgramSummary Name="hypseg2hyp_no_time_no_repeat.exe" Runs="1" ElapsedTime="PT0.374S" UserCPU="PT0.000S" PeakWS="4336KiB" PageFaults="1134" />
+                        <ProgramSummary Name="lena_audio_process.exe" Runs="2" ElapsedTime="PT0.140S" UserCPU="PT0.031S" PeakWS="2176KiB" PageFaults="1069" />
+                        <ProgramSummary Name="limit-seg-len.exe" Runs="2" ElapsedTime="PT0.826S" UserCPU="PT0.031S" PeakWS="4372KiB" PageFaults="2278" />
+                        <ProgramSummary Name="link-2-files.exe" Runs="1" ElapsedTime="PT0.421S" UserCPU="PT0.000S" PeakWS="4324KiB" PageFaults="1132" />
+                        <ProgramSummary Name="lkl2nfseg.exe" Runs="1" ElapsedTime="PT0.405S" UserCPU="PT0.015S" PeakWS="4496KiB" PageFaults="1175" />
+                        <ProgramSummary Name="lkl2seg.exe" Runs="1" ElapsedTime="PT0.436S" UserCPU="PT0.000S" PeakWS="4360KiB" PageFaults="1140" />
+                        <ProgramSummary Name="lss-adjust-endpoing.exe" Runs="1" ElapsedTime="PT0.405S" UserCPU="PT0.015S" PeakWS="4356KiB" PageFaults="1140" />
+                        <ProgramSummary Name="merge-2-seg.exe" Runs="1" ElapsedTime="PT0.436S" UserCPU="PT0.000S" PeakWS="4348KiB" PageFaults="1138" />
+                        <ProgramSummary Name="merge-consecutive-id-seg-within-rcdseg.exe" Runs="1" ElapsedTime="PT0.390S" UserCPU="PT0.015S" PeakWS="4404KiB" PageFaults="1152" />
+                        <ProgramSummary Name="merge-lsil-lss.exe" Runs="1" ElapsedTime="PT0.405S" UserCPU="PT0.046S" PeakWS="4392KiB" PageFaults="1149" />
+                        <ProgramSummary Name="merge-seg.exe" Runs="1" ElapsedTime="PT0.374S" UserCPU="PT0.015S" PeakWS="4412KiB" PageFaults="1154" />
+                        <ProgramSummary Name="mergerulegmm.exe" Runs="1" ElapsedTime="PT0.405S" UserCPU="PT0.000S" PeakWS="4684KiB" PageFaults="1222" />
+                        <ProgramSummary Name="my_mkdir.exe" Runs="1" ElapsedTime="PT0.530S" UserCPU="PT0.000S" PeakWS="4364KiB" PageFaults="1144" />
+                        <ProgramSummary Name="old-file-2-new-file.exe" Runs="2" ElapsedTime="PT0.936S" UserCPU="PT0.031S" PeakWS="4352KiB" PageFaults="2275" />
+                        <ProgramSummary Name="phpdf2ava-age-file.exe" Runs="1" ElapsedTime="PT0.405S" UserCPU="PT0.000S" PeakWS="4432KiB" PageFaults="1159" />
+                        <ProgramSummary Name="replace.exe" Runs="1" ElapsedTime="PT0.436S" UserCPU="PT0.000S" PeakWS="4356KiB" PageFaults="1140" />
+                        <ProgramSummary Name="seg-id-by-db.exe" Runs="1" ElapsedTime="PT0.483S" UserCPU="PT0.015S" PeakWS="4644KiB" PageFaults="1212" />
+                        <ProgramSummary Name="seg-sort-merge-output-all.exe" Runs="1" ElapsedTime="PT0.405S" UserCPU="PT0.015S" PeakWS="4700KiB" PageFaults="1226" />
+                        <ProgramSummary Name="seg-sort-merge.exe" Runs="1" ElapsedTime="PT0.405S" UserCPU="PT0.000S" PeakWS="4676KiB" PageFaults="1220" />
+                        <ProgramSummary Name="seg2ctl-adpt.exe" Runs="1" ElapsedTime="PT0.436S" UserCPU="PT0.015S" PeakWS="4352KiB" PageFaults="1138" />
+                        <ProgramSummary Name="seg2ctl.exe" Runs="2" ElapsedTime="PT0.889S" UserCPU="PT0.046S" PeakWS="4324KiB" PageFaults="2260" />
+                        <ProgramSummary Name="seg2selctl.exe" Runs="5" ElapsedTime="PT2.324S" UserCPU="PT0.078S" PeakWS="4340KiB" PageFaults="5670" />
+                        <ProgramSummary Name="sil_thres.exe" Runs="1" ElapsedTime="PT0.390S" UserCPU="PT0.015S" PeakWS="4340KiB" PageFaults="1136" />
+                        <ProgramSummary Name="ss-info-d-2-ctl.exe" Runs="1" ElapsedTime="PT0.405S" UserCPU="PT0.015S" PeakWS="4352KiB" PageFaults="1139" />
+                        <ProgramSummary Name="tsg2cha.exe" Runs="1" ElapsedTime="PT0.436S" UserCPU="PT0.015S" PeakWS="4572KiB" PageFaults="1193" />
+                        <ProgramSummary Name="tsg2trs_with_tpk_bkg.exe" Runs="1" ElapsedTime="PT0.468S" UserCPU="PT0.015S" PeakWS="4780KiB" PageFaults="1246" />
+                        <ProgramSummary Name="tsg2xml.exe" Runs="1" ElapsedTime="PT0.780S" UserCPU="PT0.046S" PeakWS="6116KiB" PageFaults="1580" />
+                        <ProgramSummary Name="tsgCleanUp.exe" Runs="1" ElapsedTime="PT0.421S" UserCPU="PT0.000S" PeakWS="4652KiB" PageFaults="1213" />
+                        <ProgramSummary Name="wave2feat.exe" Runs="6" ElapsedTime="PT41.730S" UserCPU="PT40.903S" PeakWS="70.09MiB" PageFaults="470446" />
+                        <ProgramSummary Name="wsg2csg-batch.exe" Runs="1" ElapsedTime="PT1.310S" UserCPU="PT0.046S" PeakWS="5228KiB" PageFaults="1358" />
+                    </ProgramInvocations>
+                    <ProcessingJobObjectSummary>
+                        <param name="Processes" value="194" />
+                        <param name="User CPU" value="PT00:01:26.159" />
+                        <param name="Kernel CPU" value="PT4.102S" />
+                        <param name="Pagefaults" value="725679" />
+                        <param name="IO reads" value="118.6k" />
+                        <param name="IO read bytes" value="162.1MiB" />
+                        <param name="IO writes" value="103.6k" />
+                        <param name="IO write bytes" value="37.08MiB" />
+                        <param name="IO other" value="60.08k" />
+                        <param name="IO other bytes" value="28.24MiB" />
+                        <param name="Peak Process Memory" value="69.54MiB" />
+                    </ProcessingJobObjectSummary>
+                </ResourceUsage_AudioProcessing>
+                <ResourceSnapshot event="JobFinish" timelocal="2017-11-07T11:46:01" timegmt="2017-11-07T10:46:01Z">
+                    <ApplicationResources>
+                        <ProcessingTime>
+                            <param name="Elapsed Time" value="PT00:05:28.463" />
+                            <param name="User CPU" value="PT1.138S" />
+                            <param name="Kernel CPU" value="PT1.918S" />
+                        </ProcessingTime>
+                        <Memory>
+                            <param name="PageFaults" value="16.88k" />
+                            <param name="WorkingSet" value="35.86MiB" />
+                            <param name="PeakWorkingSet" value="35.88MiB" />
+                            <param name="QuotaPagedPool" value="370.4KiB" />
+                            <param name="QuotaPeakPagedPool" value="403.0KiB" />
+                            <param name="QuotaNonPagedPool" value="26.15KiB" />
+                            <param name="QuotaPeakNonPagedPool" value="27.20KiB" />
+                            <param name="Pagefile" value="14.33MiB" />
+                            <param name="PeakPagefile" value="14.48MiB" />
+                            <param name="Private" value="14.33MiB" />
+                        </Memory>
+                        <IO>
+                            <param name="ReadOperationCount" value="7542" />
+                            <param name="ReadTransferCount" value="4564k" />
+                            <param name="WriteOperationCount" value="5578" />
+                            <param name="WriteTransferCount" value="11.64M" />
+                            <param name="OtherOperationCount" value="26.91k" />
+                            <param name="OtherTransferCount" value="676.6k" />
+                        </IO>
+                        <Objects>
+                            <param name="Handles" value="537" />
+                            <param name="GDI Objects" value="732" />
+                            <param name="User Objects" value="552" />
+                        </Objects>
+                    </ApplicationResources>
+                    <SystemResources>
+                        <param name="PageSize" value="4096" />
+                        <param name="CommitTotal" value="414.6KiB" />
+                        <param name="CommitLimit" value="3943KiB" />
+                        <param name="CommitPeak" value="511.5KiB" />
+                        <param name="PhysicalTotal" value="1972KiB" />
+                        <param name="PhysicalAvailable" value="1588KiB" />
+                        <param name="SystemCache" value="396.2KiB" />
+                        <param name="KernelTotal" value="76.16KiB" />
+                        <param name="KernelPaged" value="51.90KiB" />
+                        <param name="KernelNonpaged" value="24.25KiB" />
+                        <param name="HandleCount" value="24095" />
+                        <param name="ProcessCount" value="77" />
+                        <param name="ThreadCount" value="1098" />
+                    </SystemResources>
+                </ResourceSnapshot>
+            </ProcessingJob>
+        </AudioProcessingResources>
+    </ProcessingUnit>
+    <ExportData ProductRegistration="999">
+        <Child id="999" EnrollDate="2017-01-01" ChildKey="999" DOB="2015-12-31" Gender="M" />
+        <Group id="" name="" />
+    </ExportData>
+</ITS>

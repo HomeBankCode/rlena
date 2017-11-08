@@ -15,7 +15,8 @@ knitr::opts_chunk$set(
 
 # rlena
 [![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](http://www.repostatus.org/badges/latest/wip.svg)](http://www.repostatus.org/#wip)
-
+[![Build Status](https://travis-ci.org/Teebusch/rlena.svg?branch=master)](https://travis-ci.org/Teebusch/rlena)
+[![Coverage Status](https://coveralls.io/repos/github/Teebusch/rlena/badge.svg?branch=master)](https://coveralls.io/github/Teebusch/rlena?branch=master)
 
 ## Overview
 The `rlena` package makes it easy to work with LENA `.its` files in R.
@@ -30,11 +31,11 @@ All other functions work with this object to extract information:
   - `gather_child_info()` returns child information (e.g. birth data, age, gender).
   - `gather_conversations()` returns the content of all `<Conversation>` 
   nodes.
-  - `gather_pauses()` returns the ontent of all `<Pause>` nodes
+  - `gather_pauses()` returns the content of all `<Pause>` nodes
   
-All of these functions return tidy data frames that can be manipulated with the usual tools from the tidyverse.
+All of these functions return tidy data frames that can easily be manipulated with the usual tools from the tidyverse.
 
-***Warning:** Please be aware that this package is early work in progress and subject to potentially  code-breaking change.*
+:warning: ***Warning:** Please be aware that this package is early work in progress and subject to potentially code-breaking change.*
 
 ## Installation
 
@@ -49,15 +50,18 @@ devtools::install_github("HomeBankCode/rlena")
 
 ## Usage
 
-Load an `.its` file
+Load an `.its` file. For this example we use a file that is hosted in the 
+[https://github.com/HomeBankCode/lena-its-tools](HomeBankCode/lena-its-tools) repository.
 
 ```{r, warning = FALSE}
 library(rlena)
-library(dplyr, warn.conflicts = FALSE)
+library(dplyr)
 
-# Loading an example .its file
-its_file <- system.file('extdata', 'example.its', package = 'rlena')
-its <- read_its_file(its_file) 
+# Download the example ITS file
+url <- "https://cdn.rawgit.com/HomeBankCode/lena-its-tools/master/Example/e20160420_165405_010572.its"
+tmp <- tempfile()
+download.file(url, tmp)
+its <- read_its_file(tmp)
 ```
 
 Extract child info and results of the Automatic Vocalization Assessment (an index of the child's language development).
@@ -101,9 +105,9 @@ word_counts %>%
     labs(title = "Adult Word Count per Conversation",
          x = "Time (sec since start of recording)",
          y = "Words")
-  
-  ggplot(word_counts) + 
-    aes(time, y = count_acc, color = speaker) + 
+
+word_counts %>%
+  ggplot(aes(time, y = count_acc, color = speaker)) + 
     geom_line() + 
     labs(title = "Accumulated Adult Word Count throughout Recording",
          x = "Time (sec since start of recording)",

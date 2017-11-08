@@ -4,7 +4,7 @@
 \name{rlena}
 \alias{rlena}
 \alias{rlena-package}
-\title{rlena: working with LENA .its files in R}
+\title{rlena: Make Working with LENA '.its' files easy}
 \description{
 The *Language Environment ANalysis (LENA)* system makes automatic annotations
 of audio recordings of children's sound environment. Its annotations can
@@ -19,8 +19,8 @@ Each \code{.its} file corresponds to one audio file. A single file can
 contain multiple *recordings*, each of which correspons to one uninterrupted
 recording.
 On the lowest level, the annotations are a continuous but non-overlapping
-sequence of *labels* that indicate different types of speakers or sounds.
-They labels grouped in larger, non-overlapping blocks of pauses and
+sequence of *labels* which indicate different types of speakers or sounds.
+The labels are grouped into larger, non-overlapping *blocks* of pauses and
 conversations.
 }
 
