@@ -5,8 +5,8 @@ gather_conversations <- function(its_xml) {
   # Extract attributes from the conversation nodes
   its_xml %>%
     xml_path_to_df(xpaths_bookmarks$conversation) %>%
-    dplyr::mutate_(startTime = ~ convert_time_to_number(startTime),
-                   endTime = ~ convert_time_to_number(endTime)) %>%
+    dplyr::mutate(startTime = convert_time_to_number(startTime),
+                   endTime = convert_time_to_number(endTime)) %>%
     add_its_filename(its_xml)
 }
 
@@ -18,8 +18,8 @@ gather_conversations <- function(its_xml) {
 gather_pauses <- function(its_xml) {
   its_xml %>%
     xml_path_to_df(xpaths_bookmarks$pause) %>%
-    dplyr::mutate_(startTime = ~ convert_time_to_number(startTime),
-                   endTime = ~ convert_time_to_number(endTime)) %>%
+    dplyr::mutate(startTime = convert_time_to_number(startTime),
+                   endTime = convert_time_to_number(endTime)) %>%
     add_its_filename(its_xml)
 }
 
@@ -32,11 +32,11 @@ gather_ava_info <- function(its_xml) {
   # Extract attributes from the conversation nodes
   its_xml %>%
     xml_path_to_df(xpaths_bookmarks$ava) %>%
-    dplyr::select_(
-      AVA_Raw = ~ rawScore,
-      AVA_Stnd = ~ standardScore,
-      AVA_EstMLU = ~ estimatedMLU,
-      AVA_EstDevAge = ~ estimatedDevAge) %>%
+    dplyr::select(
+      AVA_Raw = rawScore,
+      AVA_Stnd = standardScore,
+      AVA_EstMLU = estimatedMLU,
+      AVA_EstDevAge = estimatedDevAge) %>%
     add_its_filename(its_xml)
 }
 
@@ -48,12 +48,12 @@ gather_ava_info <- function(its_xml) {
 gather_child_info <- function(its_xml) {
   its_xml %>%
     xml_path_to_df(xpaths_bookmarks$childinfo) %>%
-    dplyr::select_(
-      Birthdate = ~ dob,
-      Gender = ~ gender,
-      ChronologicalAge = ~ chronologicalAge,
-      AVAModelAge = ~ avaModelAge,
-      VCVModelAge = ~ vcvModelAge) %>%
+    dplyr::select(
+      Birthdate = dob,
+      Gender = gender,
+      ChronologicalAge = chronologicalAge,
+      AVAModelAge = avaModelAge,
+      VCVModelAge = vcvModelAge) %>%
     add_its_filename(its_xml)
 }
 
