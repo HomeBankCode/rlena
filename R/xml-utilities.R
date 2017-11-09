@@ -40,8 +40,8 @@ fetch_attr_path <- function(tree, path, label = NULL) {
 
   if (!is.null(label)) {
     df <- df %>%
-      dplyr::mutate(Category = label) %>%
-      dplyr::select(Category, XPath, Value)
+      dplyr::mutate(Category = .data$label) %>%
+      dplyr::select(.data$Category, .data$XPath, .data$Value)
   }
   df
 }
