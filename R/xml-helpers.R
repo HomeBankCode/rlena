@@ -71,7 +71,7 @@ descend <- function(.x, .f, ...) {
   .f <- purrr::as_function(.f)
   depth <- max_depth(.x)
 
-  for(d in seq_len(depth)) {
+  for (d in seq_len(depth)) {
     .x <- purrr::at_depth(.x, d, .f)
   }
   .x

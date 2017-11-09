@@ -2,9 +2,12 @@
 
 export("%>%")
 export(gather_ava_info)
+export(gather_blocks)
 export(gather_child_info)
 export(gather_conversations)
 export(gather_pauses)
+export(gather_recordings)
+export(gather_segments)
 export(read_its_file)
 importFrom(magrittr,"%>%")
 importFrom(rlang,.data)
