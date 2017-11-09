@@ -5,8 +5,8 @@ gather_conversations <- function(its_xml) {
   # Extract attributes from the conversation nodes
   its_xml %>%
     xml_path_to_df(xpaths_bookmarks$conversation) %>%
-    dplyr::mutate(startTime = convert_time_to_number(startTime),
-                   endTime = convert_time_to_number(endTime)) %>%
+    dplyr::mutate(startTime = convert_time_to_number(.data$startTime),
+                  endTime = convert_time_to_number(.data$endTime)) %>%
     add_its_filename(its_xml)
 }
 
@@ -18,8 +18,8 @@ gather_conversations <- function(its_xml) {
 gather_pauses <- function(its_xml) {
   its_xml %>%
     xml_path_to_df(xpaths_bookmarks$pause) %>%
-    dplyr::mutate(startTime = convert_time_to_number(startTime),
-                   endTime = convert_time_to_number(endTime)) %>%
+    dplyr::mutate(startTime = convert_time_to_number(.data$startTime),
+                  endTime = convert_time_to_number(.data$endTime)) %>%
     add_its_filename(its_xml)
 }
 
@@ -33,10 +33,10 @@ gather_ava_info <- function(its_xml) {
   its_xml %>%
     xml_path_to_df(xpaths_bookmarks$ava) %>%
     dplyr::select(
-      AVA_Raw = rawScore,
-      AVA_Stnd = standardScore,
-      AVA_EstMLU = estimatedMLU,
-      AVA_EstDevAge = estimatedDevAge) %>%
+      AVA_Raw = .data$rawScore,
+      AVA_Stnd = .data$standardScore,
+      AVA_EstMLU = .data$estimatedMLU,
+      AVA_EstDevAge = .data$estimatedDevAge) %>%
     add_its_filename(its_xml)
 }
 
@@ -49,11 +49,11 @@ gather_child_info <- function(its_xml) {
   its_xml %>%
     xml_path_to_df(xpaths_bookmarks$childinfo) %>%
     dplyr::select(
-      Birthdate = dob,
-      Gender = gender,
-      ChronologicalAge = chronologicalAge,
-      AVAModelAge = avaModelAge,
-      VCVModelAge = vcvModelAge) %>%
+      Birthdate = .data$dob,
+      Gender = .data$gender,
+      ChronologicalAge = .data$chronologicalAge,
+      AVAModelAge = .data$avaModelAge,
+      VCVModelAge = .data$vcvModelAge) %>%
     add_its_filename(its_xml)
 }
 
