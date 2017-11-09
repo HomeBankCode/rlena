@@ -19,7 +19,7 @@ All other functions work with this object to extract information:
 -   `gather_ava_info()` returns the AVA (Automatic Vocalization Assessment).
 -   `gather_child_info()` returns child information (e.g. birth data, age, gender).
 -   `gather_conversations()` returns the content of all `<Conversation>` nodes.
--   `gather_pauses()` returns the content of all `<Pause>` nodes
+-   `gather_pauses()` returns the content of all `<Pause>` nodes.
 
 All of these functions return tidy data frames that can easily be manipulated with the usual tools from the tidyverse.
 
@@ -43,15 +43,7 @@ Load an `.its` file. For this example we use a file that is hosted in the [https
 
 ``` r
 library(rlena)
-library(dplyr)
-#> 
-#> Attaching package: 'dplyr'
-#> The following objects are masked from 'package:stats':
-#> 
-#>     filter, lag
-#> The following objects are masked from 'package:base':
-#> 
-#>     intersect, setdiff, setequal, union
+library(dplyr, warn.conflicts = FALSE)
 
 # Download the example ITS file
 url <- "https://cdn.rawgit.com/HomeBankCode/lena-its-tools/master/Example/e20160420_165405_010572.its"
@@ -110,7 +102,7 @@ conversations
 Plot male and female adult word counts.
 
 ``` r
-library("tidyr")
+library(tidyr)
 
 # Create long data-frame of word counts
 word_counts <- conversations %>% 
@@ -127,7 +119,7 @@ word_counts <- word_counts %>%
   arrange(conversation_nr) %>%
   mutate(count_acc = cumsum(count))
 
-library("ggplot2")
+library(ggplot2)
 word_counts %>%
   ggplot(aes(time, count, color = speaker)) + 
     geom_point() + 
@@ -136,7 +128,7 @@ word_counts %>%
          y = "Words")
 ```
 
-![](fig/README-conversation-demo-1.png)
+![](man/figures/README-conversation-demo-1.png)
 
 ``` r
 
@@ -148,4 +140,4 @@ word_counts %>%
          y = "Words (Accumulated)")
 ```
 
-![](fig/README-conversation-demo-2.png)
+![](man/figures/README-conversation-demo-2.png)

@@ -5,11 +5,11 @@ output:
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-```{r, echo = FALSE}
+```{r setup, echo = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  fig.path = "fig/README-"
+  fig.path = "man/figures/README-"
 )
 ```
 
@@ -19,27 +19,36 @@ knitr::opts_chunk$set(
 [![Coverage Status](https://coveralls.io/repos/github/Teebusch/rlena/badge.svg?branch=master)](https://coveralls.io/github/Teebusch/rlena?branch=master)
 
 ## Overview
+
 The `rlena` package makes it easy to work with LENA `.its` files in R.
 
-The *Language Environment ANalysis (LENA)* system produces automatic annotations for audio recordings. Its annotations can be exported as `.its` files, that contain an `xml` structure. The `rlena` package helps with importing `.its` files into R and with creating and producing tidy data frames for further analysis.
+The *Language Environment ANalysis (LENA)* system produces automatic annotations
+for audio recordings. Its annotations can be exported as `.its` files, that
+contain an `xml` structure. The `rlena` package helps with importing `.its`
+files into R and with creating and producing tidy data frames for further
+analysis.
 
-The `read_its_file()` fuction takes the path to an .its file and returns an XML object.
+The `read_its_file()` fuction takes the path to an .its file and returns an XML
+object.
 
 All other functions work with this object to extract information:
 
-  - `gather_ava_info()` returns the AVA (Automatic Vocalization Assessment).
-  - `gather_child_info()` returns child information (e.g. birth data, age, gender).
-  - `gather_conversations()` returns the content of all `<Conversation>` 
+- `gather_ava_info()` returns the AVA (Automatic Vocalization Assessment).
+- `gather_child_info()` returns child information (e.g. birth data, age, 
+  gender).
+- `gather_conversations()` returns the content of all `<Conversation>` 
   nodes.
-  - `gather_pauses()` returns the content of all `<Pause>` nodes
+- `gather_pauses()` returns the content of all `<Pause>` nodes.
   
-All of these functions return tidy data frames that can easily be manipulated with the usual tools from the tidyverse.
+All of these functions return tidy data frames that can easily be manipulated
+with the usual tools from the tidyverse.
 
-:warning: ***Warning:** Please be aware that this package is early work in progress and subject to potentially code-breaking change.*
+:warning: ***Warning:** Please be aware that this package is early work in
+progress and subject to potentially code-breaking change.*
 
 ## Installation
 
-```{r eval=FALSE}
+```{r eval = FALSE}
 # rlena is not (yet) available on CRAN. 
 # You can install the developmental version from GitHub:
 
@@ -51,11 +60,12 @@ devtools::install_github("HomeBankCode/rlena")
 ## Usage
 
 Load an `.its` file. For this example we use a file that is hosted in the 
-[https://github.com/HomeBankCode/lena-its-tools](HomeBankCode/lena-its-tools) repository.
+[https://github.com/HomeBankCode/lena-its-tools](HomeBankCode/lena-its-tools) 
+repository.
 
 ```{r, warning = FALSE}
 library(rlena)
-library(dplyr)
+library(dplyr, warn.conflicts = FALSE)
 
 # Download the example ITS file
 url <- "https://cdn.rawgit.com/HomeBankCode/lena-its-tools/master/Example/e20160420_165405_010572.its"
@@ -64,14 +74,17 @@ download.file(url, tmp)
 its <- read_its_file(tmp)
 ```
 
-Extract child info and results of the Automatic Vocalization Assessment (an index of the child's language development).
+Extract child info and results of the Automatic Vocalization Assessment (an
+index of the child's language development).
 
 ```{r}
 gather_child_info(its)
 gather_ava_info(its)
 ```
 
-Extract all conversations. Each row of the returned data frame corresponds to one converstion node in the `.its` file. The columns contain the node's attributes, such as the number of adult words and child vocalizations.
+Extract all conversations. Each row of the returned data frame corresponds to
+one converstion node in the `.its` file. The columns contain the node's
+attributes, such as the number of adult words and child vocalizations.
 
 ```{r}
 conversations <- gather_conversations(its)
@@ -80,8 +93,8 @@ conversations
 
 Plot male and female adult word counts.
 
-```{r conversation-demo, fig.width = 6, fig.height = 3}
-library("tidyr")
+```{r conversation-demo, fig.width = 6, fig.height = 3, warning = FALSE}
+library(tidyr)
 
 # Create long data-frame of word counts
 word_counts <- conversations %>% 
@@ -98,7 +111,7 @@ word_counts <- word_counts %>%
   arrange(conversation_nr) %>%
   mutate(count_acc = cumsum(count))
 
-library("ggplot2")
+library(ggplot2)
 word_counts %>%
   ggplot(aes(time, count, color = speaker)) + 
     geom_point() + 
