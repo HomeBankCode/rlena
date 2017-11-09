@@ -18,6 +18,7 @@
 #'
 #' @name rlena
 #' @docType package
+#' @importFrom rlang .data
 NULL
 
 
