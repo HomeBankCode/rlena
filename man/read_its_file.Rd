@@ -4,11 +4,16 @@
 \alias{read_its_file}
 \title{Read a LENA .its file}
 \usage{
-read_its_file(path)
+read_its_file(x)
 }
 \arguments{
-\item{path}{A path to a LENA .its file}
+\item{x}{A path to a LENA .its file or an its file that has been parsed
+with \code{xml2::read_xml}}
+}
+\value{
+The parsed \code{.its} file as an \code{xml_document} object
 }
 \description{
-Read a LENA .its file
+Read a LENA .its file and prepare it for being used with other rlena
+functions
 }

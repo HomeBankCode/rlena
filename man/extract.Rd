@@ -26,16 +26,26 @@ gather_ava_info(its_xml)
 gather_child_info(its_xml)
 }
 \arguments{
-\item{its_xml}{the xml tree of an .its file}
+\item{its_xml}{an .its file parsed with \code{\link{read_its_file}}}
+}
+\value{
+A data frame containing the extracted nodes.
 }
 \description{
-gather_recordings - Extract all recording nodes,  as data frame.
-gather_blocks - Extract all block nodes (pauses and conversations) as data
-frame.
-gather_conversations - Extract all conversation nodes as data frame.
-gather_pauses - Extract all pause nodes as data frame.
-gather_segments - Extract all segment nodes as data frame.
-#gather_ava_info - Extract Automatic Vocalization Assessment info as data
-frame.
-gather_child_info - Extract all child info as data frame.
+Most \code{gather_} functions extract all nodes of a certain type from a
+\code{.its} file.
+\describe{
+  \item{gather_recordings}{all recording nodes}
+  \item{gather_blocks}{all block nodes (pauses and conversations)}
+  \item{gather_conversations}{all conversation nodes}
+  \item{gather_pauses}{all pause nodes}
+  \item{gather_segments}{all segment nodes}
+}
+}
+\details{
+Other functions extract related nodes from the \code{.its}
+\describe{
+  \item{#gather_ava_info}{Automatic Vocalization Assessment info}
+  \item{gather_child_info}{child info}
+}
 }

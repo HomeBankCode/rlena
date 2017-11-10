@@ -1,22 +1,22 @@
 #' Extract nodes of a certain type from an '.its' file as data frame.
 #'
-#' Most \code{gather_} functions extract all nodes of a certain type from an
-#' \{.its} file.
+#' Most \code{gather_} functions extract all nodes of a certain type from a
+#' \code{.its} file.
 #' \describe{
-#' \item{gather_recordings}{all recording nodes}
-#' \item{gather_blocks}{all block nodes (pauses and conversations) }
-#' \item{gather_conversations}{all conversation nodes}
-#' \item{gather_pauses}{all pause nodes}
-#' \item{gather_segments}{all segment nodes}
+#'   \item{gather_recordings}{all recording nodes}
+#'   \item{gather_blocks}{all block nodes (pauses and conversations)}
+#'   \item{gather_conversations}{all conversation nodes}
+#'   \item{gather_pauses}{all pause nodes}
+#'   \item{gather_segments}{all segment nodes}
 #' }
 #'
-#' Other functions extract related nodes from the \{.its}
+#' Other functions extract related nodes from the \code{.its}
 #' \describe{
-#' \item{#gather_ava_info}{Automatic Vocalization Assessment info}
-#' \item{gather_child_info}{child info}
+#'   \item{#gather_ava_info}{Automatic Vocalization Assessment info}
+#'   \item{gather_child_info}{child info}
 #' }
 #'
-#' @param its_xml the xml tree of an .its file
+#' @param its_xml an .its file parsed with \code{\link{read_its_file}}
 #' @return A data frame containing the extracted nodes.
 #' @name extract
 NULL
@@ -28,6 +28,8 @@ NULL
 gather_recordings <- function(its_xml) {
   its_xml %>%
     xml_path_to_df(xpaths_bookmarks$recording) %>%
+    dplyr::mutate_at(dplyr::vars(.data$startTime, .data$endTime),
+                     clean_its_time) %>%
     add_its_filename(its_xml)
 }
 
@@ -40,7 +42,7 @@ gather_blocks <- function(its_xml) {
   its_xml %>%
     xml_path_to_df(xpaths_bookmarks$block) %>%
     dplyr::mutate_at(dplyr::vars(.data$startTime, .data$endTime),
-                     its_time_to_number) %>%
+                     clean_its_time) %>%
     add_its_filename(its_xml)
 }
 
@@ -53,7 +55,7 @@ gather_conversations <- function(its_xml) {
   its_xml %>%
     xml_path_to_df(xpaths_bookmarks$conversation) %>%
     dplyr::mutate_at(dplyr::vars(.data$startTime, .data$endTime),
-                     its_time_to_number) %>%
+                     clean_its_time) %>%
     add_its_filename(its_xml)
 }
 
@@ -66,7 +68,7 @@ gather_pauses <- function(its_xml) {
   its_xml %>%
     xml_path_to_df(xpaths_bookmarks$pause) %>%
     dplyr::mutate_at(dplyr::vars(.data$startTime, .data$endTime),
-                     its_time_to_number) %>%
+                     clean_its_time) %>%
     add_its_filename(its_xml)
 }
 
@@ -78,7 +80,7 @@ gather_segments <- function(its_xml) {
   its_xml %>%
     xml_path_to_df(xpaths_bookmarks$segment) %>%
     dplyr::mutate_at(dplyr::vars(.data$startTime, .data$endTime),
-                     its_time_to_number) %>%
+                     clean_its_time) %>%
     add_its_filename(its_xml)
 }
 
@@ -87,7 +89,6 @@ gather_segments <- function(its_xml) {
 #' @rdname extract
 #' @export
 gather_ava_info <- function(its_xml) {
-  # Extract attributes from the conversation nodes
   its_xml %>%
     xml_path_to_df(xpaths_bookmarks$ava) %>%
     dplyr::select(

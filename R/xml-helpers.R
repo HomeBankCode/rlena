@@ -7,6 +7,11 @@ xml_path_to_df <- function(its_xml, path) {
 }
 
 
+quietly_convert_types <- function(...) {
+  purrr::quietly(readr::type_convert)(...)[["result"]]
+}
+
+
 
 #' Run multiple xpath attribute queries, collecting results in a dataframe
 #' @param tree an xml document loaded by xml2
@@ -89,10 +94,4 @@ promote_attributes <- function(x) {
     x <- purrr::splice(as.list(attrs), x)
   }
   x
-}
-
-
-
-quietly_convert_types <- function(...) {
-  purrr::quietly(readr::type_convert)(...)[["result"]]
 }
