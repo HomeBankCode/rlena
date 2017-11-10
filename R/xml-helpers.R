@@ -1,5 +1,5 @@
-xml_path_to_df <- function(lena_log, path) {
-  lena_log %>%
+xml_path_to_df <- function(its_xml, path) {
+  its_xml %>%
     xml2::xml_find_all(path) %>%
     xml2::xml_attrs() %>%
     purrr::map_df(as.list) %>%
@@ -59,20 +59,22 @@ find_depth <- function(x, depth = 0) {
 
 
 # Find deepest node
-max_depth <- . %>%
+max_depth <- function(x) {
+  x %>%
   find_depth %>%
   unlist(use.names = FALSE) %>%
   max(na.rm = TRUE)
+}
 
 
 
 # apply a function at each depth of a list
 descend <- function(.x, .f, ...) {
-  .f <- purrr::as_function(.f)
+  .f <- purrr::as_mapper(.f)
   depth <- max_depth(.x)
 
   for (d in seq_len(depth)) {
-    .x <- purrr::at_depth(.x, d, .f)
+    .x <- purrr::modify_depth(.x, d, .f)
   }
   .x
 }

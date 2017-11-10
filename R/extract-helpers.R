@@ -1,8 +1,7 @@
-convert_time_to_number <- function(xs) {
-  xs %>%
-    stringr::str_replace("PT", "") %>%
-    stringr::str_replace("S", "") %>%
-    as.numeric()
+#' Convert time format strings used in .its to numeric (seconds)
+its_time_to_number <- function(x) {
+  pattern <- "(?<=^P|PT)([0-9]+.[0-9]+)(?=S$)"
+  as.numeric(stringr::str_extract(x, pattern))
 }
 
 

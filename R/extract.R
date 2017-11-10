@@ -1,6 +1,6 @@
 #' Extract nodes of a certain type from an '.its' file as data frame.
 #'
-#' Most \code{gather_} function extract all nodes of a certain type from an
+#' Most \code{gather_} functions extract all nodes of a certain type from an
 #' \{.its} file.
 #' \describe{
 #' \item{gather_recordings}{all recording nodes}
@@ -16,7 +16,6 @@
 #' \item{gather_child_info}{child info}
 #' }
 #'
-#'
 #' @param its_xml the xml tree of an .its file
 #' @return A data frame containing the extracted nodes.
 #' @name extract
@@ -27,7 +26,9 @@ NULL
 #' @rdname extract
 #' @export
 gather_recordings <- function(its_xml) {
-  NULL
+  its_xml %>%
+    xml_path_to_df(xpaths_bookmarks$recording) %>%
+    add_its_filename(its_xml)
 }
 
 
@@ -36,7 +37,11 @@ gather_recordings <- function(its_xml) {
 #' @rdname extract
 #' @export
 gather_blocks <- function(its_xml) {
-  NULL
+  its_xml %>%
+    xml_path_to_df(xpaths_bookmarks$block) %>%
+    dplyr::mutate_at(dplyr::vars(.data$startTime, .data$endTime),
+                     its_time_to_number) %>%
+    add_its_filename(its_xml)
 }
 
 
@@ -45,11 +50,10 @@ gather_blocks <- function(its_xml) {
 #' @rdname extract
 #' @export
 gather_conversations <- function(its_xml) {
-  # Extract attributes from the conversation nodes
   its_xml %>%
     xml_path_to_df(xpaths_bookmarks$conversation) %>%
-    dplyr::mutate(startTime = convert_time_to_number(.data$startTime),
-                  endTime = convert_time_to_number(.data$endTime)) %>%
+    dplyr::mutate_at(dplyr::vars(.data$startTime, .data$endTime),
+                     its_time_to_number) %>%
     add_its_filename(its_xml)
 }
 
@@ -61,8 +65,8 @@ gather_conversations <- function(its_xml) {
 gather_pauses <- function(its_xml) {
   its_xml %>%
     xml_path_to_df(xpaths_bookmarks$pause) %>%
-    dplyr::mutate(startTime = convert_time_to_number(.data$startTime),
-                  endTime = convert_time_to_number(.data$endTime)) %>%
+    dplyr::mutate_at(dplyr::vars(.data$startTime, .data$endTime),
+                     its_time_to_number) %>%
     add_its_filename(its_xml)
 }
 
@@ -71,7 +75,11 @@ gather_pauses <- function(its_xml) {
 #' @rdname extract
 #' @export
 gather_segments <- function(its_xml) {
-  NULL
+  its_xml %>%
+    xml_path_to_df(xpaths_bookmarks$segment) %>%
+    dplyr::mutate_at(dplyr::vars(.data$startTime, .data$endTime),
+                     its_time_to_number) %>%
+    add_its_filename(its_xml)
 }
 
 
