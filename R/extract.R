@@ -29,7 +29,8 @@ gather_recordings <- function(its_xml) {
   its_xml %>%
     xml_path_to_df(xpaths_bookmarks$recording) %>%
     dplyr::mutate_at(dplyr::vars(.data$startTime, .data$endTime),
-                     clean_its_time) %>%
+                     clean_time_str) %>%
+    dplyr::mutate(TimeZone = extract_tz(its_xml)) %>%
     add_its_filename(its_xml)
 }
 
@@ -42,7 +43,7 @@ gather_blocks <- function(its_xml) {
   its_xml %>%
     xml_path_to_df(xpaths_bookmarks$block) %>%
     dplyr::mutate_at(dplyr::vars(.data$startTime, .data$endTime),
-                     clean_its_time) %>%
+                     clean_time_str) %>%
     add_its_filename(its_xml)
 }
 
@@ -55,7 +56,7 @@ gather_conversations <- function(its_xml) {
   its_xml %>%
     xml_path_to_df(xpaths_bookmarks$conversation) %>%
     dplyr::mutate_at(dplyr::vars(.data$startTime, .data$endTime),
-                     clean_its_time) %>%
+                     clean_time_str) %>%
     add_its_filename(its_xml)
 }
 
@@ -68,7 +69,7 @@ gather_pauses <- function(its_xml) {
   its_xml %>%
     xml_path_to_df(xpaths_bookmarks$pause) %>%
     dplyr::mutate_at(dplyr::vars(.data$startTime, .data$endTime),
-                     clean_its_time) %>%
+                     clean_time_str) %>%
     add_its_filename(its_xml)
 }
 
@@ -80,7 +81,7 @@ gather_segments <- function(its_xml) {
   its_xml %>%
     xml_path_to_df(xpaths_bookmarks$segment) %>%
     dplyr::mutate_at(dplyr::vars(.data$startTime, .data$endTime),
-                     clean_its_time) %>%
+                     clean_time_str) %>%
     add_its_filename(its_xml)
 }
 

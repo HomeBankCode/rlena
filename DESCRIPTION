@@ -13,7 +13,7 @@ URL: https://github.com/HomeBankCode/rlena
 BugReports: https://github.com/HomeBankCode/rlena/issues
 LazyData: true
 Suggests: testthat
-Imports:
+Imports: 
     xml2,
     dplyr,
     stringr,
@@ -21,6 +21,7 @@ Imports:
     purrr,
     tibble,
     rlang,
-    magrittr
+    magrittr,
+    lubridate
 RoxygenNote: 6.0.1
 Encoding: UTF-8
