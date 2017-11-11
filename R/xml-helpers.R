@@ -1,3 +1,12 @@
+#' Run xpath query and return attributes of the found nodes as data frame.
+#' @param its_xml The xml tree returned by \code{read_its_file}
+#' @param path A character string. The xpath query to run
+#' @param add_node_type Logical. If TRUE a column with the node type
+#' (name) of the extracted nodes is added to the data frame. If FALSE (default)
+#' only the nodes attributes are returned as columns.
+#' @return A data frame. Rows correspond tho the nodes rturned from the query,
+#' columns correspond to attributes of the returned nodes.
+#' @keywords internal
 xml_path_to_df <- function(its_xml, path, add_nodeType = FALSE) {
   nodes <- its_xml %>%
     xml2::xml_find_all(path)
@@ -8,8 +17,8 @@ xml_path_to_df <- function(its_xml, path, add_nodeType = FALSE) {
     quietly_convert_types()
 
   if (add_nodeType) {
-    nodeTypes <- xml2::xml_name(nodes)
-    attrs <- tibble::add_column(attrs, nodeType = nodeTypes, .before = 1)
+    node_types <- xml2::xml_name(nodes)
+    attrs <- cbind(attrs, nodeType = node_types)
   }
   return(attrs)
 }

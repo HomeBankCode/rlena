@@ -33,10 +33,12 @@ add_id_attrs <- function(its_xml) {
     for (blk in blocks) {
       b <- b + 1
       blkTypeId <- xml2::xml_attr(blk, "num") # running count of Pauses / Conv.
+      blkType <- xml2::xml_name(blk)
       xml2::xml_set_attr(blk, "recId", r)
       xml2::xml_set_attr(blk, "blkId", b)
       xml2::xml_set_attr(blk, "blkTypeId", blkTypeId)
       xml2::xml_set_attr(blk, "num", NULL)
+      xml2::xml_set_attr(blk, "blkType", blkType)
 
       segments <- xml2::xml_children(blk)
       for (seg in segments) {
@@ -45,6 +47,7 @@ add_id_attrs <- function(its_xml) {
         xml2::xml_set_attr(seg, "blkId", b)
         xml2::xml_set_attr(seg, "blkTypeId", blkTypeId)
         xml2::xml_set_attr(seg, "segId", s)
+        xml2::xml_set_attr(seg, "blkType", blkType)
       }
     }
   }

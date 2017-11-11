@@ -55,13 +55,13 @@ its <- read_its_file(tmp)
 ``` r
 gather_child_info(its)
 #> # A tibble: 1 x 6
-#>                 its_File  Birthdate Gender ChronologicalAge AVAModelAge
+#>                    itsId  Birthdate Gender ChronologicalAge AVAModelAge
 #>                    <chr>     <date>  <chr>            <chr>       <chr>
 #> 1 20160420_165405_010572 2015-11-19      M              P4M         P4M
 #> # ... with 1 more variables: VCVModelAge <chr>
 gather_ava_info(its)
 #> # A tibble: 1 x 5
-#>                 its_File AVA_Raw AVA_Stnd AVA_EstMLU AVA_EstDevAge
+#>                    itsId AVA_Raw AVA_Stnd AVA_EstMLU AVA_EstDevAge
 #>                    <chr>   <dbl>    <dbl>      <chr>         <chr>
 #> 1 20160420_165405_010572   0.715  110.724        ORL           P5M
 ```
@@ -71,31 +71,33 @@ gather_ava_info(its)
 ``` r
 conversations <- gather_conversations(its)
 conversations
-#> # A tibble: 655 x 44
-#>                  its_File    blockType  type average_dB peak_dB turnTaking
-#>                     <chr>        <chr> <chr>      <dbl>   <dbl>      <int>
-#>  1 20160420_165405_010572 Conversation   AMF     -26.16  -13.00          0
-#>  2 20160420_165405_010572 Conversation   AMF     -26.57  -14.80          0
-#>  3 20160420_165405_010572 Conversation  AICF     -18.10   -6.84          2
-#>  4 20160420_165405_010572 Conversation AIOCF     -15.92   -6.65          0
-#>  5 20160420_165405_010572 Conversation   AMF     -25.37  -10.55          0
-#>  6 20160420_165405_010572 Conversation  AICF     -26.77  -10.15          1
-#>  7 20160420_165405_010572 Conversation    CM     -18.12   -6.75          0
-#>  8 20160420_165405_010572 Conversation  AICF     -19.69   -9.72          1
-#>  9 20160420_165405_010572 Conversation   AMF     -24.60   -9.37          0
-#> 10 20160420_165405_010572 Conversation   AMF     -34.84  -26.24          0
-#> # ... with 645 more rows, and 38 more variables:
-#> #   femaleAdultInitiation <int>, maleAdultInitiation <int>,
-#> #   childResponse <int>, childInitiation <int>, femaleAdultResponse <int>,
-#> #   maleAdultResponse <int>, adultWordCnt <dbl>, femaleAdultWordCnt <dbl>,
-#> #   maleAdultWordCnt <dbl>, femaleAdultUttCnt <int>,
-#> #   maleAdultUttCnt <int>, femaleAdultUttLen <dbl>, maleAdultUttLen <dbl>,
+#> # A tibble: 655 x 48
+#>    recId blkId blkTypeId      blkType startTime endTime
+#>    <int> <int>     <int>        <chr>     <dbl>   <dbl>
+#>  1     1     2         1 Conversation     12.27   15.81
+#>  2     1     4         2 Conversation     21.18   27.82
+#>  3     1     6         3 Conversation     34.20   49.98
+#>  4     1     8         4 Conversation     71.69   79.84
+#>  5     1    10         5 Conversation     93.53  100.85
+#>  6     1    12         6 Conversation    110.91  124.47
+#>  7     1    14         7 Conversation    132.32  139.73
+#>  8     1    16         8 Conversation    150.82  161.87
+#>  9     1    18         9 Conversation    176.87  192.18
+#> 10     1    20        10 Conversation    198.31  199.25
+#> # ... with 645 more rows, and 42 more variables: startClockTime <dttm>,
+#> #   endClockTime <dttm>, startClockTimeLocal <dttm>,
+#> #   endClockTimeLocal <dttm>, itsId <chr>, type <chr>, average_dB <dbl>,
+#> #   peak_dB <dbl>, turnTaking <int>, femaleAdultInitiation <int>,
+#> #   maleAdultInitiation <int>, childResponse <int>, childInitiation <int>,
+#> #   femaleAdultResponse <int>, maleAdultResponse <int>,
+#> #   adultWordCnt <dbl>, femaleAdultWordCnt <dbl>, maleAdultWordCnt <dbl>,
+#> #   femaleAdultUttCnt <int>, maleAdultUttCnt <int>,
+#> #   femaleAdultUttLen <dbl>, maleAdultUttLen <dbl>,
 #> #   femaleAdultNonSpeechLen <dbl>, maleAdultNonSpeechLen <dbl>,
 #> #   childUttCnt <int>, childUttLen <dbl>, childCryVfxLen <dbl>, TVF <dbl>,
 #> #   FAN <dbl>, OLN <dbl>, SIL <dbl>, NOF <dbl>, CXF <dbl>, OLF <dbl>,
 #> #   CHF <dbl>, MAF <dbl>, TVN <dbl>, NON <dbl>, CXN <dbl>, CHN <dbl>,
-#> #   MAN <dbl>, FAF <dbl>, startTime <dbl>, endTime <dbl>, recId <int>,
-#> #   blkId <int>, blkTypeId <int>
+#> #   MAN <dbl>, FAF <dbl>
 ```
 
 -   Plot male and female adult word counts.

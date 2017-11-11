@@ -1,4 +1,5 @@
 #' Convert \code{.its} time format strings to numeric (seconds)
+#'
 #' @param x An \code{.its} time string
 #' @return A numeric (time in seconds)
 #' @keywords internal
@@ -10,6 +11,7 @@ clean_time_str <- function(x) {
 
 
 #' Coerce all columns with LENA time strings to numeric (seconds)
+#'
 #' @param df A data frame produced by any of the \code{gather_} functions.
 #' @return A data frame with all time columns converted to numeric
 #' @keywords internal
@@ -29,6 +31,7 @@ clean_time_cols <- function(df) {
 #' The GMT timezone string in the \code{.its} files is not compatible with
 #' lubridate. This function fixes it. See \code{OlsonNames()} for valid
 #' timezone names.
+#'
 #' @param tz_str An \code{.its} timezone string
 #' @return A lubridate compatible timezon character string
 #' @keywords internal
@@ -48,6 +51,7 @@ clean_tz_str <- function(tz_str) {
 
 
 #' Extract timezone of the recording from \code{.its}
+#'
 #' @param its_xml An \code{.its} xml tree
 #' @return A character string, the name of the timezone used in the \code{.its}
 #' @keywords internal
@@ -69,6 +73,7 @@ extract_tz <- function(its_xml) {
 #' across LENA recordings made in different timezones, without converting to a
 #' common time zone first. (2) Because time objects with
 #' different timezones cannot be stored in the same column of a data frame.
+#'
 #' @param utc_time A vector of POSIXct object to convert to local time
 #' @param local_tzs A single local timezone to convert to or a vector of local
 #' timezones with the same length as \code{utc_time}
@@ -88,7 +93,7 @@ as_local_time <- function(utc_time, local_tzs) {
 #' @param segment_df A data frame produced by \code{gather_segments()}
 #' @return A data frame with additional columns with conversation information
 #' @keywords internal
-split_conversationInfo <- function(segments_df) {
+split_conversation_info <- function(segments_df) {
   segments_df %>%
     dplyr::mutate(conversationInfo =
                     substr(.data$conversationInfo,
@@ -120,20 +125,81 @@ split_conversationInfo <- function(segments_df) {
 #' @return A data frame eith an additional column \code{its_file}, containing
 #' the name of the corresponding \code{.its} file
 #' @keywords internal
-add_its_filename <- function(df, its_xml) {
-  tibble::add_column(
-    df,
-    its_File = extract_its_filename(its_xml),
-    .before = 1)
+add_its_id <- function(df, its_xml) {
+  tibble::add_column(df, itsId = extract_its_filename(its_xml), .before = 1)
 }
 
 
 
 #' Extract its filename from the \code{.its} xml tree
+#'
 #' @param its_xml An \code{.its} xml tree
 #' @return A character string, the name of the \code{.its} file as found in
 #' the \code{.its} xml tree
 #' @keywords internal
 extract_its_filename <- function(its_xml) {
-  xml2::xml_attrs(its_xml)["fileName"]
+  as.character(xml2::xml_attrs(its_xml)["fileName"])
+}
+
+
+
+#' Add clock times to a data frame of nodes
+#'
+#' The segment and block nodes only have startTime and endTime attributes that
+#' indicate the time since the beginning of the corresponding recording (in
+#' seconds). This function takes a data frame with recording information and
+#' adds the corresponding clock time (UTC) and local time (adjusted for
+#' timezone). Note that the local time is correctly adjusted but still stored
+#' with timezone "UTC". See \code{\link{as_local_time}} for more information.
+#'
+#' @param df A data frame created by one of the \code{gather} functions. Must
+#' contain a \code{startTime} and \code{endTime} column that contain the seconds
+#' since the start of the recording.
+#' @return A data frame with \code{startClockTime}, \code{endClockTime},
+#' \code{startClockTimeLocal}, and \code{endClockTimeLocal} columns for each
+#' recording.
+#' @keywords internal
+add_clock_time <- function(df, df_rec) {
+  rec_start_times <- df_rec %>%
+    dplyr::select(recId = .data$recId,
+                  startTime_rec = .data$startTime,
+                  startClockTime_rec = .data$startClockTime,
+                  startClockTimeLocal_rec = .data$startClockTimeLocal)
+
+  df_clock_times <- df %>%
+    dplyr::select(.data$recId, .data$startTime, .data$endTime) %>%
+    dplyr::left_join(rec_start_times, by = "recId") %>%
+    dplyr::mutate(
+      startTime_diff = lubridate::seconds(
+        .data$startTime - .data$startTime_rec),
+      endTime_diff = lubridate::seconds(
+        .data$endTime - .data$startTime_rec)
+    ) %>%
+    dplyr::transmute(
+      startClockTime = .data$startClockTime_rec + .data$startTime_diff,
+      endClockTime = .data$startClockTime_rec + .data$endTime_diff,
+      startClockTimeLocal = .data$startClockTimeLocal_rec +
+        .data$startTime_diff,
+      endClockTimeLocal = .data$startClockTimeLocal_rec + .data$endTime_diff
+    )
+
+  df <- dplyr::bind_cols(df, df_clock_times)
+}
+
+
+#' Sort columns in data frames produced by any of the \code{gather_} functions
+#'
+#' @param df A data frames produced by any of the \code{gather_} functions
+#' @return The data frame with columns in a different order.
+#' @keywords internal
+sort_gathered_columns <- function(df) {
+  # To avoid an "unknown columns" warning we filter the columns before we use
+  # dplyr::select
+  cols_ordered <- c(
+    "itsFile", "recId", "blkId", "blkTypeId", "segId", "blkType", "spkr",
+    "startTime", "endTime", "startClockTime", "endClockTime",
+    "startClockTimeLocal", "endClockTimeLocal"
+  )
+  cols_in_df <- cols_ordered[cols_ordered %in% colnames(df)]
+  dplyr::select(df, dplyr::one_of(cols_in_df), dplyr::everything())
 }

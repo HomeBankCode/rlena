@@ -23,13 +23,27 @@ NULL
 
 
 
-#' @name extract
+
+#' Return nodes of a certain type from an '.its' file as data frame.
+#'
+#' @inheritParams extract
+#' @inheritParams xml_path_to_df
+#' @param add_clock_time Logical. If TRUE (default) colums \code{startClockTime},
+#' \code{endClockTime}, \code{startClockTimeLocal}, and \code{endClockTimeLocal}
+#' will be added to the data frame. They contain timestams corresponding to the
+#' \code{startTime}, and \code{endTime} columns.
+#' @return A data frame containing the extracted nodes
 #' @keywords internal
-gather_path <- function(its_xml, path, add_nodeType = FALSE) {
-  its_xml %>%
-    xml_path_to_df(path, add_nodeType) %>%
+gather_path <- function(its_xml, path, add_clock_time = TRUE) {
+  df <- its_xml %>%
+    xml_path_to_df(path) %>%
     clean_time_cols() %>%
-    add_its_filename(its_xml)
+    add_its_id(its_xml)
+
+  if (add_clock_time)
+    df <- add_clock_time(df, gather_recordings(its_xml))
+
+  sort_gathered_columns(df)
 }
 
 
@@ -38,7 +52,7 @@ gather_path <- function(its_xml, path, add_nodeType = FALSE) {
 #' @export
 gather_recordings <- function(its_xml) {
   its_xml %>%
-    gather_path(xpaths_bookmarks$recording) %>%
+    gather_path(xpaths_bookmarks$recording, add_clock_time = FALSE) %>%
     dplyr::mutate(
       timeZone = extract_tz(its_xml),
       startClockTimeLocal = as_local_time(.data$startClockTime, .data$timeZone),
@@ -51,9 +65,7 @@ gather_recordings <- function(its_xml) {
 #' @rdname extract
 #' @export
 gather_blocks <- function(its_xml) {
-  its_xml %>%
-    gather_path(xpaths_bookmarks$block, add_nodeType = TRUE) %>%
-    dplyr::rename(blockType = .data$nodeType)
+    gather_path(its_xml, xpaths_bookmarks$block)
 }
 
 
@@ -62,9 +74,7 @@ gather_blocks <- function(its_xml) {
 #' @rdname extract
 #' @export
 gather_conversations <- function(its_xml) {
-  its_xml %>%
-    gather_path(xpaths_bookmarks$conversation, add_nodeType = TRUE) %>%
-    dplyr::rename(blockType = .data$nodeType)
+    gather_path(its_xml, xpaths_bookmarks$conversation)
 }
 
 
@@ -73,9 +83,7 @@ gather_conversations <- function(its_xml) {
 #' @rdname extract
 #' @export
 gather_pauses <- function(its_xml) {
-  its_xml %>%
-    gather_path(xpaths_bookmarks$pause, add_nodeType = TRUE) %>%
-    dplyr::rename(blockType = .data$nodeType)
+    gather_path(its_xml, xpaths_bookmarks$pause)
 }
 
 
@@ -85,7 +93,7 @@ gather_pauses <- function(its_xml) {
 gather_segments <- function(its_xml) {
   its_xml %>%
     gather_path(xpaths_bookmarks$segment) %>%
-    split_conversationInfo()
+    split_conversation_info()
 }
 
 
@@ -100,7 +108,7 @@ gather_ava_info <- function(its_xml) {
       AVA_Stnd = .data$standardScore,
       AVA_EstMLU = .data$estimatedMLU,
       AVA_EstDevAge = .data$estimatedDevAge) %>%
-    add_its_filename(its_xml)
+    add_its_id(its_xml)
 }
 
 
@@ -117,5 +125,5 @@ gather_child_info <- function(its_xml) {
       ChronologicalAge = .data$chronologicalAge,
       AVAModelAge = .data$avaModelAge,
       VCVModelAge = .data$vcvModelAge) %>%
-    add_its_filename(its_xml)
+    add_its_id(its_xml)
 }
