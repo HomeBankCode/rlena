@@ -2,8 +2,7 @@
 % Please edit documentation in R/extract-helpers.R
 \name{clean_tz_str}
 \alias{clean_tz_str}
-\title{Convert timezone string used in \code{.its} to \code{lubridate} compatible
-timezone name.}
+\title{Make \code{.its} timezone string \code{lubridate} compatible}
 \usage{
 clean_tz_str(tz_str)
 }
@@ -11,7 +10,8 @@ clean_tz_str(tz_str)
 \item{tz_str}{An \code{.its} timezone string}
 }
 \description{
-The timezone format in the its files is not compatible with lubridate.
-This function fixes this. See \code{OlsonNames()} for valid timezone names.
+The GMT timezone string in the \code{.its} files is not compatible with
+lubridate. This function fixes it. See \code{OlsonNames()} for valid
+timezone names.
 }
 \keyword{internal}

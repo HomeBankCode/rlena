@@ -2,6 +2,8 @@
 % Please edit documentation in R/extract.R
 \name{extract}
 \alias{extract}
+\alias{extract}
+\alias{gather_path}
 \alias{gather_recordings}
 \alias{gather_blocks}
 \alias{gather_conversations}
@@ -11,6 +13,8 @@
 \alias{gather_child_info}
 \title{Extract nodes of a certain type from an '.its' file as data frame.}
 \usage{
+gather_path(its_xml, path, add_nodeType = FALSE)
+
 gather_recordings(its_xml)
 
 gather_blocks(its_xml)
@@ -49,3 +53,4 @@ Other functions extract related nodes from the \code{.its}
   \item{gather_child_info}{child info}
 }
 }
+\keyword{internal}

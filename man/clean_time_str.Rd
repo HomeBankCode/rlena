@@ -2,7 +2,7 @@
 % Please edit documentation in R/extract-helpers.R
 \name{clean_time_str}
 \alias{clean_time_str}
-\title{Convert time format strings used in .its to numeric (seconds)}
+\title{Convert \code{.its} time format strings to numeric (seconds)}
 \usage{
 clean_time_str(x)
 }
@@ -10,6 +10,6 @@ clean_time_str(x)
 \item{x}{An \code{.its} time string}
 }
 \description{
-Convert time format strings used in .its to numeric (seconds)
+Convert \code{.its} time format strings to numeric (seconds)
 }
 \keyword{internal}

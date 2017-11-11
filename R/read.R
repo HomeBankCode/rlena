@@ -27,7 +27,7 @@ add_id_attrs <- function(its_xml) {
   for (rec in recordings) {
     r <- r + 1
     xml2::xml_set_attr(rec, "num", NULL)
-    xml2::xml_set_attr(rec, "recId", rec)
+    xml2::xml_set_attr(rec, "recId", r)
 
     blocks <- xml2::xml_children(recordings[r])
     for (blk in blocks) {

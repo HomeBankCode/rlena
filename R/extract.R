@@ -23,17 +23,28 @@ NULL
 
 
 
+#' @name extract
+#' @keywords internal
+gather_path <- function(its_xml, path, add_nodeType = FALSE) {
+  its_xml %>%
+    xml_path_to_df(path, add_nodeType) %>%
+    clean_time_cols() %>%
+    add_its_filename(its_xml)
+}
+
+
+
 #' @rdname extract
 #' @export
 gather_recordings <- function(its_xml) {
   its_xml %>%
-    xml_path_to_df(xpaths_bookmarks$recording) %>%
-    dplyr::mutate_at(dplyr::vars(.data$startTime, .data$endTime),
-                     clean_time_str) %>%
-    dplyr::mutate(TimeZone = extract_tz(its_xml)) %>%
-    add_its_filename(its_xml)
+    gather_path(xpaths_bookmarks$recording) %>%
+    dplyr::mutate(
+      timeZone = extract_tz(its_xml),
+      startClockTimeLocal = as_local_time(.data$startClockTime, .data$timeZone),
+      endClockTimeLocal = as_local_time(.data$endClockTime, .data$timeZone)
+    )
 }
-
 
 
 
@@ -41,10 +52,8 @@ gather_recordings <- function(its_xml) {
 #' @export
 gather_blocks <- function(its_xml) {
   its_xml %>%
-    xml_path_to_df(xpaths_bookmarks$block) %>%
-    dplyr::mutate_at(dplyr::vars(.data$startTime, .data$endTime),
-                     clean_time_str) %>%
-    add_its_filename(its_xml)
+    gather_path(xpaths_bookmarks$block, add_nodeType = TRUE) %>%
+    dplyr::rename(blockType = .data$nodeType)
 }
 
 
@@ -54,10 +63,8 @@ gather_blocks <- function(its_xml) {
 #' @export
 gather_conversations <- function(its_xml) {
   its_xml %>%
-    xml_path_to_df(xpaths_bookmarks$conversation) %>%
-    dplyr::mutate_at(dplyr::vars(.data$startTime, .data$endTime),
-                     clean_time_str) %>%
-    add_its_filename(its_xml)
+    gather_path(xpaths_bookmarks$conversation, add_nodeType = TRUE) %>%
+    dplyr::rename(blockType = .data$nodeType)
 }
 
 
@@ -67,10 +74,8 @@ gather_conversations <- function(its_xml) {
 #' @export
 gather_pauses <- function(its_xml) {
   its_xml %>%
-    xml_path_to_df(xpaths_bookmarks$pause) %>%
-    dplyr::mutate_at(dplyr::vars(.data$startTime, .data$endTime),
-                     clean_time_str) %>%
-    add_its_filename(its_xml)
+    gather_path(xpaths_bookmarks$pause, add_nodeType = TRUE) %>%
+    dplyr::rename(blockType = .data$nodeType)
 }
 
 
@@ -79,10 +84,7 @@ gather_pauses <- function(its_xml) {
 #' @export
 gather_segments <- function(its_xml) {
   its_xml %>%
-    xml_path_to_df(xpaths_bookmarks$segment) %>%
-    dplyr::mutate_at(dplyr::vars(.data$startTime, .data$endTime),
-                     clean_time_str) %>%
-    add_its_filename(its_xml)
+    gather_path(xpaths_bookmarks$segment)
 }
 
 
