@@ -15,12 +15,110 @@ frames for further analysis.
 }
 \section{The \code{.its} file structure}{
 
+The \code{.its} file contains a hierarchical structure of annotations:
+*segments* are grouped into *vocalization activity blocks* (pauses or
+conversations), which are grouped into *recordings*.
+}
+
+\section{Recordings}{
+
 Each \code{.its} file corresponds to one audio file. A single file can
-contain multiple *recordings*, each of which correspons to one uninterrupted
-recording.
-On the lowest level, the annotations are a continuous but non-overlapping
-sequence of *labels* which indicate different types of speakers or sounds.
-The labels are grouped into larger, non-overlapping *blocks* of pauses and
-conversations.
+contain multiple *recordings*. A recording correspons to one uninterrupted
+recording. When the pause button is pressed during a LENA recording session,
+this will create a new recording. The recording information can be obtained
+with \code{\link{gather_recordings}}
+}
+
+\section{Segments}{
+
+On the lowest level, the annotations are a continuous, non-overlapping
+sequence of *segments*, each of which corresponds to a different type of
+speakers or sound. These segments can be obtained with
+\code{\link{gather_segments}}.
+
+Each segment has one of 10 labels:
+\describe{
+  \item{\code{CHN}}{Key Child}
+  \item{\code{CXN}}{Other Child}
+  \item{\code{FAN}}{Female Adult}
+  \item{\code{MAN}}{Male Adult}
+  \item{\code{OLN}}{Overlapping Vocals}
+  \item{\code{TVN}}{TV / Electronic Media}
+  \item{\code{NON}}{Noise}
+  \item{\code{SIL}}{Silence}
+  \item{\code{FUZ}}{Uncertain / Fuzzy}
+}
+
+\code{CHN} segments are processed further to provide estimates of child
+vocalizations. \code{FAN} and \code{MAN} segments are processed further to
+provide estimates of the number of adult words. Nonspeech vocalizations and
+vegetative sounds are excluded from those counts.
+}
+
+\section{Vocalization Activity Blocks}{
+
+The segments are grouped into larger, non-overlapping
+*vocalization activity blocks*. These can be pauses and conversations.
+The blocks can be obtained with \code{\link{gather_blocks}}.
+To get just the pause blocks, one can use \code{\link{gather_pauses}}.
+The get just the conversation blocks, one can use
+\code{\link{gather_conversations}}.
+
+Conversations can have different types, depending on which type of speaker
+initiates the converation and which types of speakers participate.
+
+Initiated by the key child
+\describe{
+  \item{\code{CM}}{Key Child Monologue}
+  \item{\code{CIC}}{Key Child with Adult}
+  \item{\code{CIOCX}}{Key Child with Other Child}
+  \item{\code{CIOCAX}}{Key Child with Adult and Other Child}
+}
+Initiated by a female adult
+\describe{
+  \item{\code{AMF}}{Female Ault Monologue}
+  \item{\code{AICF}}{Female Adult with Key Child}
+  \item{\code{AIOCF}}{Female Adult with Other Child}
+  \item{\code{AIOCCXF}}{Female Adult with Key Child and Other Child}
+}
+Initiated by a male adult
+\describe{
+  \item{\code{AMM}}{Male Ault Monologue}
+  \item{\code{AICM}}{Male Adult with Key Child}
+  \item{\code{AIOCM}}{Male Adult with Other Child}
+  \item{\code{AIOCCXM}}{Male Adult with Key Child and Other Child}
+}
+Initiated by another child
+\describe{
+  \item{\code{XM}}{Other Child Monologue}
+  \item{\code{XIOCC}}{Other Child with Key Child}
+  \item{\code{XIOCA}}{Other Child with Adult}
+  \item{\code{XIC}}{Other Child with Key Child and Adult (Turns)}
+  \item{\code{XIOCAC}}{Other Child with Key Child and Adult (No Turns)}
+}
+}
+
+\section{Turn Taking Information}{
+
+Some segments within Vocalization Activity Blocks have special functions
+related to turn taking.
+
+Vocalizations in a conversation can be of different types:
+\describe{
+  \item{\code{FI}}{Floor Initiation - speaker is speaking for the first time
+  in this block}
+  \item{\code{FH}}{Floor Holding - speaker has spoken before}
+}
+
+Conversational turns can be of different types, too:
+\describe{
+  \item{\code{TIFI/TIMI}}{Turn Initiation with Female / Male Adult}
+  \item{\code{TIFR/TIMR}}{Turn Response with Female / Male Adult}
+  \item{\code{TIFE/TIME}}{Turn End with Female / Male Adult}
+  \item{\code{NT}}{Other Child with Key Child and Adult (Turns)}
+}
+
+For more information see the "Quick Reference Sheet". It is accessible from
+the help menu in the ADEX software.
 }
 

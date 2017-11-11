@@ -9,6 +9,9 @@ clean_tz_str(tz_str)
 \arguments{
 \item{tz_str}{An \code{.its} timezone string}
 }
+\value{
+A lubridate compatible timezon character string
+}
 \description{
 The GMT timezone string in the \code{.its} files is not compatible with
 lubridate. This function fixes it. See \code{OlsonNames()} for valid

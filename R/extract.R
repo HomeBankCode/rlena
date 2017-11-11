@@ -84,7 +84,8 @@ gather_pauses <- function(its_xml) {
 #' @export
 gather_segments <- function(its_xml) {
   its_xml %>%
-    gather_path(xpaths_bookmarks$segment)
+    gather_path(xpaths_bookmarks$segment) %>%
+    split_conversationInfo()
 }
 
 

@@ -9,6 +9,9 @@ extract_tz(its_xml)
 \arguments{
 \item{its_xml}{An \code{.its} xml tree}
 }
+\value{
+A character string, the name of the timezone used in the \code{.its}
+}
 \description{
 Extract timezone of the recording from \code{.its}
 }

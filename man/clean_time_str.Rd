@@ -9,6 +9,9 @@ clean_time_str(x)
 \arguments{
 \item{x}{An \code{.its} time string}
 }
+\value{
+A numeric (time in seconds)
+}
 \description{
 Convert \code{.its} time format strings to numeric (seconds)
 }

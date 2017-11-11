@@ -22,6 +22,7 @@ Imports:
     tibble,
     rlang,
     magrittr,
-    lubridate (>= 1.7.0)
+    lubridate (>= 1.7.0),
+    tidyr
 RoxygenNote: 6.0.1
 Encoding: UTF-8

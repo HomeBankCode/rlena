@@ -1,5 +1,6 @@
 #' Convert \code{.its} time format strings to numeric (seconds)
 #' @param x An \code{.its} time string
+#' @return A numeric (time in seconds)
 #' @keywords internal
 clean_time_str <- function(x) {
   pattern <- "(?<=^P|PT)([0-9]+.[0-9]+)(?=S$)"
@@ -8,7 +9,10 @@ clean_time_str <- function(x) {
 
 
 
-# Coerce all columns with LENA time strings to numeric (seconds)
+#' Coerce all columns with LENA time strings to numeric (seconds)
+#' @param df A data frame produced by any of the \code{gather_} functions.
+#' @return A data frame with all time columns converted to numeric
+#' @keywords internal
 clean_time_cols <- function(df) {
   pattern = paste(
     "(^(maleAdult|femaleAdult|child)(Utt|NonSpeech|CryVfx)(Len)$)",
@@ -26,6 +30,7 @@ clean_time_cols <- function(df) {
 #' lubridate. This function fixes it. See \code{OlsonNames()} for valid
 #' timezone names.
 #' @param tz_str An \code{.its} timezone string
+#' @return A lubridate compatible timezon character string
 #' @keywords internal
 clean_tz_str <- function(tz_str) {
   # Timezone strings have up to three parts, e.g. (GMT)(-08):(00)
@@ -44,6 +49,7 @@ clean_tz_str <- function(tz_str) {
 
 #' Extract timezone of the recording from \code{.its}
 #' @param its_xml An \code{.its} xml tree
+#' @return A character string, the name of the timezone used in the \code{.its}
 #' @keywords internal
 extract_tz <- function(its_xml) {
   tz <- its_xml %>%
@@ -73,6 +79,47 @@ as_local_time <- function(utc_time, local_tzs) {
 
 
 
+#' Split conversationInfo column
+#'
+#' Some segment nodes contain a \code{conversationInfo} attribute with
+#' additional information related to vocalization activity blocks and turns.
+#' This function parses this information into separate columns.
+#'
+#' @param segment_df A data frame produced by \code{gather_segments()}
+#' @return A data frame with additional columns with conversation information
+#' @keywords internal
+split_conversationInfo <- function(segments_df) {
+  segments_df %>%
+    dplyr::mutate(conversationInfo =
+                    substr(.data$conversationInfo,
+                           2, nchar(.data$conversationInfo) - 1)) %>%
+    tidyr::separate(
+      .data$conversationInfo,
+      into = c(
+        "convStatus",        # (BC) begin, (RC) running, (EC) end of block
+        "convCount",         # Running Block Count for entire '.its' file
+        "convTurnCount",     # Running Turn Count for recording
+        "convResponseCount", # Turn count within block
+        "convType",          # codes for initiator and participants
+        "convTurnType",      # turn type (TIFI/TIMI/TIFR/TIMR/TIFE/TIME/NT)
+        "convFloorType"      # (FI) : Floor Initiation, (FH) : Floor Holding
+      ),
+      sep = "\\|",
+      remove = F,
+      convert = T
+    )
+}
+
+
+
+#' Add \code{.its} filename to a data frame produced by any of the
+#' \code{gather_} functions
+#'
+#' @param df A data frame produced by one of the \code{gather_} functions
+#' @param its_xml The \code{.its} xml tree corresponding to the data frame
+#' @return A data frame eith an additional column \code{its_file}, containing
+#' the name of the corresponding \code{.its} file
+#' @keywords internal
 add_its_filename <- function(df, its_xml) {
   tibble::add_column(
     df,
@@ -82,6 +129,11 @@ add_its_filename <- function(df, its_xml) {
 
 
 
+#' Extract its filename from the \code{.its} xml tree
+#' @param its_xml An \code{.its} xml tree
+#' @return A character string, the name of the \code{.its} file as found in
+#' the \code{.its} xml tree
+#' @keywords internal
 extract_its_filename <- function(its_xml) {
   xml2::xml_attrs(its_xml)["fileName"]
 }
