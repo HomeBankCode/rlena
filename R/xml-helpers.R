@@ -1,10 +1,19 @@
-xml_path_to_df <- function(its_xml, path) {
-  its_xml %>%
-    xml2::xml_find_all(path) %>%
+xml_path_to_df <- function(its_xml, path, add_nodeType = FALSE) {
+  nodes <- its_xml %>%
+    xml2::xml_find_all(path)
+
+  attrs <- nodes %>%
     xml2::xml_attrs() %>%
     purrr::map_df(as.list) %>%
     quietly_convert_types()
+
+  if (add_nodeType) {
+    nodeTypes <- xml2::xml_name(nodes)
+    attrs <- tibble::add_column(attrs, nodeType = nodeTypes, .before = 1)
+  }
+  return(attrs)
 }
+
 
 
 quietly_convert_types <- function(...) {
