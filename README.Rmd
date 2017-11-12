@@ -78,24 +78,35 @@ gather_child_info(its)
 gather_ava_info(its)
 ```
 
-* Extract all conversations. Each row of the returned data frame corresponds to
-one conversation node in the `.its` file. The columns contain the node's
-attributes, such as the number of adult words and child vocalizations.
+* Extract the recording information.
 
 ```{r}
+# Each row corresponds to an uninterrupted recording. There is a long pause 
+# inbetween the two recordings. This means, that the LENA recorder was paused.
+(recordings <- gather_recordings(its))
+```
+
+
+* Extract all conversations. 
+
+```{r}
+# Each row of the returned data frame corresponds to
+# one conversation node in the `.its` file. The columns contain the node's
+# attributes, such as the number of adult words and child vocalizations.
 conversations <- gather_conversations(its)
 conversations
 ```
 
 * Plot male and female adult word counts.
 
-```{r conversation-demo, fig.width = 6, fig.height = 3, warning = FALSE}
+```{r conversation-demo, fig.width = 7, fig.height = 4, warning = FALSE}
 library(tidyr)
+library(ggplot2)
 
 # Create long data-frame of word counts
 word_counts <- conversations %>% 
   select(conversation_nr = blkTypeId,
-         time = startTime,
+         time = startClockTimeLocal,
          female = femaleAdultWordCnt, 
          male = maleAdultWordCnt) %>% 
   gather(key = speaker, value = count, female, male) %>% 
@@ -107,18 +118,57 @@ word_counts <- word_counts %>%
   arrange(conversation_nr) %>%
   mutate(count_acc = cumsum(count))
 
-library(ggplot2)
+# Plot word counts per conversations
 word_counts %>%
-  ggplot(aes(time, count, color = speaker)) + 
+  ggplot(aes(conversation_nr, count, color = speaker)) + 
     geom_point() + 
     labs(title = "Adult Word Count per Conversation",
-         x = "Time (sec since start of recording)",
+         x = "Conversation Number",
          y = "Words")
-
+# Plot accumulating word count over time
 word_counts %>%
   ggplot(aes(time, y = count_acc, color = speaker)) + 
+    geom_rect(data = recordings, inherit.aes = FALSE,
+              aes(xmin = startClockTimeLocal, xmax = endClockTimeLocal, 
+                  ymin=0, ymax = max(word_counts$count_acc), group = recId,
+                  fill = "recorder on"), alpha=0.2) + 
+    scale_fill_manual(NULL, values = 'skyblue')  +
     geom_line() + 
     labs(title = "Accumulated Adult Word Count throughout Recording",
-         x = "Time (sec since start of recording)",
+         x = "Time",
          y = "Words (Accumulated)")
+```
+
+* What happened between 3pm and 4.30pm? We can have a closer look at the 
+segments to see what happened.
+
+```{r warning = FALSE}
+library(lubridate)
+
+# extract segments
+segments <- gather_segments(its) %>% 
+  filter(startClockTimeLocal >= ymd_hms("2016-04-02 15:00:00"),
+         startClockTimeLocal <= ymd_hms("2016-04-02 16:30:00"))
+
+segments 
+```
+
+
+```{r segment-demo, fig.width = 7, fig.height = 4, warning = FALSE}
+segments %>%
+  mutate(duration = endTime - startTime,
+         Label = forcats::fct_collapse(
+           spkr,
+           KeyChild = c("CHN", "CHF"),
+           Speech   = c("FAN", "MAN", "CXN", "FAF", "MAF", "CXF"),
+           TV       = c("TVN", "TVF"),
+           Noise    = c("NOF", "NON", "OLF", "OLN"),
+           Silence  = c("SIL")
+         ))  %>%
+  group_by(Label) %>%
+  summarize(duration = sum(duration)) %>%
+  ggplot(aes(Label, duration / 60, fill = Label)) + 
+    geom_col(show.legend = FALSE) +
+    labs(title = "The sound Environment between 3pm and 4.30pm",
+         y = "Duration (minutes)", x = NULL)
 ```
