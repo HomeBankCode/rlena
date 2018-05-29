@@ -55,15 +55,15 @@ its <- read_its_file(tmp)
 ``` r
 gather_child_info(its)
 #> # A tibble: 1 x 6
-#>                    itsId  Birthdate Gender ChronologicalAge AVAModelAge
-#>                    <chr>     <date>  <chr>            <chr>       <chr>
-#> 1 20160420_165405_010572 2015-11-19      M              P4M         P4M
-#> # ... with 1 more variables: VCVModelAge <chr>
+#>   itsId         Birthdate  Gender ChronologicalAge AVAModelAge VCVModelAge
+#>   <chr>         <date>     <chr>  <chr>            <chr>       <chr>      
+#> 1 20160420_165~ 2015-11-19 M      P4M              P4M         P4M
+
 gather_ava_info(its)
 #> # A tibble: 1 x 5
-#>                    itsId AVA_Raw AVA_Stnd AVA_EstMLU AVA_EstDevAge
-#>                    <chr>   <dbl>    <dbl>      <chr>         <chr>
-#> 1 20160420_165405_010572   0.715  110.724        ORL           P5M
+#>   itsId                  AVA_Raw AVA_Stnd AVA_EstMLU AVA_EstDevAge
+#>   <chr>                    <dbl>    <dbl> <chr>      <chr>        
+#> 1 20160420_165405_010572   0.715     111. ORL        P5M
 ```
 
 -   Extract the recording information.
@@ -71,14 +71,15 @@ gather_ava_info(its)
 ``` r
 # Each row corresponds to an uninterrupted recording. There is a long pause 
 # inbetween the two recordings. This means, that the LENA recorder was paused.
-(recordings <- gather_recordings(its))
+recordings <- gather_recordings(its)
+recordings
 #> # A tibble: 2 x 9
-#>   recId startTime  endTime      startClockTime        endClockTime
-#>   <int>     <dbl>    <dbl>              <dttm>              <dttm>
-#> 1     1      0.00  4037.04 2016-04-02 17:20:30 2016-04-02 18:27:47
-#> 2     2   4037.04 22575.05 2016-04-02 21:48:07 2016-04-03 02:57:05
-#> # ... with 4 more variables: itsId <chr>, timeZone <chr>,
-#> #   startClockTimeLocal <dttm>, endClockTimeLocal <dttm>
+#>   itsId    recId startTime endTime startClockTime      endClockTime       
+#>   <chr>    <int>     <dbl>   <dbl> <dttm>              <dttm>             
+#> 1 2016042~     1        0    4037. 2016-04-02 17:20:30 2016-04-02 18:27:47
+#> 2 2016042~     2     4037.  22575. 2016-04-02 21:48:07 2016-04-03 02:57:05
+#> # ... with 3 more variables: timeZone <chr>, startClockTimeLocal <dttm>,
+#> #   endClockTimeLocal <dttm>
 ```
 
 -   Extract all conversations.
@@ -90,22 +91,22 @@ gather_ava_info(its)
 conversations <- gather_conversations(its)
 conversations
 #> # A tibble: 655 x 48
-#>    recId blkId blkTypeId      blkType startTime endTime
-#>    <int> <int>     <int>        <chr>     <dbl>   <dbl>
-#>  1     1     2         1 Conversation     12.27   15.81
-#>  2     1     4         2 Conversation     21.18   27.82
-#>  3     1     6         3 Conversation     34.20   49.98
-#>  4     1     8         4 Conversation     71.69   79.84
-#>  5     1    10         5 Conversation     93.53  100.85
-#>  6     1    12         6 Conversation    110.91  124.47
-#>  7     1    14         7 Conversation    132.32  139.73
-#>  8     1    16         8 Conversation    150.82  161.87
-#>  9     1    18         9 Conversation    176.87  192.18
-#> 10     1    20        10 Conversation    198.31  199.25
-#> # ... with 645 more rows, and 42 more variables: startClockTime <dttm>,
+#>    itsId               recId blkId blkTypeId blkType     startTime endTime
+#>    <chr>               <int> <int>     <int> <chr>           <dbl>   <dbl>
+#>  1 20160420_165405_01~     1     2         1 Conversati~      12.3    15.8
+#>  2 20160420_165405_01~     1     4         2 Conversati~      21.2    27.8
+#>  3 20160420_165405_01~     1     6         3 Conversati~      34.2    50.0
+#>  4 20160420_165405_01~     1     8         4 Conversati~      71.7    79.8
+#>  5 20160420_165405_01~     1    10         5 Conversati~      93.5   101. 
+#>  6 20160420_165405_01~     1    12         6 Conversati~     111.    124. 
+#>  7 20160420_165405_01~     1    14         7 Conversati~     132.    140. 
+#>  8 20160420_165405_01~     1    16         8 Conversati~     151.    162. 
+#>  9 20160420_165405_01~     1    18         9 Conversati~     177.    192. 
+#> 10 20160420_165405_01~     1    20        10 Conversati~     198.    199. 
+#> # ... with 645 more rows, and 41 more variables: startClockTime <dttm>,
 #> #   endClockTime <dttm>, startClockTimeLocal <dttm>,
-#> #   endClockTimeLocal <dttm>, itsId <chr>, type <chr>, average_dB <dbl>,
-#> #   peak_dB <dbl>, turnTaking <int>, femaleAdultInitiation <int>,
+#> #   endClockTimeLocal <dttm>, type <chr>, average_dB <dbl>, peak_dB <dbl>,
+#> #   turnTaking <int>, femaleAdultInitiation <int>,
 #> #   maleAdultInitiation <int>, childResponse <int>, childInitiation <int>,
 #> #   femaleAdultResponse <int>, maleAdultResponse <int>,
 #> #   adultWordCnt <dbl>, femaleAdultWordCnt <dbl>, maleAdultWordCnt <dbl>,
@@ -184,34 +185,34 @@ segments <- gather_segments(its) %>%
 
 segments 
 #> # A tibble: 837 x 55
-#>    recId blkId blkTypeId segId blkType  spkr startTime endTime
-#>    <int> <int>     <int> <int>   <chr> <chr>     <dbl>   <dbl>
-#>  1     2   592       297  5842   Pause   CHF   8382.63 8383.43
-#>  2     2   592       297  5843   Pause   SIL   8383.43 8384.40
-#>  3     2   592       297  5844   Pause   SIL   8384.40 8385.40
-#>  4     2   592       297  5845   Pause   SIL   8385.40 8386.36
-#>  5     2   592       297  5846   Pause   NOF   8386.36 8387.99
-#>  6     2   592       297  5847   Pause   SIL   8387.99 8390.32
-#>  7     2   592       297  5848   Pause   TVF   8390.32 8392.11
-#>  8     2   592       297  5849   Pause   NOF   8392.11 8392.98
-#>  9     2   592       297  5850   Pause   SIL   8392.98 8393.78
-#> 10     2   592       297  5851   Pause   NOF   8393.78 8394.59
-#> # ... with 827 more rows, and 47 more variables: startClockTime <dttm>,
+#>    itsId       recId blkId blkTypeId segId blkType spkr  startTime endTime
+#>    <chr>       <int> <int>     <int> <int> <chr>   <chr>     <dbl>   <dbl>
+#>  1 20160420_1~     2   592       297  5842 Pause   CHF       8383.   8383.
+#>  2 20160420_1~     2   592       297  5843 Pause   SIL       8383.   8384.
+#>  3 20160420_1~     2   592       297  5844 Pause   SIL       8384.   8385.
+#>  4 20160420_1~     2   592       297  5845 Pause   SIL       8385.   8386.
+#>  5 20160420_1~     2   592       297  5846 Pause   NOF       8386.   8388.
+#>  6 20160420_1~     2   592       297  5847 Pause   SIL       8388.   8390.
+#>  7 20160420_1~     2   592       297  5848 Pause   TVF       8390.   8392.
+#>  8 20160420_1~     2   592       297  5849 Pause   NOF       8392.   8393.
+#>  9 20160420_1~     2   592       297  5850 Pause   SIL       8393.   8394.
+#> 10 20160420_1~     2   592       297  5851 Pause   NOF       8394.   8395.
+#> # ... with 827 more rows, and 46 more variables: startClockTime <dttm>,
 #> #   endClockTime <dttm>, startClockTimeLocal <dttm>,
-#> #   endClockTimeLocal <dttm>, itsId <chr>, average_dB <dbl>,
-#> #   peak_dB <dbl>, recordingInfo <chr>, conversationInfo <chr>,
-#> #   convStatus <chr>, convCount <int>, convTurnCount <int>,
-#> #   convResponseCount <int>, convType <chr>, convTurnType <chr>,
-#> #   convFloorType <chr>, femaleAdultWordCnt <dbl>,
-#> #   femaleAdultNonSpeechLen <dbl>, femaleAdultUttCnt <int>,
-#> #   femaleAdultUttLen <dbl>, childUttCnt <int>, childUttLen <dbl>,
-#> #   startUtt1 <chr>, endUtt1 <chr>, childCryVfxLen <dbl>, startVfx1 <dbl>,
-#> #   endVfx1 <dbl>, startCry1 <chr>, endCry1 <chr>, maleAdultWordCnt <dbl>,
-#> #   maleAdultNonSpeechLen <dbl>, maleAdultUttCnt <int>,
-#> #   maleAdultUttLen <dbl>, startUtt2 <chr>, endUtt2 <chr>,
-#> #   startUtt3 <chr>, endUtt3 <chr>, startUtt4 <chr>, endUtt4 <chr>,
-#> #   startUtt5 <chr>, endUtt5 <chr>, startCry2 <chr>, endCry2 <chr>,
-#> #   startVfx2 <chr>, endVfx2 <chr>, startUtt6 <chr>, endUtt6 <chr>
+#> #   endClockTimeLocal <dttm>, average_dB <dbl>, peak_dB <dbl>,
+#> #   recordingInfo <chr>, conversationInfo <chr>, convStatus <chr>,
+#> #   convCount <int>, convTurnCount <int>, convResponseCount <int>,
+#> #   convType <chr>, convTurnType <chr>, convFloorType <chr>,
+#> #   femaleAdultWordCnt <dbl>, femaleAdultNonSpeechLen <dbl>,
+#> #   femaleAdultUttCnt <int>, femaleAdultUttLen <dbl>, childUttCnt <int>,
+#> #   childUttLen <dbl>, startUtt1 <chr>, endUtt1 <chr>,
+#> #   childCryVfxLen <dbl>, startVfx1 <dbl>, endVfx1 <dbl>, startCry1 <chr>,
+#> #   endCry1 <chr>, maleAdultWordCnt <dbl>, maleAdultNonSpeechLen <dbl>,
+#> #   maleAdultUttCnt <int>, maleAdultUttLen <dbl>, startUtt2 <chr>,
+#> #   endUtt2 <chr>, startUtt3 <chr>, endUtt3 <chr>, startUtt4 <chr>,
+#> #   endUtt4 <chr>, startUtt5 <chr>, endUtt5 <chr>, startCry2 <chr>,
+#> #   endCry2 <chr>, startVfx2 <chr>, endVfx2 <chr>, startUtt6 <chr>,
+#> #   endUtt6 <chr>
 ```
 
 ``` r
@@ -223,8 +224,7 @@ segments %>%
            Speech   = c("FAN", "MAN", "CXN", "FAF", "MAF", "CXF"),
            TV       = c("TVN", "TVF"),
            Noise    = c("NOF", "NON", "OLF", "OLN"),
-           Silence  = c("SIL")
-         ))  %>%
+           Silence  = c("SIL")))  %>%
   group_by(Label) %>%
   summarize(duration = sum(duration)) %>%
   ggplot(aes(Label, duration / 60, fill = Label)) + 
