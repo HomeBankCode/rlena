@@ -1,11 +1,13 @@
-
-
 bookmarks:
+  recording: ./ProcessingUnit/Recording
+  block: ./ProcessingUnit/Recording/*[self::Conversation or self::Pause]
   conversation: ./ProcessingUnit/Recording/Conversation
   pause: ./ProcessingUnit/Recording/Pause
+  segment: ./ProcessingUnit/Recording/*[self::Conversation or self::Pause]/Segment
   ava: ./ProcessingUnit/AVA
   childinfo: ./ProcessingUnit/ChildInfo
   childinfo2: ./ExportData/Child
+  timezoneinfo: ./ProcessingUnit/UPL_Header/TransferredUPL/RecordingInformation/Audio/TimeZone
 
 sensitive:
   - Category: child_id

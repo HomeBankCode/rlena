@@ -11,11 +11,11 @@
 library(yaml)
 library(dplyr)
 
-xpaths <- yaml.load_file("data-raw/paths.yaml")
+xpaths <- yaml::yaml.load_file("data-raw/paths.yaml")
 xpaths_bookmarks <- xpaths$bookmarks
 xpaths_sensitive <- xpaths$sensitive %>%
   lapply(as_data_frame) %>%
-  bind_rows()
+  dplyr::bind_rows()
 
 devtools::use_data(xpaths_bookmarks, xpaths_sensitive,
                    internal = TRUE, overwrite = TRUE)

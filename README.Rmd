@@ -20,48 +20,44 @@ knitr::opts_chunk$set(
 
 ## Overview
 
-The `rlena` package makes it easy to work with LENA `.its` files in R.
+The rlena package makes it easy to work with LENA `.its` files in R.
 
 The *Language Environment ANalysis (LENA)* system produces automatic annotations
 for audio recordings. Its annotations can be exported as `.its` files, that
-contain an `xml` structure. The `rlena` package helps with importing `.its`
-files into R and with creating and producing tidy data frames for further
-analysis.
+contain an `xml` structure. The rlena package helps with importing and preparing
+`.its` files for further anlysis in R.
 
-The `read_its_file()` fuction takes the path to an .its file and returns an XML
-object.
+The `read_its_file()` fuction takes the path to an `.its` file and returns an 
+XML object. All other functions work with this object to extract information. 
+They return tidy data frames that can easily be manipulated
+with the usual tools from the tidyverse:
 
-All other functions work with this object to extract information:
+* `gather_recordings()`   - Returns all `<Recording>` nodes                     
+* `gather_blocks()`       - Returns all `<Conversation>` and `<Pause>` nodes    
+* `gather_conversations()`- Returns all `<Conversation>` nodes                  
+* `gather_pauses()`       - Returns all `<Pause>` nodes                         
+* `gather_segments()`     - Returns all `<Segment>` nodes                       
+* `gather_ava_info()`     - Returns AVA (Automatic Vocalization Assessment) info
+* `gather_child_info()`   - Returns child info (e.g. birth data, age, gender)   
 
-- `gather_ava_info()` returns the AVA (Automatic Vocalization Assessment).
-- `gather_child_info()` returns child information (e.g. birth data, age, 
-  gender).
-- `gather_conversations()` returns the content of all `<Conversation>` 
-  nodes.
-- `gather_pauses()` returns the content of all `<Pause>` nodes.
-  
-All of these functions return tidy data frames that can easily be manipulated
-with the usual tools from the tidyverse.
 
-:warning: ***Warning:** Please be aware that this package is early work in
-progress and subject to potentially code-breaking change.*
+:warning: ***Warning:** This package is early work in progress and subject to 
+potentially code-breaking change.*
 
 ## Installation
 
 ```{r eval = FALSE}
-# rlena is not (yet) available on CRAN. 
-# You can install the developmental version from GitHub:
-
-# install.packages("devtools")
-devtools::install_github("HomeBankCode/rlena")
+# rlena is not (yet) available on CRAN, but you can install the developmental 
+# version from GitHub (requires devtools):
+if(!require(devtools) install.packages("devtools")
+devtools::install_github("HomeBankCode/rlena", dependencies = TRUE)
 ```
 
 
 ## Usage
 
-Load an `.its` file. For this example we use a file that is hosted in the 
-[https://github.com/HomeBankCode/lena-its-tools](HomeBankCode/lena-its-tools) 
-repository.
+* Load an `.its` file. For this example we download a file from 
+[HomeBankCode/lena-its-tools](https://github.com/HomeBankCode/lena-its-tools).
 
 ```{r, warning = FALSE}
 library(rlena)
@@ -74,7 +70,7 @@ download.file(url, tmp)
 its <- read_its_file(tmp)
 ```
 
-Extract child info and results of the Automatic Vocalization Assessment (an
+* Extract child info and results of the Automatic Vocalization Assessment (an
 index of the child's language development).
 
 ```{r}
@@ -82,24 +78,35 @@ gather_child_info(its)
 gather_ava_info(its)
 ```
 
-Extract all conversations. Each row of the returned data frame corresponds to
-one converstion node in the `.its` file. The columns contain the node's
-attributes, such as the number of adult words and child vocalizations.
+* Extract the recording information.
 
 ```{r}
+# Each row corresponds to an uninterrupted recording. There is a long pause 
+# inbetween the two recordings. This means, that the LENA recorder was paused.
+(recordings <- gather_recordings(its))
+```
+
+
+* Extract all conversations. 
+
+```{r}
+# Each row of the returned data frame corresponds to
+# one conversation node in the `.its` file. The columns contain the node's
+# attributes, such as the number of adult words and child vocalizations.
 conversations <- gather_conversations(its)
 conversations
 ```
 
-Plot male and female adult word counts.
+* Plot male and female adult word counts.
 
-```{r conversation-demo, fig.width = 6, fig.height = 3, warning = FALSE}
+```{r conversation-demo, fig.width = 7, fig.height = 4, warning = FALSE}
 library(tidyr)
+library(ggplot2)
 
 # Create long data-frame of word counts
 word_counts <- conversations %>% 
-  select(conversation_nr = num,
-         time = startTime,
+  select(conversation_nr = blkTypeId,
+         time = startClockTimeLocal,
          female = femaleAdultWordCnt, 
          male = maleAdultWordCnt) %>% 
   gather(key = speaker, value = count, female, male) %>% 
@@ -111,18 +118,57 @@ word_counts <- word_counts %>%
   arrange(conversation_nr) %>%
   mutate(count_acc = cumsum(count))
 
-library(ggplot2)
+# Plot word counts per conversations
 word_counts %>%
-  ggplot(aes(time, count, color = speaker)) + 
+  ggplot(aes(conversation_nr, count, color = speaker)) + 
     geom_point() + 
     labs(title = "Adult Word Count per Conversation",
-         x = "Time (sec since start of recording)",
+         x = "Conversation Number",
          y = "Words")
-
+# Plot accumulating word count over time
 word_counts %>%
   ggplot(aes(time, y = count_acc, color = speaker)) + 
+    geom_rect(data = recordings, inherit.aes = FALSE,
+              aes(xmin = startClockTimeLocal, xmax = endClockTimeLocal, 
+                  ymin=0, ymax = max(word_counts$count_acc), group = recId,
+                  fill = "recorder on"), alpha=0.2) + 
+    scale_fill_manual(NULL, values = 'skyblue')  +
     geom_line() + 
     labs(title = "Accumulated Adult Word Count throughout Recording",
-         x = "Time (sec since start of recording)",
+         x = "Time",
          y = "Words (Accumulated)")
+```
+
+* What happened between 3pm and 4.30pm? We can have a closer look at the 
+segments to see what happened.
+
+```{r warning = FALSE}
+library(lubridate)
+
+# extract segments
+segments <- gather_segments(its) %>% 
+  filter(startClockTimeLocal >= ymd_hms("2016-04-02 15:00:00"),
+         startClockTimeLocal <= ymd_hms("2016-04-02 16:30:00"))
+
+segments 
+```
+
+
+```{r segment-demo, fig.width = 7, fig.height = 4, warning = FALSE}
+segments %>%
+  mutate(duration = endTime - startTime,
+         Label = forcats::fct_collapse(
+           spkr,
+           KeyChild = c("CHN", "CHF"),
+           Speech   = c("FAN", "MAN", "CXN", "FAF", "MAF", "CXF"),
+           TV       = c("TVN", "TVF"),
+           Noise    = c("NOF", "NON", "OLF", "OLN"),
+           Silence  = c("SIL")
+         ))  %>%
+  group_by(Label) %>%
+  summarize(duration = sum(duration)) %>%
+  ggplot(aes(Label, duration / 60, fill = Label)) + 
+    geom_col(show.legend = FALSE) +
+    labs(title = "The sound Environment between 3pm and 4.30pm",
+         y = "Duration (minutes)", x = NULL)
 ```
