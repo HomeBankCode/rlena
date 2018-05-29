@@ -16,7 +16,7 @@ clean_time_str <- function(x) {
 #' @return A data frame with all time columns converted to numeric
 #' @keywords internal
 clean_time_cols <- function(df) {
-  pattern = paste(
+  pattern <- paste(
     "(^(maleAdult|femaleAdult|child)(Utt|NonSpeech|CryVfx)(Len)$)",
     "(^(TV|CH|FA|CX|MA|NO|OL|NO|SIL)[N|F]{0,1}$)",
     "(^(start|end)(Time|Vfx1)$)",
@@ -41,7 +41,8 @@ clean_tz_str <- function(tz_str) {
   tz_parts <- stringr::str_match(tz_str, pattern)[2:3]
 
   if (is.na(tz_parts[2])) {
-    tz_str # if no "+hh:mm" info return tz_str unchanged
+    # if no "+hh:mm" info return tz_str unchanged
+    tz_str
   } else {
     tz <- sub("Etc/", "", tz_parts[1])
     sprintf("Etc/%s%+i", tz, as.numeric(tz_parts[2]))
@@ -95,9 +96,12 @@ as_local_time <- function(utc_time, local_tzs) {
 #' @keywords internal
 split_conversation_info <- function(segments_df) {
   segments_df %>%
-    dplyr::mutate(conversationInfo =
-                    substr(.data$conversationInfo,
-                           2, nchar(.data$conversationInfo) - 1)) %>%
+    dplyr::mutate(
+      conversationInfo =
+        substr(
+          x = .data$conversationInfo,
+          start = 2,
+          stop = nchar(.data$conversationInfo) - 1)) %>%
     tidyr::separate(
       .data$conversationInfo,
       into = c(
@@ -107,12 +111,10 @@ split_conversation_info <- function(segments_df) {
         "convResponseCount", # Turn count within block
         "convType",          # codes for initiator and participants
         "convTurnType",      # turn type (TIFI/TIMI/TIFR/TIMR/TIFE/TIME/NT)
-        "convFloorType"      # (FI) : Floor Initiation, (FH) : Floor Holding
-      ),
+        "convFloorType"),      # (FI) : Floor Initiation, (FH) : Floor Holding
       sep = "\\|",
-      remove = F,
-      convert = T
-    )
+      remove = FALSE,
+      convert = TRUE)
 }
 
 
@@ -161,10 +163,11 @@ extract_its_filename <- function(its_xml) {
 #' @keywords internal
 add_clock_time <- function(df, df_rec) {
   rec_start_times <- df_rec %>%
-    dplyr::select(recId = .data$recId,
-                  startTime_rec = .data$startTime,
-                  startClockTime_rec = .data$startClockTime,
-                  startClockTimeLocal_rec = .data$startClockTimeLocal)
+    dplyr::select(
+      recId = .data$recId,
+      startTime_rec = .data$startTime,
+      startClockTime_rec = .data$startClockTime,
+      startClockTimeLocal_rec = .data$startClockTimeLocal)
 
   df_clock_times <- df %>%
     dplyr::select(.data$recId, .data$startTime, .data$endTime) %>%
@@ -173,15 +176,13 @@ add_clock_time <- function(df, df_rec) {
       startTime_diff = lubridate::seconds(
         .data$startTime - .data$startTime_rec),
       endTime_diff = lubridate::seconds(
-        .data$endTime - .data$startTime_rec)
-    ) %>%
+        .data$endTime - .data$startTime_rec)) %>%
     dplyr::transmute(
       startClockTime = .data$startClockTime_rec + .data$startTime_diff,
       endClockTime = .data$startClockTime_rec + .data$endTime_diff,
       startClockTimeLocal = .data$startClockTimeLocal_rec +
         .data$startTime_diff,
-      endClockTimeLocal = .data$startClockTimeLocal_rec + .data$endTime_diff
-    )
+      endClockTimeLocal = .data$startClockTimeLocal_rec + .data$endTime_diff)
 
   df <- dplyr::bind_cols(df, df_clock_times)
 }
@@ -196,10 +197,10 @@ sort_gathered_columns <- function(df) {
   # To avoid an "unknown columns" warning we filter the columns before we use
   # dplyr::select
   cols_ordered <- c(
-    "itsFile", "recId", "blkId", "blkTypeId", "segId", "blkType", "spkr",
+    "itsId", "recId", "blkId", "blkTypeId", "segId", "blkType", "spkr",
     "startTime", "endTime", "startClockTime", "endClockTime",
-    "startClockTimeLocal", "endClockTimeLocal"
-  )
+    "startClockTimeLocal", "endClockTimeLocal")
+
   cols_in_df <- cols_ordered[cols_ordered %in% colnames(df)]
   dplyr::select(df, dplyr::one_of(cols_in_df), dplyr::everything())
 }

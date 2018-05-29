@@ -40,8 +40,9 @@ gather_path <- function(its_xml, path, add_clock_time = TRUE) {
     clean_time_cols() %>%
     add_its_id(its_xml)
 
-  if (add_clock_time)
+  if (add_clock_time) {
     df <- add_clock_time(df, gather_recordings(its_xml))
+  }
 
   sort_gathered_columns(df)
 }
@@ -65,7 +66,7 @@ gather_recordings <- function(its_xml) {
 #' @rdname extract
 #' @export
 gather_blocks <- function(its_xml) {
-    gather_path(its_xml, xpaths_bookmarks$block)
+  gather_path(its_xml, xpaths_bookmarks$block)
 }
 
 
@@ -74,7 +75,7 @@ gather_blocks <- function(its_xml) {
 #' @rdname extract
 #' @export
 gather_conversations <- function(its_xml) {
-    gather_path(its_xml, xpaths_bookmarks$conversation)
+  gather_path(its_xml, xpaths_bookmarks$conversation)
 }
 
 

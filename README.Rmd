@@ -56,8 +56,8 @@ devtools::install_github("HomeBankCode/rlena", dependencies = TRUE)
 
 ## Usage
 
-* Load an `.its` file. For this example we download a file from 
-[HomeBankCode/lena-its-tools](https://github.com/HomeBankCode/lena-its-tools).
+  - Load an `.its` file. For this example we download a file from
+    [HomeBankCode/lena-its-tools](https://github.com/HomeBankCode/lena-its-tools).
 
 ```{r, warning = FALSE}
 library(rlena)
@@ -70,24 +70,25 @@ download.file(url, tmp)
 its <- read_its_file(tmp)
 ```
 
-* Extract child info and results of the Automatic Vocalization Assessment (an
-index of the child's language development).
+  - Extract child info and results of the Automatic Vocalization Assessment (an
+    index of the child's language development).
 
 ```{r}
 gather_child_info(its)
+
 gather_ava_info(its)
 ```
 
-* Extract the recording information.
+  - Extract the recording information.
 
 ```{r}
 # Each row corresponds to an uninterrupted recording. There is a long pause 
 # inbetween the two recordings. This means, that the LENA recorder was paused.
-(recordings <- gather_recordings(its))
+recordings <- gather_recordings(its)
+recordings
 ```
 
-
-* Extract all conversations. 
+  - Extract all conversations. 
 
 ```{r}
 # Each row of the returned data frame corresponds to
@@ -97,7 +98,7 @@ conversations <- gather_conversations(its)
 conversations
 ```
 
-* Plot male and female adult word counts.
+  - Plot male and female adult word counts.
 
 ```{r conversation-demo, fig.width = 7, fig.height = 4, warning = FALSE}
 library(tidyr)
@@ -139,8 +140,8 @@ word_counts %>%
          y = "Words (Accumulated)")
 ```
 
-* What happened between 3pm and 4.30pm? We can have a closer look at the 
-segments to see what happened.
+  - What happened between 3pm and 4.30pm? We can have a closer look at the
+    segments to see what happened.
 
 ```{r warning = FALSE}
 library(lubridate)
@@ -163,8 +164,7 @@ segments %>%
            Speech   = c("FAN", "MAN", "CXN", "FAF", "MAF", "CXF"),
            TV       = c("TVN", "TVF"),
            Noise    = c("NOF", "NON", "OLF", "OLN"),
-           Silence  = c("SIL")
-         ))  %>%
+           Silence  = c("SIL")))  %>%
   group_by(Label) %>%
   summarize(duration = sum(duration)) %>%
   ggplot(aes(Label, duration / 60, fill = Label)) + 
