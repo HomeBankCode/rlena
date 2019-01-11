@@ -57,7 +57,7 @@ clean_tz_str <- function(tz_str) {
 #' @return A character string, the name of the timezone used in the \code{.its}
 #' @keywords internal
 extract_tz <- function(its_xml) {
-  tz <- its_xml %>%
+  its_xml %>%
     xml2::xml_find_first(xpaths_bookmarks$timezoneinfo) %>%
     xml2::xml_attr("ZoneNameShort") %>%
     clean_tz_str()
@@ -68,7 +68,7 @@ extract_tz <- function(its_xml) {
 #' Use UTC time and timezone from \code{.its} file to calculate local time.
 #'
 #' In .its files all timestamps are stores in UTC time the actual timezone is
-#' stored separately. This function converts the timestamps back to loccal time.
+#' stored separately. This function converts the timestamps back to local time.
 #' Local times are stored with timezone UTC, regardless of the actual timezone.
 #' This is done for two resons: (1) So that "time of the day" can be compared
 #' across LENA recordings made in different timezones, without converting to a
@@ -80,6 +80,8 @@ extract_tz <- function(its_xml) {
 #' timezones with the same length as \code{utc_time}
 #' @keywords internal
 as_local_time <- function(utc_time, local_tzs) {
+  # do nothing if no timezone could be found
+  local_tzs <- ifelse(is.na(local_tzs), "UTC", local_tzs)
   lubridate::force_tzs(utc_time, local_tzs, tzone_out = "UTC")
 }
 

@@ -45,7 +45,7 @@ Most \code{gather_} functions extract all nodes of a certain type from a
 \details{
 Other functions extract related nodes from the \code{.its}
 \describe{
-  \item{#gather_ava_info}{Automatic Vocalization Assessment info}
+  \item{gather_ava_info}{Automatic Vocalization Assessment info}
   \item{gather_child_info}{child info}
 }
 }

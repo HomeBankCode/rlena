@@ -14,7 +14,7 @@ timezones with the same length as \code{utc_time}}
 }
 \description{
 In .its files all timestamps are stores in UTC time the actual timezone is
-stored separately. This function converts the timestamps back to loccal time.
+stored separately. This function converts the timestamps back to local time.
 Local times are stored with timezone UTC, regardless of the actual timezone.
 This is done for two resons: (1) So that "time of the day" can be compared
 across LENA recordings made in different timezones, without converting to a
