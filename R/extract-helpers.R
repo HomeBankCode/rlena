@@ -1,3 +1,30 @@
+#' Add default-value columns to a dataframe
+#'
+#' @param df a dataframe
+#' @param ... key-value pairs. The lefthand side should be the name of the
+#'   desired column and the righthand should be the value to use as a default.
+#' @return the dataframe is returned. If any of columns named in \code{...} are
+#'   missing, they are added to the dataframe.
+#' @keywords internal
+#' @examples
+#' \dontrun{
+#' add_col_if_missing(
+#'   iris,
+#'   Species = "col exists. this shouldn't do anything",
+#'   Species2 = "col doesn't exist. this should be added")
+#' }
+add_col_if_missing <- function(df, ...) {
+  to_check <- list(...)
+  for (element in seq_along(to_check)) {
+    if (!rlang::has_name(df, names(to_check)[element])) {
+      df <- tibble::add_column(df, !!! to_check[element])
+    }
+  }
+
+  df
+}
+
+
 #' Convert \code{.its} time format strings to numeric (seconds)
 #'
 #' @param x An \code{.its} time string

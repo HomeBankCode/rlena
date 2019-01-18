@@ -118,13 +118,29 @@ gather_ava_info <- function(its_xml) {
 #' @rdname extract
 #' @export
 gather_child_info <- function(its_xml) {
-  its_xml %>%
+  results <- its_xml %>%
     xml_path_to_df(xpaths_bookmarks$childinfo) %>%
-    dplyr::select(
+    add_col_if_missing(
+      dob = NA_character_,
+      gender = NA_character_,
+      chronologicalAge = NA_character_,
+      avaModelAge = NA_character_,
+      vcvModelAge = NA_character_) %>%
+    dplyr::rename(
       Birthdate = .data$dob,
       Gender = .data$gender,
       ChronologicalAge = .data$chronologicalAge,
       AVAModelAge = .data$avaModelAge,
       VCVModelAge = .data$vcvModelAge) %>%
     add_its_id(its_xml)
+
+  # Back up location if birthday cannot be found
+  if (is.na(results$Birthdate)) {
+    other_dob <- its_xml %>%
+      xml_path_to_df(xpaths_bookmarks$childinfo2) %>%
+      add_col_if_missing(DOB = NA_character_)
+    results$Birthdate <- other_dob$DOB
+  }
+
+  results
 }
