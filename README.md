@@ -83,6 +83,8 @@ recordings
 ```
 
 -   Extract all conversations.
+  - (FYI to save others the trouble: the Conversational Turn Count LENA generates (CTC) is the sum of turnTaking of type AICF, AICM, CIC, and XIC)
+    e.g. conversations %>% group_by(type) %>% summarise(sumturns = sum(turnTaking))
 
 ``` r
 # Each row of the returned data frame corresponds to
