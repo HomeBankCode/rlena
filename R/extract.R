@@ -144,3 +144,78 @@ gather_child_info <- function(its_xml) {
 
   results
 }
+
+
+# for now treat as internal/experimental
+#' Gather speaker transitions
+#'
+#' Combs throughs speech segments and returns a dataframe of speaker
+#' transition.
+#'
+#' @param legal_transitions a character vector with transitions to keep. If
+#'   `NULL` (the default), only `c("MAN_CHN", "MAN_CHN", "FAN_CHN", "CHN_FAN")`
+#'   are used.
+#' @inheritParams extract
+#' @export
+#' @keywords internal
+#' @return a dataframe with one row per segment. It contains the columns
+#'   `transSpkr` (speaker transition as `previous_current`,) `transSegId`
+#'   (segment IDs), and `transTime` (the time lag between the two segments).
+gather_speaker_transitions <- function(its_xml, legal_transitions = NULL) {
+  its_xml %>%
+    gather_segments() %>%
+    gather_speaker_transitions_from_segments(legal_transitions)
+}
+
+# for now treat as internal/experimental
+#' @param data_segments a dataframe produced by `gather_segments()`
+#' @export
+#' @keywords internal
+#' @rdname gather_speaker_transitions
+gather_speaker_transitions_from_segments <- function(data_segments,
+                                                     legal_transitions = NULL) {
+  if (is.null(legal_transitions)) {
+    legal_transitions <- c(
+      "MAN_CHN", "MAN_CHN",
+      "FAN_CHN", "CHN_FAN"
+    )
+  }
+
+  segments <- data_segments %>%
+    tidyr::gather(
+      key = "startEnd",
+      value = "time",
+      .data$startTime,
+      .data$endTime
+    ) %>%
+    dplyr::arrange(.data$segId)
+
+  no_pauses <- segments %>%
+    dplyr::filter(.data$blkType != "Pause")
+
+  # Label different kinds of transitions
+  transitions <- no_pauses %>%
+    dplyr::filter(.data$spkr != "SIL") %>%
+    dplyr::mutate(
+      transStartEnd =
+        paste0(dplyr::lag(.data$startEnd, 1), "_", .data$startEnd),
+      transSpkr =
+        paste0(dplyr::lag(.data$spkr, 1), "_", .data$spkr),
+      transTime =
+        .data$time - dplyr::lag(.data$time),
+      transSegId =
+        paste0(dplyr::lag(.data$segId, 1), "_", .data$segId)
+    )
+
+  to_select <- c(
+    "spkr", "startEnd", "time", "segId", "convTurnCount", "blkId",
+    "transSpkr", "transSegId", "transTime"
+  )
+
+  transitions %>%
+    # exclude within-turn transitions
+    dplyr::filter(.data$transStartEnd != "startTime_endTime") %>%
+    dplyr::filter(transSpkr %in% c(legal_transitions)) %>%
+    dplyr::select(dplyr::one_of(to_select)) %>%
+    tidyr::spread(.data$startEnd, .data$time)
+}
