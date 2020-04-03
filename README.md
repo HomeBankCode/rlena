@@ -3,7 +3,8 @@
 rlena
 =====
 
-[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](http://www.repostatus.org/badges/latest/wip.svg)](http://www.repostatus.org/#wip) [![Travis build status](https://travis-ci.org/HomeBankCode/rlena.svg?branch=master)](https://travis-ci.org/HomeBankCode/rlena) [![Coverage status](https://coveralls.io/repos/github/HomeBankCode/rlena/badge.svg)](https://coveralls.io/r/HomeBankCode/rlena?branch=master)
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3739543.svg)](https://doi.org/10.5281/zenodo.3739543) [![Project Status: Inactive – The project has reached a stable, usable state but is no longer being actively developed; support/maintenance will be provided as time allows.](https://www.repostatus.org/badges/latest/inactive.svg)](https://www.repostatus.org/#inactive) [![Travis build status](https://travis-ci.org/HomeBankCode/rlena.svg?branch=master)](https://travis-ci.org/HomeBankCode/rlena) [![Coverage status](https://coveralls.io/repos/github/HomeBankCode/rlena/badge.svg)](https://coveralls.io/r/HomeBankCode/rlena?branch=master)
 
 Overview
 --------
