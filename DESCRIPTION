@@ -1,6 +1,6 @@
 Package: rlena
 Title: Make Working with 'LENA' '.its' Files Easy
-Version: 0.0.0.9000
+Version: 0.0.1
 Authors@R: c(
     person("Tristan", "Mahr", email = "tristan.mahr@wisc.edu", role = c("aut", "cre")),
     person("Tobias", "Busch", email = "teebusch@gmail.com", role = "aut"))
