@@ -7,7 +7,7 @@
 split_conversation_info(segments_df)
 }
 \arguments{
-\item{segment_df}{A data frame produced by \code{gather_segments()}}
+\item{segments_df}{A data frame produced by \code{gather_segments()}}
 }
 \value{
 A data frame with additional columns with conversation information

@@ -29,7 +29,7 @@ test_that("clean_tz_str works with common timezone formats", {
   expect_s3_class(f(t, "Etc/GMT+0"), "POSIXct")
   expect_s3_class(f(t, "Etc/UCT"), "POSIXct")
   expect_s3_class(f(t, "GB"), "POSIXct")
-  expect_s3_class(f(t, "US/Pacific-New"), "POSIXct")
+  expect_s3_class(f(t, "America/Los_Angeles"), "POSIXct")
   expect_s3_class(f(t, "W-SU"), "POSIXct")
   expect_s3_class(f(t, "GMT+01:00"), "POSIXct")
   expect_s3_class(f(t, "GMT-08:00"), "POSIXct")

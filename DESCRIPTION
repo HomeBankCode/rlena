@@ -1,6 +1,6 @@
 Package: rlena
 Title: Make Working with 'LENA' '.its' Files Easy
-Version: 0.0.1
+Version: 0.0.2
 Authors@R: c(
     person("Tristan", "Mahr", email = "tristan.mahr@wisc.edu", role = c("aut", "cre")),
     person("Tobias", "Busch", email = "teebusch@gmail.com", role = "aut"))
@@ -12,9 +12,13 @@ License: GPL-2 | file LICENSE
 URL: https://github.com/HomeBankCode/rlena
 BugReports: https://github.com/HomeBankCode/rlena/issues
 LazyData: true
-Suggests: 
+Suggests:
     testthat,
-    covr
+    covr,
+    ggplot2,
+    forcats,
+    knitr,
+    rmarkdown
 Imports:
     xml2,
     dplyr,
@@ -26,5 +30,5 @@ Imports:
     magrittr,
     lubridate (>= 1.7.0),
     tidyr
-RoxygenNote: 6.1.1
+RoxygenNote: 7.3.3
 Encoding: UTF-8

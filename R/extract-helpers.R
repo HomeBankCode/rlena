@@ -120,7 +120,7 @@ as_local_time <- function(utc_time, local_tzs) {
 #' additional information related to vocalization activity blocks and turns.
 #' This function parses this information into separate columns.
 #'
-#' @param segment_df A data frame produced by \code{gather_segments()}
+#' @param segments_df A data frame produced by \code{gather_segments()}
 #' @return A data frame with additional columns with conversation information
 #' @keywords internal
 split_conversation_info <- function(segments_df) {

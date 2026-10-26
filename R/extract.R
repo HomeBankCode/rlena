@@ -215,7 +215,7 @@ gather_speaker_transitions_from_segments <- function(data_segments,
   transitions %>%
     # exclude within-turn transitions
     dplyr::filter(.data$transStartEnd != "startTime_endTime") %>%
-    dplyr::filter(transSpkr %in% c(legal_transitions)) %>%
+    dplyr::filter(.data$transSpkr %in% legal_transitions)
     dplyr::select(dplyr::one_of(to_select)) %>%
     tidyr::spread(.data$startEnd, .data$time)
 }

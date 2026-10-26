@@ -11,7 +11,7 @@ xml_path_to_df(its_xml, path, add_nodeType = FALSE)
 
 \item{path}{A character string. The xpath query to run}
 
-\item{add_node_type}{Logical. If TRUE a column with the node type
+\item{add_nodeType}{Logical. If TRUE a column with the node type
 (name) of the extracted nodes is added to the data frame. If FALSE (default)
 only the nodes attributes are returned as columns.}
 }
